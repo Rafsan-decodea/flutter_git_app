@@ -3,7 +3,7 @@ import 'package:flutter_youtube_api/models/channel_model.dart';
 import 'package:flutter_youtube_api/models/video_model.dart';
 import 'package:flutter_youtube_api/screens/video_screen.dart';
 import 'package:flutter_youtube_api/services/api_service.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
