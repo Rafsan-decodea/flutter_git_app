@@ -3,6 +3,7 @@ import 'package:flutter_youtube_api/models/channel_model.dart';
 import 'package:flutter_youtube_api/models/video_model.dart';
 import 'package:flutter_youtube_api/screens/video_screen.dart';
 import 'package:flutter_youtube_api/services/api_service.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -154,7 +155,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
                 return false;
               },
-              child: ListView.builder(
+              child:Column(
+                 children: <Widget>[
+            RaisedButton(
+            child:Text('Another Page'),
+            onPressed:(){
+              Navigator.push(
+            context,
+             MaterialPageRoute(builder: (context) => Route() 
+             ),
+           );
+         },
+
+          ),
+          Expanded(child: 
+                ListView.builder(
+                
                 itemCount: 1 + _channel.videos.length,
                 itemBuilder: (BuildContext context, int index) {
                   if (index == 0) {
@@ -164,6 +180,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   return _buildVideo(video);
                 },
               ),
+          ),    
+                 ]
+              ) 
+              
+              
             )
           : Center(
               child: CircularProgressIndicator(
@@ -172,6 +193,27 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+    );
+  }
+}
+
+
+class Route extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+       title:"CHANNEL",
+       home: Scaffold(
+        appBar: AppBar(
+          title:Text("Channel Star BD  Webpage "),
+        ),
+        body: Center(
+          child:WebView(
+          initialUrl: "https://channelstarbd.com",
+          javascriptMode: JavascriptMode.unrestricted,
+      ),
+        ),
+      ),
     );
   }
 }
