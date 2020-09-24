@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_youtube_api/models/channel_model.dart';
 import 'package:flutter_youtube_api/models/video_model.dart';
 import 'package:flutter_youtube_api/screens/video_screen.dart';
 import 'package:flutter_youtube_api/services/api_service.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+class Constants{
+  static const String about = 'App made by Md Rafsan jani \n  shazidno123@gmail.com ';
+  static const List<String> choices = <String>[ about ];
+}
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -34,10 +40,10 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: EdgeInsets.all(20.0),
       height: 100.0,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.lightGreenAccent,
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
+            color: Colors.black26,
             offset: Offset(0, 1),
             blurRadius: 6.0,
           ),
@@ -46,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         children: <Widget>[
           CircleAvatar(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.black,
             radius: 35.0,
             backgroundImage: NetworkImage(_channel.profilePictureUrl),
           ),
@@ -98,9 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
           color: Colors.white,
           boxShadow: [
             BoxShadow(
-              color: Colors.black12,
-              offset: Offset(0, 1),
-              blurRadius: 6.0,
+              color: Colors.green,
+              offset: Offset(10,5),
+              blurRadius: 2.0,
             ),
           ],
         ),
@@ -136,14 +142,31 @@ class _HomeScreenState extends State<HomeScreen> {
     });
     _isLoading = false;
   }
-
+  void ChoiseAction(String choise)
+  {
+    
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title:Center(child:Text('Channel Star BD'),),
         backgroundColor: Colors.red,
+        actions: <Widget>[
+          PopupMenuButton<String>(
+            onSelected: ChoiseAction,
+            itemBuilder: (BuildContext context){
+              return Constants.choices.map((String choice){
+                   return PopupMenuItem<String>(
+                     value: choice,
+                     child: Text(choice),
+                   );
+              }).toList();
+            },
+          )
+        ],
       ),
+      backgroundColor: Colors.black,
       body: _channel != null
           ? NotificationListener<ScrollNotification>(
               onNotification: (ScrollNotification scrollDetails) {
@@ -158,11 +181,15 @@ class _HomeScreenState extends State<HomeScreen> {
               child:Column(
                  children: <Widget>[
             RaisedButton(
-            child:Text('Another Page'),
+            padding: const EdgeInsets.all(8.0),
+            textColor: Colors.white,
+             color: Colors.blue,
+            child:Text('View Our Website'),
             onPressed:(){
               Navigator.push(
             context,
-             MaterialPageRoute(builder: (context) => Route() 
+             MaterialPageRoute(builder: (_) => Route() 
+             
              ),
            );
          },
@@ -198,6 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 
+
 class Route extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -205,7 +233,9 @@ class Route extends StatelessWidget {
        title:"CHANNEL",
        home: Scaffold(
         appBar: AppBar(
-          title:Text("Channel Star BD  Webpage "),
+          title:Center(
+            child:Text("Channel Star BD  Website ",),),
+            backgroundColor: Colors.red,
         ),
         body: Center(
           child:WebView(
@@ -216,4 +246,6 @@ class Route extends StatelessWidget {
       ),
     );
   }
+
+  
 }

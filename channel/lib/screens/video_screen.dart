@@ -30,7 +30,8 @@ class _VideoScreenState extends State<VideoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:Center(child:Text('Channel Star BD'),),),
+      appBar: AppBar(title:Text('        Channel Star BD'),),
+      backgroundColor: Colors.black,
       body:Center(child :YoutubePlayer(
         controller: _controller,
         showVideoProgressIndicator: true,
