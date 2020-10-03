@@ -5,6 +5,8 @@ import 'package:flutter_youtube_api/models/video_model.dart';
 import 'package:flutter_youtube_api/screens/video_screen.dart';
 import 'package:flutter_youtube_api/services/api_service.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 
 class Constants{
   static const String about = 'App made by Md Rafsan jani \n  shazidno123@gmail.com ';
@@ -226,26 +228,79 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 
-class Route extends StatelessWidget {
+class Route extends StatefulWidget {
+  @override
+  _RouteState createState() => _RouteState();
+}
+
+class _RouteState extends State<Route> {
+  bool isLoad = true;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-       title:"CHANNEL",
-       home: Scaffold(
-        appBar: AppBar(
-          title:Center(
-            child:Text("Channel Star BD  Website ",),),
+      title:"Channel",
+      home:Scaffold(
+          appBar: AppBar(
+            title:Center(child:Text("Channel Star BD Website")),
             backgroundColor: Colors.red,
-        ),
-        body: Center(
-          child:WebView(
-          initialUrl: "https://channelstarbd.com",
-          javascriptMode: JavascriptMode.unrestricted,
-      ),
-        ),
-      ),
+          ),
+          body: Stack(
+            children:<Widget>[
+              WebView(
+                initialUrl:'https://channelstarbd.com',
+                javascriptMode:JavascriptMode.unrestricted,
+                onPageFinished:(String url){
+                  setState((){
+                     isLoad=false;
+                  });
+                },
+              ),
+              isLoad ? SpinKitPulse(color:Colors.red , size:200,
+              
+              ):Stack()
+              ]
+          ),
+      )
     );
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class Route extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+  //   return MaterialApp(
+  //      title:"CHANNEL",
+  //      home: Scaffold(
+  //       appBar: AppBar(
+  //         title:Center(
+  //           child:Text("Channel Star BD  Website ",),),
+  //           backgroundColor: Colors.red,
+  //       ),
+  //       body: Center(
+  //         child:WebView(
+  //         initialUrl: "https://channelstarbd.com",
+  //         javascriptMode: JavascriptMode.unrestricted,
+  //     ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   
-}
+//}
