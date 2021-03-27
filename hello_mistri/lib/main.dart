@@ -8,12 +8,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Channel Star BD',
+      title: 'Hello TV',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.green,
       ),
-      home: HomeScreen(),
+      home:SplashScreen(),
     );
   }
 }
