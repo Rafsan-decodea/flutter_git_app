@@ -443,14 +443,14 @@ class _RouteState extends State<Route> {
              ButtonTheme(
                  
                minWidth: 250.0,
-               height: 250.0,
+               height: 100.0,
                child: RaisedButton(
                 
             padding: const EdgeInsets.all(8.0),
             textColor: Colors.white,
              color: Colors.black26,
                 child: Text(
-                  "GOTO OUR Website",
+                  "Website",
                   style: TextStyle(
                       fontSize: 20.0, 
                       color: Colors.black,  
@@ -469,25 +469,63 @@ class _RouteState extends State<Route> {
                 
             ),
           ),  
-              
-        ButtonTheme(
-           minWidth: 1.0,
+
+
+      ButtonTheme(
+         minWidth: 1.0,
             height: 1.0,
+          child: RaisedButton(onPressed: null),
+      ),
+
+
+        ButtonTheme(
+           minWidth: 250.0,
+            height: 100.0,
             child: RaisedButton(
-              
+              padding:EdgeInsets.only(top: 5),
+            textColor: Colors.white,
+             color: Colors.black26,
+                child: Text(
+                  " Facebook",
+                  style: TextStyle(
+                      fontSize: 20.0, 
+                      color: Colors.black,  
+                      
+                  ),
+                ),
+                
+                onPressed: (){
+              Navigator.push(
+            context,
+             MaterialPageRoute(builder: (_) => facebook() 
+             
+             ),
+           );
+         },
             ),
         ),
 
+
+
+
+      ButtonTheme(
+         minWidth: 1.0,
+            height: 1.0,
+          child: RaisedButton(onPressed: null),
+      ),
+
+
+
        ButtonTheme(
                minWidth: 250.0,
-               height: 250.0,
+               height: 100.0,
            child:  RaisedButton(
                 
             padding: const EdgeInsets.all(8.0),
             textColor: Colors.white,
              color: Colors.black26,
                 child: Text(
-                  "GOTO OUR Youtube",
+                  "Youtube",
                   style: TextStyle(
                       fontSize: 20.0, 
                       color: Colors.black,  
@@ -543,7 +581,7 @@ class _websiteState extends State<website> {
       debugShowCheckedModeBanner: false,
       home:Scaffold(
           appBar: AppBar(
-            title:Center(child:Text("Hello tv WEbsite",
+            title:Center(child:Text("Hello tv Website",
             style: TextStyle(
              color: Colors.white,
              fontSize: 30.0,
@@ -611,6 +649,55 @@ class _youtubeState extends State<youtube> {
             children:<Widget>[
               WebView(
                 initialUrl:'https://www.youtube.com/channel/UCPkWBGO9aSUj8gg-X2yS3vA',
+                javascriptMode:JavascriptMode.unrestricted,
+                onPageFinished:(String url){
+                  setState((){
+                     isLoad=false;
+                  });
+                },
+              ),
+              isLoad ? SpinKitPulse(color:Colors.green , size:200,
+              
+              ):Stack()
+              ]
+          ),
+      )
+    );
+  }
+}
+
+
+
+
+
+class facebook extends StatefulWidget {
+  @override
+  _facebookState createState() => _facebookState();
+}
+
+class _facebookState extends State<facebook> {
+    bool isLoad = true;
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      title:"Channel",
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+          appBar: AppBar(
+            title:Center(child:Text("Hello tv Facebook ",
+            style: TextStyle(
+             color: Colors.white,
+             fontSize: 30.0,
+            fontWeight: FontWeight.w900,
+          ),
+        )
+       ),
+            backgroundColor: Colors.black,
+          ),
+          body: Stack(
+            children:<Widget>[
+              WebView(
+                initialUrl:'https://m.facebook.com/Hello-Tv-%E0%A6%B9%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A7%8B-%E0%A6%9F%E0%A6%BF%E0%A6%AD%E0%A6%BF-105267991564668/',
                 javascriptMode:JavascriptMode.unrestricted,
                 onPageFinished:(String url){
                   setState((){
