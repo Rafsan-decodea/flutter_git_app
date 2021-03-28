@@ -406,16 +406,16 @@ class _RouteState extends State<Route> {
       debugShowCheckedModeBanner: false,
       home:Scaffold(
           appBar: AppBar(
-            title:Center(child:Text("Hello TV Website ",
+            title:Center(child:Text("Welcome to Hello TV",
             style: TextStyle(
              color: Colors.white,
-             fontSize: 30.0,
+             fontSize: 25.0,
             fontWeight: FontWeight.w900,
             
           ),
         )
        ),
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.black,
             actions: <Widget>[
    
            PopupMenuButton<String>(
@@ -432,14 +432,19 @@ class _RouteState extends State<Route> {
 
             ]
           ),
-          body: Container(
-    
+          body:Center(child: Container(
+
            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
              crossAxisAlignment: CrossAxisAlignment.center,
              children: <Widget>[
-              
-              RaisedButton(
+
+
+             ButtonTheme(
+                 
+               minWidth: 250.0,
+               height: 250.0,
+               child: RaisedButton(
                 
             padding: const EdgeInsets.all(8.0),
             textColor: Colors.white,
@@ -453,10 +458,30 @@ class _RouteState extends State<Route> {
                   ),
                 ),
                 
-                onPressed: null
+                onPressed: (){
+              Navigator.push(
+            context,
+             MaterialPageRoute(builder: (_) => website() 
+             
+             ),
+           );
+         },
                 
-                ),
-              RaisedButton(
+            ),
+          ),  
+              
+        ButtonTheme(
+           minWidth: 1.0,
+            height: 1.0,
+            child: RaisedButton(
+              
+            ),
+        ),
+
+       ButtonTheme(
+               minWidth: 250.0,
+               height: 250.0,
+           child:  RaisedButton(
                 
             padding: const EdgeInsets.all(8.0),
             textColor: Colors.white,
@@ -471,33 +496,38 @@ class _RouteState extends State<Route> {
                 ),
                 
                 onPressed: (){
-                  Navigator.push(
-             context,
-             MaterialPageRoute(builder: (_) => Route() 
+              Navigator.push(
+            context,
+             MaterialPageRoute(builder: (_) => youtube() 
              
              ),
            );
-           
-            }
+         },
                 
-                )
-               
-               
+        )
+       ,
 
-             ]
-           )
+       ),
 
-            
+                
+         ]
+       )
 
-          )
+    )
+  )
           
 
-          )
-      );
+   )
+);
   
 
   }
 }
+
+
+
+
+
 
 class website extends StatefulWidget {
   @override
@@ -505,11 +535,95 @@ class website extends StatefulWidget {
 }
 
 class _websiteState extends State<website> {
+    bool isLoad = true;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-      
+    return  MaterialApp(
+      title:"Channel",
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+          appBar: AppBar(
+            title:Center(child:Text("Hello tv WEbsite",
+            style: TextStyle(
+             color: Colors.white,
+             fontSize: 30.0,
+            fontWeight: FontWeight.w900,
+          ),
+        )
+       ),
+            backgroundColor: Colors.black,
+          ),
+          body: Stack(
+            children:<Widget>[
+              WebView(
+                initialUrl:'https://hellotv.live',
+                javascriptMode:JavascriptMode.unrestricted,
+                onPageFinished:(String url){
+                  setState((){
+                     isLoad=false;
+                  });
+                },
+              ),
+              isLoad ? SpinKitPulse(color:Colors.green , size:200,
+              
+              ):Stack()
+              ]
+          ),
+      )
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+class youtube extends StatefulWidget {
+  @override
+  _youtubeState createState() => _youtubeState();
+}
+
+class _youtubeState extends State<youtube> {
+    bool isLoad = true;
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      title:"Channel",
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+          appBar: AppBar(
+            title:Center(child:Text("Hello tv Youtube",
+            style: TextStyle(
+             color: Colors.white,
+             fontSize: 30.0,
+            fontWeight: FontWeight.w900,
+          ),
+        )
+       ),
+            backgroundColor: Colors.black,
+          ),
+          body: Stack(
+            children:<Widget>[
+              WebView(
+                initialUrl:'https://www.youtube.com/channel/UCPkWBGO9aSUj8gg-X2yS3vA',
+                javascriptMode:JavascriptMode.unrestricted,
+                onPageFinished:(String url){
+                  setState((){
+                     isLoad=false;
+                  });
+                },
+              ),
+              isLoad ? SpinKitPulse(color:Colors.green , size:200,
+              
+              ):Stack()
+              ]
+          ),
+      )
     );
   }
 }
@@ -543,25 +657,25 @@ class _websiteState extends State<website> {
 // class Route extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //      title:"CHANNEL",
-  //      home: Scaffold(
-  //       appBar: AppBar(
-  //         title:Center(
-  //           child:Text("Channel Star BD  Website ",),),
-  //           backgroundColor: Colors.red,
-  //       ),
-  //       body: Center(
-  //         child:WebView(
-  //         initialUrl: "https://channelstarbd.com",
-  //         javascriptMode: JavascriptMode.unrestricted,
-  //     ),
-  //       ),
-  //     ),
-  //   );
-  // }
+//     return MaterialApp(
+//        title:"CHANNEL",
+//        home: Scaffold(
+//         appBar: AppBar(
+//           title:Center(
+//             child:Text("Channel Star BD  Website ",),),
+//             backgroundColor: Colors.red,
+//         ),
+//         body: Center(
+//           child:WebView(
+//           initialUrl: "https://channelstarbd.com",
+//           javascriptMode: JavascriptMode.unrestricted,
+//       ),
+//         ),
+//       ),
+//     );
+//   }
 
   
-//}
+// }
 
 
