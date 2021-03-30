@@ -13,7 +13,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 class Constants{
-  static const String about = 'App made by Md Rafsan jani \n  shazidno123@gmail.com ';
+  static const String about = 'App code by Md Rafsan jani \n  shazidno123@gmail.com \n Phone 01818144463';
   static const List<String> choices = <String>[ about ];
 }
 
@@ -402,7 +402,7 @@ class _RouteState extends State<Route> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title:"Channel",
+      title:"Hello TV",
       debugShowCheckedModeBanner: false,
       home:Scaffold(
           appBar: AppBar(
@@ -440,20 +440,64 @@ class _RouteState extends State<Route> {
              children: <Widget>[
 
 
-             ButtonTheme(
+
+          ButtonTheme(
                  
                minWidth: 250.0,
-               height: 100.0,
+               height: 50.0,
                child: RaisedButton(
                 
             padding: const EdgeInsets.all(8.0),
             textColor: Colors.white,
-             color: Colors.black26,
+             color: Colors.brown,
+                child: Text(
+                  "Live",
+                  style: TextStyle(
+                      fontSize: 20.0, 
+                      color: Colors.white,  
+                      
+                  ),
+                ),
+                
+                onPressed: (){
+              Navigator.push(
+            context,
+             MaterialPageRoute(builder: (_) => live() 
+             
+             ),
+           );
+         },
+                
+            ),
+          ),  
+
+
+       ButtonTheme(
+         minWidth: 1.0,
+            height: 1.0,
+          child: RaisedButton(onPressed: null),
+      ),
+
+
+
+
+
+
+
+             ButtonTheme(
+                 
+               minWidth: 250.0,
+               height: 50.0,
+               child: RaisedButton(
+                
+            padding: const EdgeInsets.all(8.0),
+            textColor: Colors.white,
+              color: Colors.brown,
                 child: Text(
                   "Website",
                   style: TextStyle(
                       fontSize: 20.0, 
-                      color: Colors.black,  
+                      color: Colors.white,  
                       
                   ),
                 ),
@@ -480,16 +524,16 @@ class _RouteState extends State<Route> {
 
         ButtonTheme(
            minWidth: 250.0,
-            height: 100.0,
+            height: 50.0,
             child: RaisedButton(
               padding:EdgeInsets.only(top: 5),
             textColor: Colors.white,
-             color: Colors.black26,
+              color: Colors.brown,
                 child: Text(
                   " Facebook",
                   style: TextStyle(
                       fontSize: 20.0, 
-                      color: Colors.black,  
+                      color: Colors.white,  
                       
                   ),
                 ),
@@ -518,17 +562,17 @@ class _RouteState extends State<Route> {
 
        ButtonTheme(
                minWidth: 250.0,
-               height: 100.0,
+               height: 50.0,
            child:  RaisedButton(
                 
             padding: const EdgeInsets.all(8.0),
             textColor: Colors.white,
-             color: Colors.black26,
+              color: Colors.brown,
                 child: Text(
                   "Youtube",
                   style: TextStyle(
                       fontSize: 20.0, 
-                      color: Colors.black,  
+                      color: Colors.white,  
                       
                   ),
                 ),
@@ -546,16 +590,61 @@ class _RouteState extends State<Route> {
        ,
 
        ),
+    
+     
+      ButtonTheme(
+         minWidth: 1.0,
+            height: 1.0,
+          child: RaisedButton(onPressed: null),
+      ),
 
+
+
+       ButtonTheme(
+               minWidth: 250.0,
+               height: 50.0,
+           child:  RaisedButton(
                 
+            padding: const EdgeInsets.all(8.0),
+            textColor: Colors.white,
+              color: Colors.brown,
+                child: Text(
+                  "About Apps",
+                  style: TextStyle(
+                      fontSize: 20.0, 
+                      color: Colors.white,  
+                      
+                  ),
+                ),
+                
+                onPressed: (){
+              Navigator.push(
+            context,
+             MaterialPageRoute(builder: (_) => about() 
+             
+             ),
+           );
+         },
+                
+        )
+       ,
+
+       ),
+      
+      
+       
+   
+
          ]
        )
-
+    
     )
   )
           
 
    )
+
+
 );
   
 
@@ -717,7 +806,252 @@ class _facebookState extends State<facebook> {
 
 
 
+class live extends StatefulWidget {
+  @override
+  _liveState createState() => _liveState();
+}
 
+class _liveState extends State<live> {
+    bool isLoad = true;
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      title:"Channel",
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+          appBar: AppBar(
+            title:Center(child:Text("Hello tv Live ",
+            style: TextStyle(
+             color: Colors.white,
+             fontSize: 30.0,
+            fontWeight: FontWeight.w900,
+          ),
+        )
+       ),
+            backgroundColor: Colors.black,
+          ),
+          body: Stack(
+            children:<Widget>[
+              WebView(
+                initialUrl:'https://www.youtube.com/embed/CJRc9KzGJkw',
+                javascriptMode:JavascriptMode.unrestricted,
+                onPageFinished:(String url){
+                  setState((){
+                     isLoad=false;
+                  });
+                },
+              ),
+              isLoad ? SpinKitPulse(color:Colors.green , size:200,
+              
+              ):Stack()
+              ]
+          ),
+      )
+    );
+  }
+}
+
+
+
+
+
+
+
+class about extends StatefulWidget {
+  @override
+  _aboutState createState() => _aboutState();
+}
+
+class _aboutState extends State<about> {
+    bool isLoad = true;
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      title:"Channel",
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+          appBar: AppBar(
+            title:Center(child:Text("About Apps ",
+            style: TextStyle(
+             color: Colors.white,
+             fontSize: 30.0,
+            fontWeight: FontWeight.w900,
+          ),
+        )
+       ),
+            backgroundColor: Colors.black,
+          ),
+          body: Center(
+            child:Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+             crossAxisAlignment: CrossAxisAlignment.center,
+          
+            children: <Widget>[
+                
+                Container(
+                 height: 130.0,
+                 decoration: BoxDecoration(
+                 image: DecorationImage(
+             
+            // image: NetworkImage("https://thumbs.dreamstime.com/b/web-189206689.jpg"),  fit: BoxFit.cover,
+                    image: new AssetImage('assets/hello_mistri.jpg'),fit: BoxFit.none,         
+           // image: FileImage(File("assets/puck.png")),
+                 ),
+                
+                ),
+  
+              ),
+
+           Text(
+                "Hello TV APP Power by HELLO MISTRI",
+           ),
+
+    ButtonTheme(
+         minWidth: 1.0,
+            height: 1.0,
+          child: RaisedButton(onPressed: null),
+      ),
+         
+              Container(
+                 height: 130.0,
+                 decoration: BoxDecoration(
+                 image: DecorationImage(
+             
+            // image: NetworkImage("https://thumbs.dreamstime.com/b/web-189206689.jpg"),  fit: BoxFit.cover,
+                    image: new AssetImage('assets/me.png'),fit: BoxFit.contain,         
+           // image: FileImage(File("assets/puck.png")),
+                 ),
+                
+                ),
+  
+              ),
+
+
+          Text("Apps Code By MD Rafsan jani"),
+
+
+   ButtonTheme(
+         minWidth: 1.0,
+            height: 1.0,
+          child: RaisedButton(onPressed: null),
+      ),
+
+
+      ButtonTheme(
+               minWidth: 250.0,
+               height: 50.0,
+           child:  RaisedButton(
+                
+            padding: const EdgeInsets.all(8.0),
+            textColor: Colors.white,
+              color: Colors.brown,
+                child: Text(
+                  "Privacy Policy",
+                  style: TextStyle(
+                      fontSize: 20.0, 
+                      color: Colors.white,  
+                      
+                  ),
+                ),
+                
+                onPressed: (){
+              Navigator.push(
+            context,
+             MaterialPageRoute(builder: (_) => privacy() 
+             
+             ),
+           );
+         },
+                
+        )
+       ,
+
+       ),
+
+
+            ],
+
+            
+          )
+        )
+      )
+    );
+  }
+}
+
+
+
+class privacy extends StatefulWidget {
+  @override
+  _privacyState createState() => _privacyState();
+}
+
+class _privacyState extends State<privacy> {
+    bool isLoad = true;
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      title:"Channel",
+      debugShowCheckedModeBanner: false,
+      home:Scaffold(
+          appBar: AppBar(
+            title:Center(child:Text("Privacy Policy ",
+            style: TextStyle(
+             color: Colors.white,
+             fontSize: 30.0,
+            fontWeight: FontWeight.w900,
+          ),
+        )
+       ),
+            backgroundColor: Colors.black,
+          ),
+          body: Stack(
+            children:<Widget>[
+              WebView(
+                initialUrl:'https://hello-tv.flycricket.io/privacy.html',
+                javascriptMode:JavascriptMode.unrestricted,
+                onPageFinished:(String url){
+                  setState((){
+                     isLoad=false;
+                  });
+                },
+              ),
+              isLoad ? SpinKitPulse(color:Colors.green , size:200,
+              
+              ):Stack()
+              ]
+          ),
+      )
+    );
+  }
+}
+
+
+
+
+
+
+// Stack(
+//             children:<Widget>[
+
+//                Text(
+//                  "HElllo ",
+//                ),
+
+//               WebView(
+//                 initialUrl:'https://hello-tv.flycricket.io/privacy.html',
+//                 javascriptMode:JavascriptMode.unrestricted,
+//                 onPageFinished:(String url){
+//                   setState((){
+//                      isLoad=false;
+//                   });
+//                 },
+//               ),
+//               isLoad ? SpinKitPulse(color:Colors.green , size:200,
+              
+//               ):Stack()
+//               ]
+//           ),
 
 
 // Stack(
