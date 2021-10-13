@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:test_app/inchitocm.dart';
 
 class Practice extends StatefulWidget {
   @override
@@ -10,21 +11,29 @@ class Practice extends StatefulWidget {
 
 class _PracticeState extends State<Practice> {
   final hight = TextEditingController();
+
   final weight = TextEditingController();
   double calculate;
   String result;
+  Color color;
 
   void _calculate() {
     setState(() {
-      calculate = double.parse(weight.text) /
-          (double.parse(hight.text) * double.parse(hight.text));
+      calculate = double.tryParse(weight.text) /
+          (double.tryParse(hight.text) * double.tryParse(hight.text));
 
-      if (calculate < 18.0) {
+      if (calculate < 18.5) {
         result = "LOW";
-      } else if (calculate == 18.0) {
+        color = Colors.amber;
+      } else if (calculate < 25.0) {
         result = "GOOD";
-      } else if (calculate > 18.0) {
+        color = Colors.green;
+      } else if (calculate < 30.0) {
         result = "BAD";
+        color = Colors.redAccent;
+      } else {
+        result = "Very BAD";
+        color = Colors.red;
       }
     });
   }
@@ -50,13 +59,13 @@ class _PracticeState extends State<Practice> {
             style: TextStyle(fontSize: 40),
           ),
           CustomTextField(
-            customcontroller: hight,
+            customcontroller: weight,
             textname: "Enter your Weight",
             color: Colors.indigo,
           ),
           CustomTextField(
-            customcontroller: weight,
-            textname: "Enter your Hight inchi",
+            customcontroller: hight,
+            textname: "Enter your Hight in Meter",
             color: Colors.indigo,
           ),
           SizedBox(
@@ -102,7 +111,7 @@ class _PracticeState extends State<Practice> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 30),
                                 child: Text(
-                                  "${calculate}".substring(1, 8),
+                                  "${calculate.toStringAsFixed(5)}",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 50,
@@ -113,7 +122,10 @@ class _PracticeState extends State<Practice> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 100),
                                 child: Text(
-                                  " Serverity is  ${result}",
+                                  "BMI Serverity is ${result}",
+                                  style: TextStyle(
+                                    color: color,
+                                  ),
                                 ),
                               )
                             ],
@@ -122,6 +134,17 @@ class _PracticeState extends State<Practice> {
                       });
                 }
               },
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => InchiToCm()),
+              );
+            },
+            child: Text(
+              "Click Convert Feet to Cm",
             ),
           ),
         ],

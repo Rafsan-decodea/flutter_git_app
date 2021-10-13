@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:test_app/practice.dart';
+import 'package:test_app/bmi.dart';
 
 void main() {
   runApp(homeApp());
