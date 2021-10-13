@@ -86,7 +86,7 @@ class _PracticeState extends State<Practice> {
               ),
               onPressed: () {
                 _calculate();
-                if (hight.text == "" && weight.text == "") {
+                if (hight.text == " " && weight.text == " ") {
                   showDialog(
                     context: context,
                     builder: (BuildContext a) {

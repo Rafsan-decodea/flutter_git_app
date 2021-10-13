@@ -12,7 +12,7 @@ class _InchiToCmState extends State<InchiToCm> {
   double calculate;
 
   void _convert_meter() {
-    calculate = double.tryParse(feet_value.text) / 38.28;
+    calculate = double.tryParse(feet_value.text) * 0.3048;
   }
 
   @override
