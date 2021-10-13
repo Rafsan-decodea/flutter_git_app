@@ -149,7 +149,8 @@ class _PracticeState extends State<Practice> {
               );
             },
             child: Text(
-              "Click Convert Feet to Cm",
+              "Click Convert Feet to Meter",
+              style: TextStyle(fontSize: 20),
             ),
           ),
         ],

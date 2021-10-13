@@ -20,7 +20,7 @@ class _InchiToCmState extends State<InchiToCm> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Inchi To Cm ",
+          "Inchi To Meter ",
         ),
       ),
       body: Container(
@@ -29,7 +29,7 @@ class _InchiToCmState extends State<InchiToCm> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Convert Feet To Inchi",
+                "Convert Feet To Meter",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 40),
               ),
@@ -63,7 +63,7 @@ class _InchiToCmState extends State<InchiToCm> {
                   } else {
                     _convert_meter();
                     Clipboard.setData(
-                        ClipboardData(text: "${calculate.toStringAsFixed(2)}"));
+                        ClipboardData(text: "${calculate.toStringAsFixed(3)}"));
                     showDialog(
                       context: context,
                       builder: (BuildContext a) {
@@ -73,7 +73,7 @@ class _InchiToCmState extends State<InchiToCm> {
                               children: [
                                 Text("Data Auto copied !"),
                                 Text(
-                                  "${calculate.toStringAsFixed(2)}",
+                                  "${calculate.toStringAsFixed(3)}",
                                   style: TextStyle(
                                     fontSize: 80,
                                   ),
