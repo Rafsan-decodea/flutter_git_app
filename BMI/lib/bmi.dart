@@ -18,36 +18,39 @@ class _PracticeState extends State<Practice> {
   Color color;
 
   void _calculate() {
-    setState(() {
-      calculate = double.tryParse(weight.text) /
-          (double.tryParse(hight.text) * double.tryParse(hight.text));
+    setState(
+      () {
+        calculate = double.tryParse(weight.text) /
+            (double.tryParse(hight.text) * double.tryParse(hight.text));
 
-      if (calculate < 18.5) {
-        result = "LOW";
-        color = Colors.amber;
-      } else if (calculate < 25.0) {
-        result = "GOOD";
-        color = Colors.green;
-      } else if (calculate < 30.0) {
-        result = "BAD";
-        color = Colors.redAccent;
-      } else {
-        result = "Very BAD";
-        color = Colors.red;
-      }
-    });
+        if (calculate < 18.5) {
+          result = "LOW";
+          color = Colors.amber;
+        } else if (calculate < 25.0) {
+          result = "GOOD";
+          color = Colors.green;
+        } else if (calculate < 30.0) {
+          result = "BAD";
+          color = Colors.redAccent;
+        } else {
+          result = "Very BAD";
+          color = Colors.red;
+        }
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Center(
-        child: Text(
-          "What is your BMI index",
-          style: TextStyle(),
+        title: Center(
+          child: Text(
+            "What is your BMI index",
+            style: TextStyle(),
+          ),
         ),
-      )),
+      ),
       body: Container(
           child: Column(
         //crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -85,53 +88,55 @@ class _PracticeState extends State<Practice> {
                 _calculate();
                 if (hight.text == "" && weight.text == "") {
                   showDialog(
-                      context: context,
-                      builder: (BuildContext a) {
-                        return AlertDialog(
-                            title: Text("Please Fill Up All information"));
-                      });
+                    context: context,
+                    builder: (BuildContext a) {
+                      return AlertDialog(
+                          title: Text("Please Fill Up All information"));
+                    },
+                  );
                 } else {
                   showDialog(
-                      context: context,
-                      builder: (BuildContext a) {
-                        return AlertDialog(
-                            title: Center(
-                          child: Stack(
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 1),
-                                child: Text(
-                                  "YOUR BMI INDEX",
-                                  style: TextStyle(
-                                    color: Colors.cyan,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                    context: context,
+                    builder: (BuildContext a) {
+                      return AlertDialog(
+                          title: Center(
+                        child: Stack(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 1),
+                              child: Text(
+                                "YOUR BMI INDEX",
+                                style: TextStyle(
+                                  color: Colors.cyan,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 30),
-                                child: Text(
-                                  "${calculate.toStringAsFixed(5)}",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 50,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 30),
+                              child: Text(
+                                "${calculate.toStringAsFixed(5)}",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 50,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 100),
-                                child: Text(
-                                  "BMI Serverity is ${result}",
-                                  style: TextStyle(
-                                    color: color,
-                                  ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 100),
+                              child: Text(
+                                "BMI Serverity is ${result}",
+                                style: TextStyle(
+                                  color: color,
                                 ),
-                              )
-                            ],
-                          ),
-                        ));
-                      });
+                              ),
+                            )
+                          ],
+                        ),
+                      ));
+                    },
+                  );
                 }
               },
             ),

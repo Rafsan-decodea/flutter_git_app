@@ -7,7 +7,12 @@ class InchiToCm extends StatefulWidget {
 }
 
 class _InchiToCmState extends State<InchiToCm> {
-  final inchi_value = TextEditingController();
+  final feet_value = TextEditingController();
+  double calculate;
+
+  void _convert_meter() {
+    calculate = double.tryParse(feet_value.text) / 38.28;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +33,34 @@ class _InchiToCmState extends State<InchiToCm> {
                 style: TextStyle(fontSize: 40),
               ),
               CustomTextField(
-                customcontroller: inchi_value,
-                textname: "Enter your Inchi Value",
+                customcontroller: feet_value,
+                textname: "Enter your Feet Value",
                 color: Colors.blueAccent,
+              ),
+              RaisedButton(
+                child: Text(
+                  "See Result ",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                color: Colors.indigo,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
+                onPressed: () {
+                  _convert_meter();
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext a) {
+                      return AlertDialog(
+                        title: Text(
+                          "${calculate.toStringAsFixed(2)}",
+                        ),
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),
