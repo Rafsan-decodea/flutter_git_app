@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:test_app/bmi.dart';
 
 class InchiToCm extends StatefulWidget {
@@ -49,17 +50,41 @@ class _InchiToCmState extends State<InchiToCm> {
                   borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 ),
                 onPressed: () {
-                  _convert_meter();
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext a) {
-                      return AlertDialog(
-                        title: Text(
-                          "${calculate.toStringAsFixed(2)}",
-                        ),
-                      );
-                    },
-                  );
+                  if (feet_value.text == "") {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext a) {
+                          return AlertDialog(
+                            title: Text(
+                              "Fill Cannot be Empty",
+                            ),
+                          );
+                        });
+                  } else {
+                    _convert_meter();
+                    Clipboard.setData(
+                        ClipboardData(text: "${calculate.toStringAsFixed(2)}"));
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext a) {
+                        return AlertDialog(
+                          title: Center(
+                            child: Column(
+                              children: [
+                                Text("Data Auto copied !"),
+                                Text(
+                                  "${calculate.toStringAsFixed(2)}",
+                                  style: TextStyle(
+                                    fontSize: 80,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }
                 },
               ),
             ],
