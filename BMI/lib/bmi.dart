@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:test_app/about.dart';
 import 'package:test_app/inchitocm.dart';
 
 class Practice extends StatefulWidget {
@@ -57,9 +58,15 @@ class _PracticeState extends State<Practice> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "BMI",
+            "BMI Looks UP",
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 40),
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: 10,
           ),
           CustomTextField(
             customcontroller: weight,
@@ -86,7 +93,7 @@ class _PracticeState extends State<Practice> {
               ),
               onPressed: () {
                 _calculate();
-                if (hight.text == " " && weight.text == " ") {
+                if (hight.text == "" && weight.text == "") {
                   showDialog(
                     context: context,
                     builder: (BuildContext a) {
@@ -153,6 +160,20 @@ class _PracticeState extends State<Practice> {
               style: TextStyle(fontSize: 20),
             ),
           ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => About()),
+              );
+            },
+            child: Text(
+              "About Developer",
+              style: TextStyle(
+                fontSize: 20,
+              ),
+            ),
+          )
         ],
       )),
     );
