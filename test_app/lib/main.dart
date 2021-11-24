@@ -13,6 +13,7 @@ class homeApp extends StatelessWidget {
     return MaterialApp(
       title: "home2",
       home: Home(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

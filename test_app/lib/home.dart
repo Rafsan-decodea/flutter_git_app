@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:test_app/gui.dart';
+import 'package:test_app/pages/gui.dart';
 
 class Home extends StatefulWidget {
   @override
