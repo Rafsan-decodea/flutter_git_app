@@ -22,6 +22,15 @@ class _UpdateState extends State<Update> {
     super.dispose();
   }
 
+  update() {
+    var updatename = nameController.text;
+    var updatemail = emailController.text;
+    var updatepassword = passwordController.text;
+    print(updatepassword);
+    print(updatemail);
+    print(updatename);
+  }
+
   clearText() {
     nameController.clear();
     emailController.clear();
@@ -41,9 +50,10 @@ class _UpdateState extends State<Update> {
               children: [
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 10.0),
-                  child: CustomTest(
-                    initvalue: "Rafsan jani",
+                  child: CustomTextFiled(
                     name: "Name",
+                    secureText: false,
+                    onchange: (value) {},
                     textcontroller: nameController,
                     validatorfunction: (value) {
                       if (value == null || value.isEmpty) {
@@ -57,6 +67,7 @@ class _UpdateState extends State<Update> {
                   margin: EdgeInsets.symmetric(vertical: 10.0),
                   child: CustomTextFiled(
                     name: "Email",
+                    secureText: false,
                     textcontroller: emailController,
                     validatorfunction: (value) {
                       if (value == null || value.isEmpty) {
@@ -72,6 +83,7 @@ class _UpdateState extends State<Update> {
                   margin: EdgeInsets.symmetric(vertical: 10.0),
                   child: CustomTextFiled(
                     name: "password",
+                    secureText: true,
                     textcontroller: passwordController,
                     validatorfunction: (value) {
                       if (value == null || value.isEmpty) {
@@ -83,13 +95,31 @@ class _UpdateState extends State<Update> {
                 ),
                 Container(
                   margin: EdgeInsets.symmetric(vertical: 10.0),
-                  child: ElevatedButton(
-                    onPressed: () => {clearText()},
-                    child: Text(
-                      'Reset',
-                      style: TextStyle(fontSize: 18.0),
-                    ),
-                    style: ElevatedButton.styleFrom(primary: Colors.blueGrey),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ElevatedButton(
+                        child: Text(
+                          "Update",
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                        onPressed: () {
+                          if (_formKey.currentState.validate()) {
+                            Navigator.pop(context);
+                            update();
+                          }
+                        },
+                      ),
+                      ElevatedButton(
+                        child: Text(
+                          "Reset",
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                        onPressed: () {
+                          clearText();
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ],

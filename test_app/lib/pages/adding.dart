@@ -55,6 +55,7 @@ class _AddingState extends State<Adding> {
                   margin: EdgeInsets.symmetric(vertical: 10.0),
                   child: CustomTextFiled(
                     name: "Name",
+                    secureText: false,
                     textcontroller: nameController,
                     validatorfunction: (value) {
                       if (value == null || value.isEmpty) {
@@ -68,6 +69,7 @@ class _AddingState extends State<Adding> {
                   margin: EdgeInsets.symmetric(vertical: 10.0),
                   child: CustomTextFiled(
                     name: "Email",
+                    secureText: false,
                     textcontroller: emailController,
                     validatorfunction: (value) {
                       if (value == null || value.isEmpty) {
@@ -83,6 +85,7 @@ class _AddingState extends State<Adding> {
                   margin: EdgeInsets.symmetric(vertical: 10.0),
                   child: CustomTextFiled(
                     name: "password",
+                    secureText: true,
                     textcontroller: passwordController,
                     validatorfunction: (value) {
                       if (value == null || value.isEmpty) {
