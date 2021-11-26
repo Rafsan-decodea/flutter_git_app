@@ -2,18 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'home.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(homeApp());
 }
 
 class homeApp extends StatelessWidget {
+  final Future<FirebaseApp> _initalization = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "home2",
-      home: Home(),
-      debugShowCheckedModeBanner: false,
+    return FutureBuilder(
+      future: _initalization,
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          print("Something went Wrong");
+        }
+        if (snapshot.connectionState == ConnectionState.done) {
+          return MaterialApp(
+            title: "home2",
+            home: Home(),
+            debugShowCheckedModeBanner: false,
+          );
+        }
+        return CircularProgressIndicator();
+      },
     );
   }
 }
