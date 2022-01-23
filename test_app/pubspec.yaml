@@ -38,10 +38,13 @@ dev_dependencies:
   cupertino_icons: ^0.1.3
   cloud_firestore: ^3.1.0
   firebase_core: ^1.10.0
+  # firebase_storage: ^3.0.3  
   fluttertoast: ^8.0.8
   syncfusion_flutter_pdfviewer: 
   webview_flutter: "^0.3.4"
   shimmer: "1.1.1"
+  image_picker: ^0.8.4+4
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

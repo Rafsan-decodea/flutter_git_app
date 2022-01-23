@@ -103,6 +103,16 @@ class _GuiState extends State<Gui> {
                           ),
                         ),
                       ),
+                      // TableCell(
+                      //   child: Container(
+                      //     color: Colors.greenAccent,
+                      //     child: Center(
+                      //       child: Text(
+                      //         "Action",
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                       TableCell(
                         child: Container(
                           color: Colors.greenAccent,
@@ -150,9 +160,15 @@ class _GuiState extends State<Gui> {
                               },
                               icon: Icon(Icons.create),
                             ),
-                            SizedBox(
-                              width: 2,
-                            ),
+                            // TableCell(
+                            //   child: Container(
+                            //     child: Center(
+                            //       child: Text(
+                            //         storedata[i]['name'],
+                            //       ),
+                            //     ),
+                            //   ),
+                            // ),
                             IconButton(
                               onPressed: () {
                                 deleteuser(storedata[i]['id']);
