@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,21 +36,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Dubai Shop Bd App",
-          style: TextStyle(
-            color: Colors.white,
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "Dubai Shop Bd App",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
         ),
-      ),
-      body: Container(
-        child: Center(
-          child: Text("Hello World"),
-        ),
-      ),
-    );
+        body: WebView(
+          javascriptMode: JavascriptMode.unrestricted,
+          initialUrl: 'https://channelstarbd.com',
+        ));
   }
 }
