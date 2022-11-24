@@ -21,20 +21,27 @@ class _PracticeState extends State<Practice> {
   void _calculate() {
     setState(
       () {
-        calculate = double.tryParse(weight.text) /
-            (double.tryParse(hight.text) * double.tryParse(hight.text));
+        if (hight.text != "" && weight.text != "") {
+          calculate = double.tryParse(weight.text) /
+              (double.tryParse(hight.text) * double.tryParse(hight.text));
 
-        if (calculate < 18.5) {
-          result = "LOW";
-          color = Colors.amber;
-        } else if (calculate < 25.0) {
-          result = "GOOD";
-          color = Colors.green;
-        } else if (calculate < 30.0) {
-          result = "BAD";
-          color = Colors.redAccent;
+          if (calculate < 18.5) {
+            result = "LOW";
+            color = Colors.amber;
+          } else if (calculate < 25.0) {
+            result = "GOOD";
+            color = Colors.green;
+          } else if (calculate < 30.0) {
+            result = "BAD";
+            color = Colors.redAccent;
+          } else {
+            result = "Very BAD";
+            color = Colors.red;
+          }
         } else {
-          result = "Very BAD";
+          hight.text = "";
+          weight.text = "";
+          result = "0";
           color = Colors.red;
         }
       },
@@ -71,7 +78,7 @@ class _PracticeState extends State<Practice> {
           CustomTextField(
             customcontroller: weight,
             textname: "Enter your Weight",
-            color: Colors.indigo,
+            color: Color.fromARGB(255, 221, 218, 9),
           ),
           CustomTextField(
             customcontroller: hight,
@@ -80,16 +87,18 @@ class _PracticeState extends State<Practice> {
           ),
           SizedBox(
             width: 100,
-            child: RaisedButton(
+            child: ElevatedButton(
               child: Text(
                 "See Result ",
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
-              color: Colors.indigo,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(30.0)),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.indigo,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                ),
               ),
               onPressed: () {
                 _calculate();
@@ -160,7 +169,7 @@ class _PracticeState extends State<Practice> {
               style: TextStyle(fontSize: 20),
             ),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,

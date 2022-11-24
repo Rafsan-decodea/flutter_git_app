@@ -38,16 +38,18 @@ class _InchiToCmState extends State<InchiToCm> {
                 textname: "Enter your Feet Value",
                 color: Colors.blueAccent,
               ),
-              RaisedButton(
+              ElevatedButton(
                 child: Text(
                   "See Result ",
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
-                color: Colors.indigo,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.indigo,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30.0)),
+                  ),
                 ),
                 onPressed: () {
                   if (feet_value.text == "") {
