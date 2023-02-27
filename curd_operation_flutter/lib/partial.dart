@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
-
-
-void main()
-{
-   runApp(myApp());
+void main() {
+  runApp(myApp());
 }
 
 class myApp extends StatefulWidget {
@@ -20,11 +17,10 @@ class _myAppState extends State<myApp> {
         primarySwatch: Colors.green,
       ),
       title: "hello World",
-      home:HomePage(),
+      home: HomePage(),
     );
   }
 }
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -32,91 +28,82 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int data_val = 0;
   String webhost;
   bool pressGeoON = false;
   bool cmbscritta = false;
-  void work()
-  {
+  void work() {
     setState(() {
-      data_val +=1;
+      data_val += 1;
     });
   }
 
-  void back()
-  {
+  void back() {
     setState(() {
       data_val -= 1;
     });
-
   }
 
-  void clean()
-  {
+  void clean() {
     setState(() {
       data_val = 0;
     });
   }
-void load()
-{
-  webhost="motherchod";
-}
 
-void call()
-{
-  setState(() {
- pressGeoON = !pressGeoON;
- cmbscritta = !cmbscritta;
-  });
-}
+  void load() {
+    webhost = "motherchod";
+  }
+
+  void call() {
+    setState(() {
+      pressGeoON = !pressGeoON;
+      cmbscritta = !cmbscritta;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title:Text(
-            "This is Educational perpose  "
-          ),
-        ),
-       body:Center(
+      appBar: AppBar(
+        title: Text("This is Educational perpose  "),
+      ),
+      body: Center(
         child: Column(
-           mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "$data_val",
-                style: TextStyle(
-                  fontSize: 23.4,
-                  fontFamily: "airal",
-                  color: Colors.green,
-
-                ),
-              ),
-              RaisedButton(onPressed:work, 
-                child: Text(
-                  "click to change "
-                ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "$data_val",
+              style: TextStyle(
+                fontSize: 23.4,
+                fontFamily: "airal",
                 color: Colors.green,
               ),
-              RaisedButton(onPressed: back,
-               child: Text(
-                 "backspace"
-               ),
-               color: Colors.grey,
-              ),
-              RaisedButton(onPressed:clean, 
-                 child: Text(
-                   "clean",
-                 ),
-                 color: Colors.red,
-              ),
-              RaisedButton(onPressed:call, 
-                 child: cmbscritta ? Text("fuckoff") : Text(""),
-                 color: Colors.green,
-              )
-            ],
-         ),
-       ),
+            ),
+            // RaisedButton(onPressed:work,
+            //   child: Text(
+            //     "click to change "
+            //   ),
+            //   color: Colors.green,
+            // ),
+            // RaisedButton(onPressed: back,
+            //  child: Text(
+            //    "backspace"
+            //  ),
+            //  color: Colors.grey,
+            // ),
+            // RaisedButton(onPressed:clean,
+            //    child: Text(
+            //      "clean",
+            //    ),
+            //    color: Colors.red,
+            // ),
+            // RaisedButton(onPressed:call,
+            //    child: cmbscritta ? Text("fuckoff") : Text(""),
+            //    color: Colors.green,
+            // )
+          ],
+        ),
+      ),
     );
   }
 }
