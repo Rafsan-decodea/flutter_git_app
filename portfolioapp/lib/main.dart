@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolioapp/home.dart';
+import 'package:portfolioapp/internal/aboutus.dart';
+import 'package:portfolioapp/internal/clientsatisfied.dart';
+import 'package:portfolioapp/internal/homedelivary.dart';
 import 'package:portfolioapp/projects.dart';
 
 void main() {
@@ -12,6 +15,10 @@ void main() {
       '/project': (context) => const MyProject(),
       '/': (context) => const MyHome(),
       '/about': (context) => const MyApp(),
+      '/aboutus':(context) => const AboutUs(),
+      '/clientsatisfied':(context) => const ClientSatisfied(),
+      '/homedelivary':(context) => const HomeDelivary()
+
     },
   ));
 }

@@ -34,7 +34,7 @@ class _MyHomeState extends State<MyHome> {
     );
   }
 
-  mySpec(icon, text) {
+  mySpec(icon, text, link) {
     return Container(
       child: Card(
         margin: EdgeInsets.all(0),
@@ -52,7 +52,9 @@ class _MyHomeState extends State<MyHome> {
                   icon,
                   color: Colors.white,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, link);
+                },
               ),
               SizedBox(
                 height: 10,
@@ -218,54 +220,11 @@ class _MyHomeState extends State<MyHome> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          mySpec(FontAwesomeIcons.home, 'Home\nDelivary'),
+                          mySpec(FontAwesomeIcons.home, 'Home\nDelivary',
+                              '/homedelivary'),
                           mySpec(FontAwesomeIcons.checkCircle,
-                              'Client\nSatisfied'),
-                          mySpec(FontAwesomeIcons.flag, 'About'),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          mySpec(FontAwesomeIcons.deviantart, 'Details'),
-                          mySpec(FontAwesomeIcons.linux, 'Linux'),
-                          mySpec(FontAwesomeIcons.wordpress, 'WordPress'),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          mySpec(FontAwesomeIcons.appStoreIos, 'iOS'),
-                          mySpec(FontAwesomeIcons.terminal, 'Scripting'),
-                          mySpec(FontAwesomeIcons.gamepad, 'Game Dev'),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          mySpec(FontAwesomeIcons.appStoreIos, 'iOS'),
-                          mySpec(FontAwesomeIcons.terminal, 'Scripting'),
-                          mySpec(FontAwesomeIcons.gamepad, 'Game Dev'),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          mySpec(FontAwesomeIcons.appStoreIos, 'iOS'),
-                          mySpec(FontAwesomeIcons.terminal, 'Scripting'),
-                          mySpec(FontAwesomeIcons.gamepad, 'Game Dev'),
+                              'Client\nSatisfied', '/clientsatisfied'),
+                          mySpec(FontAwesomeIcons.flag, 'AboutUS', '/aboutus'),
                         ],
                       ),
                     ],
