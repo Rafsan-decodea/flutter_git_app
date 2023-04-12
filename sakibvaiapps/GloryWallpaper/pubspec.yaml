@@ -67,7 +67,6 @@ dependencies:
   path_provider: ^1.6.27
 
   #This is permisson uses
-  easy_permission_validator: ^1.0.6
 
   #FLutter spinKit use plugin
   flutter_spinkit: "^4.1.2"
@@ -133,6 +132,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter_animated_dialog: ^2.0.1
   video_player: ^2.2.19
+  easy_permission_validator: ^2.0.1
 
 dev_dependencies:
   flutter_test:

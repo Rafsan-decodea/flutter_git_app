@@ -189,10 +189,10 @@ packages:
     dependency: "direct main"
     description:
       name: easy_permission_validator
-      sha256: "16a4c3a824ae98089f29bb2618fe56e3637205682329ebcecae2e4766467678b"
+      sha256: "0cc46940d0e348abd1c22a156f06e9a6aa76e9cb08879b5e45c9a9f69fadebd2"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.8"
+    version: "2.0.1"
   esys_flutter_share:
     dependency: "direct main"
     description:
@@ -521,18 +521,18 @@ packages:
     dependency: transitive
     description:
       name: permission_handler
-      sha256: "01bf998e8a012a0e112cbac4de2b950d641efda4179db1135835fe8c35f1e461"
+      sha256: fb4666087528b1cbf91d98771cf50b14f36f4d8756ec7e7a8629dd3cb55442b7
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.0+hotfix.4"
+    version: "5.1.0+2"
   permission_handler_platform_interface:
     dependency: transitive
     description:
       name: permission_handler_platform_interface
-      sha256: "3475a0dc1d46c68618624bb95bce6f001140349f5555d1b6b9d63793fdc58fbf"
+      sha256: f7e3c798f7c4dd215e4ca8843695b3a63a5b79c9aa04f296d316f13a15d518ba
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "2.0.2"
   petitparser:
     dependency: transitive
     description:
