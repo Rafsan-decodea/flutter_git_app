@@ -58,7 +58,6 @@ dependencies:
   esys_flutter_share: ^1.0.2
 
   # This is image downloader
-  image_downloader: ^0.20.1
 
   # This is cache manager
   flutter_cache_manager: ^2.1.1
@@ -106,7 +105,6 @@ dependencies:
   cloud_firestore:
 
   #This is line wallpaper_manager: ^1.0.10
-  wallpaper_manager: ^1.0.10
 
   #This is line viedo player 
 
@@ -133,6 +131,8 @@ dependencies:
   flutter_animated_dialog: ^2.0.1
   video_player: ^2.2.19
   easy_permission_validator: ^2.0.1
+  wallpaper_manager: ^1.0.10
+  image_downloader: ^0.31.0
 
 dev_dependencies:
   flutter_test:
