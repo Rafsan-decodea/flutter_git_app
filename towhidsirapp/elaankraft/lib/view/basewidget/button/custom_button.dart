@@ -12,7 +12,13 @@ class CustomButton extends StatelessWidget {
   final bool isBorder;
   final Color backgroundColor;
   final double radius;
-  CustomButton({this.onTap, @required this.buttonText, this.isBuy= false, this.isBorder = false, this.backgroundColor, this.radius});
+  CustomButton(
+      {this.onTap,
+      @required this.buttonText,
+      this.isBuy = false,
+      this.isBorder = false,
+      this.backgroundColor,
+      this.radius});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +29,23 @@ class CustomButton extends StatelessWidget {
         height: 45,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color:  backgroundColor != null? backgroundColor :isBuy? Color(0xffFE961C) : Theme.of(context).primaryColor,
+            color: backgroundColor != null
+                ? backgroundColor
+                : isBuy
+                    ? Color(0xffFE961C)
+                    : Color(0xFFD5AF37),
             boxShadow: [
-              BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 1, blurRadius: 7, offset: Offset(0, 1)), // changes position of shadow
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 7,
+                  offset: Offset(0, 1)), // changes position of shadow
             ],
-            borderRadius: BorderRadius.circular(radius !=null ? radius : isBorder? Dimensions.PADDING_SIZE_EXTRA_SMALL : Dimensions.PADDING_SIZE_SMALL)),
+            borderRadius: BorderRadius.circular(radius != null
+                ? radius
+                : isBorder
+                    ? Dimensions.PADDING_SIZE_EXTRA_SMALL
+                    : Dimensions.PADDING_SIZE_SMALL)),
         child: Text(buttonText,
             style: titilliumSemiBold.copyWith(
               fontSize: 16,
