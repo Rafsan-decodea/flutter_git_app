@@ -83,7 +83,7 @@ class AllCategoryScreen extends StatelessWidget {
                           }
                           if (index == 0) {
                             return Ink(
-                              color: Theme.of(context).highlightColor,
+                              color: Color(0xFFD5AF37),
                               child: ListTile(
                                 title: Text(getTranslated('all', context),
                                     style: titilliumSemiBold,
