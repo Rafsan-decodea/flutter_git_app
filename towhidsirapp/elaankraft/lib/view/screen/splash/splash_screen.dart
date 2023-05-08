@@ -148,14 +148,29 @@ class _SplashScreenState extends State<SplashScreen> {
                       ],
                     ),
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0),
-                    child: Image.asset(
-                      Images.splashScreenLogo,
-                      // height: 250.0,
-                      // width: 250.0,
-                      fit: BoxFit.scaleDown,
-                    ),
+                  child: FadeInImage.assetNetwork(
+                    placeholder: Images
+                        .splashScreenLogo, // Placeholder image shown while the actual image is being loaded
+                    image: Images.splashScreenLogo, // The actual image URL
+                    fit: BoxFit.scaleDown,
+                    width: 250.0,
+                    height: 250.0,
+                    fadeInDuration: Duration(
+                        milliseconds:
+                            1000), // Duration of the fade-in animation
+                    fadeOutDuration:
+                        Duration(milliseconds: 0), // No fade-out animation
+                    // Optional parameters for the placeholder image
+                    placeholderScale: 0.5,
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset(
+                        Images
+                            .splashScreenLogo, // Show the same placeholder image in case of an error
+                        fit: BoxFit.scaleDown,
+                        // width: 250.0,
+                        //height: 250.0,
+                      );
+                    },
                   ),
                 )),
               ],

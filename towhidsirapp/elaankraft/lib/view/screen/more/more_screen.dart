@@ -519,7 +519,8 @@ class TitleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.asset(image, width: 25, height: 25, fit: BoxFit.fill),
+      leading: Image.asset(image,
+          width: 25, height: 25, fit: BoxFit.fill, color: Color(0xFFD5AF37)),
       title: Text(title,
           style:
               titilliumRegular.copyWith(fontSize: Dimensions.FONT_SIZE_LARGE)),
