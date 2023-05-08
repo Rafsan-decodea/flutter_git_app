@@ -23,6 +23,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Color(0xFF2C2C2C),
         appBar: AppBar(
@@ -32,7 +33,7 @@ class _DashboardState extends State<Dashboard> {
               fontSize: 24,
               fontWeight: FontWeight.bold,
               color: Colors.white,
-              fontFamily: 'Roboto',
+              fontFamily: 'Consoles',
             ),
           ),
           centerTitle: true,
