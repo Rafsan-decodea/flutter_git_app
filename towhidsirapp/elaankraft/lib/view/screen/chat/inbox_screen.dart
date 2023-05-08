@@ -64,7 +64,7 @@ class _InboxScreenState extends State<InboxScreen> {
           child: isGuestMode
               ? NotLoggedInWidget()
               : RefreshIndicator(
-                  backgroundColor: Theme.of(context).primaryColor,
+                  backgroundColor: Color(0xFFD5AF37),
                   onRefresh: () async {
                     await Provider.of<ChatProvider>(context, listen: false)
                         .getChatList(context, 1);
