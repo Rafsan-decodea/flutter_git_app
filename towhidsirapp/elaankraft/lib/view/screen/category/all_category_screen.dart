@@ -274,7 +274,7 @@ class CategoryItem extends StatelessWidget {
           vertical: Dimensions.PADDING_SIZE_EXTRA_SMALL, horizontal: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: isSelected ? ColorResources.getPrimary(context) : null,
+        color: isSelected ? Color(0xFFD5AF37) : null,
       ),
       child: Center(
         child:
