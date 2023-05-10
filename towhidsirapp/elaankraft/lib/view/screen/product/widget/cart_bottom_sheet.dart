@@ -207,11 +207,12 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                                       Row(
                                         children: [
                                           Icon(Icons.star,
-                                              color: Colors.orange),
+                                              color: Color(0xFFD5AF37)),
                                           Text(
                                               double.parse(ratting)
                                                   .toStringAsFixed(1),
                                               style: titilliumSemiBold.copyWith(
+                                                  color: Color(0xFFD5AF37),
                                                   fontSize: Dimensions
                                                       .FONT_SIZE_LARGE),
                                               maxLines: 2,
