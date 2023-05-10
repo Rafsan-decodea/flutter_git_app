@@ -412,19 +412,18 @@ class _MoreScreenState extends State<MoreScreen> {
                         width: 25,
                         height: 25,
                         fit: BoxFit.fill,
-                        color: ColorResources.getPrimary(context)),
+                        color: Color(0xFFD5AF37)),
                     title: Text(getTranslated('app_info', context),
                         style: titilliumRegular.copyWith(
                             fontSize: Dimensions.FONT_SIZE_LARGE)),
-                    trailing: Text(AppConstants.APP_VERSION),
+                    trailing: Text("1.0"), //AppConstants.APP_VERSION
                   ),
 
                   isGuestMode
                       ? SizedBox()
                       : ListTile(
                           leading: Icon(Icons.exit_to_app,
-                              color: ColorResources.getPrimary(context),
-                              size: 25),
+                              color: Color(0xFFD5AF37), size: 25),
                           title: Text(getTranslated('sign_out', context),
                               style: titilliumRegular.copyWith(
                                   fontSize: Dimensions.FONT_SIZE_LARGE)),
