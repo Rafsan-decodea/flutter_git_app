@@ -59,7 +59,7 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
       child: Scaffold(
         key: _scaffoldKey,
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Theme.of(context).primaryColor,
+          selectedItemColor: Color(0xFFD5AF37),
           unselectedItemColor: Theme.of(context).textTheme.bodyLarge.color,
           showUnselectedLabels: true,
           currentIndex: _pageIndex,

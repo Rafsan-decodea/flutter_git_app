@@ -249,8 +249,7 @@ class RecommendedProductView extends StatelessWidget {
                                                           .discount),
                                                   style: titilliumSemiBold
                                                       .copyWith(
-                                                    color: ColorResources
-                                                        .getPrimary(context),
+                                                    color: Color(0xFFD5AF37),
                                                     fontSize: Dimensions
                                                         .FONT_SIZE_EXTRA_LARGE,
                                                   ),

@@ -154,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                               Images.cart_arrow_down_image,
                               height: Dimensions.ICON_SIZE_DEFAULT,
                               width: Dimensions.ICON_SIZE_DEFAULT,
-                              color: ColorResources.getPrimary(context),
+                              color: Color(0xFFD5AF37),
                             ),
                             Positioned(
                               top: -4,

@@ -57,7 +57,7 @@ class AppInfoDialog extends StatelessWidget {
                         fontSize: Dimensions.FONT_SIZE_LARGE)),
               ],
             ),
-            Divider(thickness: .1, color: Theme.of(context).primaryColor),
+            Divider(thickness: .1, color: Color(0xFFD5AF37)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
