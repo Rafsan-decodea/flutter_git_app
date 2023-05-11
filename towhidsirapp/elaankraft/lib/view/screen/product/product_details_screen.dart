@@ -108,7 +108,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           elevation: 0,
           backgroundColor: Provider.of<ThemeProvider>(context).darkTheme
               ? Colors.black
-              : Theme.of(context).primaryColor,
+              : Color(0xFFD5AF37),
         ),
         body: RefreshIndicator(
           onRefresh: () async {

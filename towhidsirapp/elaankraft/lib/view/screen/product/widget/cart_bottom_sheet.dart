@@ -283,7 +283,7 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                                   discountType: widget.product.discountType,
                                   discount: widget.product.discount),
                               style: titilliumRegular.copyWith(
-                                  color: ColorResources.getPrimary(context),
+                                  color: Color(0xFFD5AF37),
                                   fontSize: Dimensions.FONT_SIZE_EXTRA_LARGE),
                             ),
                           ],
@@ -487,7 +487,7 @@ class _CartBottomSheetState extends State<CartBottomSheet> {
                       Text(
                         PriceConverter.convertPrice(context, priceWithQuantity),
                         style: titilliumBold.copyWith(
-                            color: ColorResources.getPrimary(context),
+                            color: Color(0xFFD5AF37),
                             fontSize: Dimensions.FONT_SIZE_LARGE),
                       ),
                     ]),
@@ -812,17 +812,16 @@ class QuantityButton extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            border:
-                Border.all(width: 1, color: Theme.of(context).primaryColor)),
+            border: Border.all(width: 1, color: Color(0xFFD5AF37))),
         child: Icon(
           isIncrement ? Icons.add : Icons.remove,
           color: isIncrement
               ? quantity >= stock && !digitalProduct
-                  ? ColorResources.getLowGreen(context)
-                  : ColorResources.getPrimary(context)
+                  ? Color(0xFFD5AF37)
+                  : Color(0xFFD5AF37)
               : quantity > 1
-                  ? ColorResources.getPrimary(context)
-                  : ColorResources.getTextTitle(context),
+                  ? Color(0xFFD5AF37)
+                  : Color(0xFFD5AF37),
           size: isCartWidget ? 26 : 20,
         ),
       ),
