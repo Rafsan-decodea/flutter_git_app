@@ -170,7 +170,7 @@ class BannersView extends StatelessWidget {
                                             : Colors.grey,
                                     borderColor:
                                         index == bannerProvider.currentIndex
-                                            ? Theme.of(context).primaryColor
+                                            ? Color(0xFFD5AF37)
                                             : Colors.grey,
                                     size: 10,
                                   );
