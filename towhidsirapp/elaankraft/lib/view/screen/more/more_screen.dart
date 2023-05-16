@@ -416,7 +416,8 @@ class _MoreScreenState extends State<MoreScreen> {
                     title: Text(getTranslated('app_info', context),
                         style: titilliumRegular.copyWith(
                             fontSize: Dimensions.FONT_SIZE_LARGE)),
-                    trailing: Text("1.0"), //AppConstants.APP_VERSION
+                    trailing: Text(
+                        AppConstants.APP_VERSION), //AppConstants.APP_VERSION
                   ),
 
                   isGuestMode
