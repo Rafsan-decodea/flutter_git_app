@@ -36,11 +36,11 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             InkWell(
                 onTap: () {},
-                child: deshboardItem(
+                child: const deshboardItem(
                     title: " Attendence", imageLInk: "assets/attendance.png")),
             InkWell(
                 onTap: () {},
-                child: deshboardItem(
+                child: const deshboardItem(
                     title: "Take Attendance", imageLInk: "assets/mobile.png")),
 
             InkWell(
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     snackPosition: SnackPosition.BOTTOM,
                   );
                 },
-                child: deshboardItem(
+                child: const deshboardItem(
                     title: "Syllabus", imageLInk: "assets/syllabus.png")),
 
             InkWell(
@@ -61,14 +61,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (_) => DairyPage()));
                 },
-                child: deshboardItem(
+                child: const deshboardItem(
                     title: "Diaries", imageLInk: "assets/diary.png")),
             InkWell(
                 onTap: () {
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (_) => AddNewDiaryPage()));
                 },
-                child: deshboardItem(
+                child: const deshboardItem(
                     title: "Add New Diary", imageLInk: "assets/add_diary.png")),
 
             InkWell(
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     snackPosition: SnackPosition.BOTTOM,
                   );
                 },
-                child: deshboardItem(
+                child: const deshboardItem(
                     title: "Add Leave", imageLInk: "assets/leave.png")),
 
             InkWell(
@@ -97,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     snackPosition: SnackPosition.BOTTOM,
                   );
                 },
-                child: deshboardItem(
+                child: const deshboardItem(
                   title: "Leave Report",
                   imageLInk: "assets/leave.png",
                 )),
