@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
+//import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:sakib_school/Utils/constant.dart';
 
 import '../../../Utils/colors.dart';

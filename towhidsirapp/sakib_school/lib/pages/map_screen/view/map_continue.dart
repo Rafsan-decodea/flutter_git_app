@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
+//import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class MapContinue extends StatefulWidget {
@@ -13,12 +13,9 @@ class _MapContinueState extends State<MapContinue> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(),
-
+      appBar: AppBar(),
       body: Stack(
-        children: [
-
-        ],
+        children: [],
       ),
     );
   }

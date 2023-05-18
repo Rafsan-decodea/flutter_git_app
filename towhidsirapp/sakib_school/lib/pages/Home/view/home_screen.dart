@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sakib_school/Utils/colors.dart';
 import 'package:sakib_school/Widget/app_drawer.dart';
-import 'package:sakib_school/Widget/custom_Appbar.dart';
+//import 'package:sakib_school/Widget/custom_Appbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -147,11 +147,12 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 class deshboardItem extends StatelessWidget {
-  String? title;
-  String? imageLInk;
-  int? height;
-  int? width;
-  deshboardItem({Key? key, this.title, this.imageLInk, this.height, this.width})
+  final String? title;
+  final String? imageLInk;
+  final int? height;
+  final int? width;
+  const deshboardItem(
+      {Key? key, this.title, this.imageLInk, this.height, this.width})
       : super(key: key);
 
   @override

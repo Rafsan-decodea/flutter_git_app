@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sakib_school/Utils/colors.dart';
 
-
 class CustomTextForm extends StatelessWidget {
-  TextEditingController? textController;
-  double? width;
-  double? height; 
-  String? hinttext;
+  final TextEditingController? textController;
+  final double? width;
+  final double? height;
+  final String? hinttext;
 
-  CustomTextForm({super.key, this.hinttext, this.width,this.height, this.textController});
+  const CustomTextForm(
+      {super.key, this.hinttext, this.width, this.height, this.textController});
   @override
   Widget build(BuildContext context) {
     return Container(

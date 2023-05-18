@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:get/get.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:get/get.dart';
 import 'package:sakib_school/Student/StdHome/view/std_home.dart';
 import 'package:sakib_school/Utils/colors.dart';
-import 'package:sakib_school/Utils/constant.dart';
+//import 'package:sakib_school/Utils/constant.dart';
 import 'package:sakib_school/Widget/customButtonOne.dart';
-import 'package:sakib_school/Widget/customTextForm.dart';
+//import 'package:sakib_school/Widget/customTextForm.dart';
 
 import '../../Home/view/home_screen.dart';
 
@@ -29,23 +29,29 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Color.fromRGBO(255, 255, 255, 1),
         body: SingleChildScrollView(
           child: Column(
-            
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 150.h,), 
+              SizedBox(
+                height: 150.h,
+              ),
               Container(
-                height: 150.h, 
-                width: 150.w,
-               child:Image.asset("assets/edufiy.png")
-              ), 
-               SizedBox(height: 70.h,), 
-              _textInputForm(controller: email, hint: "Enter your ID", icon: Icon(Icons.email)),
+                  height: 150.h,
+                  width: 150.w,
+                  child: Image.asset("assets/edufiy.png")),
+              SizedBox(
+                height: 70.h,
+              ),
+              _textInputForm(
+                  controller: email,
+                  hint: "Enter your ID",
+                  icon: Icon(Icons.email)),
               SizedBox(
                 height: 20.h,
               ),
-              _textInputForm(controller: password, hint: "Enter your password", 
-              icon: Icon(Icons.lock)
-              ),
+              _textInputForm(
+                  controller: password,
+                  hint: "Enter your password",
+                  icon: Icon(Icons.lock)),
               SizedBox(
                 height: 30.h,
               ),
@@ -58,13 +64,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   fontWeight: FontWeight.bold,
                   onTab: () {
                     print("Login");
-                    if(email.text=="teacher@gmail.com"){
-          Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    if (email.text == "teacher@gmail.com") {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
                     }
-                                if(email.text=="student@gmail.com"){
-          Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => StudentHome()));
+                    if (email.text == "student@gmail.com") {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => StudentHome()));
                     }
                   }),
             ],

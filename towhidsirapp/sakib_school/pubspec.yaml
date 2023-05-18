@@ -41,6 +41,7 @@ dependencies:
   dots_indicator: ^2.1.0
   get_storage: ^2.1.1
   http: ^0.13.5
+  flutter_lints: ^2.0.1
  
 
 dev_dependencies:

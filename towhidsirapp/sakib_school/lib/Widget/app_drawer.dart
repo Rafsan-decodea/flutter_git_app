@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sakib_school/Utils/colors.dart';
+//import 'package:sakib_school/Utils/colors.dart';
 import 'package:sakib_school/pages/Login/view/login_screen.dart';
 
 import '../pages/Home/view/home_screen.dart';
