@@ -1,14 +1,14 @@
-#Thu May 18 13:42:47 BDT 2023
-path.4=1/classes.dex
-path.3=13/classes.dex
+#Sun May 21 00:55:47 BDT 2023
+path.4=13/classes.dex
+path.3=1/classes.dex
 path.2=0/classes.dex
 path.1=0/classes.dex
 path.0=classes.dex
-base.4=D\:\\MyCodingFiles\\programming\\android\\flutter_git_app\\towhidsirapp\\sakib_school\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
-base.3=D\:\\MyCodingFiles\\programming\\android\\flutter_git_app\\towhidsirapp\\sakib_school\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex
-base.2=D\:\\MyCodingFiles\\programming\\android\\flutter_git_app\\towhidsirapp\\sakib_school\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.1=D\:\\MyCodingFiles\\programming\\android\\flutter_git_app\\towhidsirapp\\sakib_school\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\0\\classes.dex
-base.0=D\:\\MyCodingFiles\\programming\\android\\flutter_git_app\\towhidsirapp\\sakib_school\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.4=/home/rafsan/myfile/android/all_apps/flutter_git_app/towhidsirapp/sakib_school/build/app/intermediates/dex/debug/mergeProjectDexDebug/13/classes.dex
+base.3=/home/rafsan/myfile/android/all_apps/flutter_git_app/towhidsirapp/sakib_school/build/app/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
+base.2=/home/rafsan/myfile/android/all_apps/flutter_git_app/towhidsirapp/sakib_school/build/app/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
+base.1=/home/rafsan/myfile/android/all_apps/flutter_git_app/towhidsirapp/sakib_school/build/app/intermediates/dex/debug/mergeLibDexDebug/0/classes.dex
+base.0=/home/rafsan/myfile/android/all_apps/flutter_git_app/towhidsirapp/sakib_school/build/app/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex

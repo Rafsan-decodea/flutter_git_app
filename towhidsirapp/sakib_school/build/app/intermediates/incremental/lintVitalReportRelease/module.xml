@@ -1,0 +1,18 @@
+<lint-module
+    format="1"
+    dir="/home/rafsan/myfile/android/all_apps/flutter_git_app/towhidsirapp/sakib_school/android/app"
+    name=":app"
+    type="APP"
+    maven="android:app:"
+    gradle="7.2.0"
+    buildFolder="/home/rafsan/myfile/android/all_apps/flutter_git_app/towhidsirapp/sakib_school/build/app"
+    bootClassPath="/home/rafsan/myfile/android/sdk/platforms/android-33/android.jar:/home/rafsan/myfile/android/sdk/build-tools/30.0.3/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-33">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

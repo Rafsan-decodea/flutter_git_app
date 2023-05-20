@@ -18,7 +18,7 @@ class _StudentAttandanceState extends State<StudentAttandance> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("asd"),
+        title: Text("Student Attandance"),
       ),
       body: ListView(
         children: [

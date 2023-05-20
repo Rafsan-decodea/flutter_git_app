@@ -1,7 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
+import 'package:sakib_school/Student/StdHome/view/stu_about.dart';
 import 'package:sakib_school/Student/StdHome/view/stu_attendace.dart';
+import 'package:sakib_school/Student/StdHome/view/stu_daries.dart';
+import 'package:sakib_school/Student/StdHome/view/stu_notice.dart';
+import 'package:sakib_school/Student/StdHome/view/stu_pay.dart';
+import 'package:sakib_school/Student/StdHome/view/stu_resutl.dart';
+import 'package:sakib_school/Student/StdHome/view/stu_routine.dart';
+import 'package:sakib_school/Student/StdHome/view/stu_syllebus.dart';
 //import 'package:cupertino_icons/cupertino_icons.dart';
 import 'package:sakib_school/Utils/constant.dart';
 
@@ -121,6 +128,10 @@ class _StudentHomeState extends State<StudentHome> {
                     ),
                     InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StuNotice()));
                         // add your action here
                       },
                       child: Card(
@@ -137,6 +148,10 @@ class _StudentHomeState extends State<StudentHome> {
                     ),
                     InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentPay()));
                         // add your action here
                       },
                       child: Card(
@@ -158,6 +173,11 @@ class _StudentHomeState extends State<StudentHome> {
                   children: [
                     InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentResult()));
+
                         // add your action here
                       },
                       child: Card(
@@ -174,6 +194,10 @@ class _StudentHomeState extends State<StudentHome> {
                     ),
                     InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentDaires()));
                         // add your action here
                       },
                       child: Card(
@@ -190,6 +214,10 @@ class _StudentHomeState extends State<StudentHome> {
                     ),
                     InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentRoutin()));
                         // add your action here
                       },
                       child: Card(
@@ -211,6 +239,10 @@ class _StudentHomeState extends State<StudentHome> {
                   children: [
                     InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => StudentSyllebus()));
                         // add your action here
                       },
                       child: Card(
@@ -227,6 +259,10 @@ class _StudentHomeState extends State<StudentHome> {
                     ),
                     InkWell(
                       onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AboutPage()));
                         // add your action here
                       },
                       child: Card(
