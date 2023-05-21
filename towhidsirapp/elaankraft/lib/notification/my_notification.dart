@@ -72,31 +72,31 @@ class MyNotification {
       _body = message.notification?.body;
       _orderID = message.notification?.titleLocKey;
       if (Platform.isAndroid) {
-        _image = (message.notification?.android?.imageUrl != null &&
-                message.notification.android.imageUrl!.isNotEmpty)
-            ? message.notification.android.imageUrl!.startsWith('http')
-                ? message.notification.android.imageUrl
-                : '${AppConstants.BASE_URL}/storage/app/public/notification/${message.notification.android.imageUrl}'
-            : null;
+        _image = message.notification?.android?.imageUrl;
+        if (_image != null && _image.isNotEmpty) {
+          _image = _image.startsWith('http')
+              ? _image
+              : '${AppConstants.BASE_URL}/storage/app/public/notification/$_image';
+        }
       } else if (Platform.isIOS) {
-        _image = (message.notification?.apple?.imageUrl != null &&
-                message.notification.apple.imageUrl?.isNotEmpty == true)
-            ? message.notification.apple.imageUrl!.startsWith('http')
-                ? message.notification.apple.imageUrl
-                : '${AppConstants.BASE_URL}/storage/app/public/notification/${message.notification.apple.imageUrl}'
-            : null;
+        _image = message.notification?.apple?.imageUrl;
+        if (_image != null && _image.isNotEmpty) {
+          _image = _image.startsWith('http')
+              ? _image
+              : '${AppConstants.BASE_URL}/storage/app/public/notification/$_image';
+        }
       }
     }
 
     if (_image != null && _image.isNotEmpty) {
       try {
         await showBigPictureNotificationHiddenLargeIcon(
-            _title!, _body, _orderID!, _image, fln);
+            _title!, _body!, _orderID!, _image, fln);
       } catch (e) {
-        await showBigTextNotification(_title, _body, _orderID, fln);
+        await showBigTextNotification(_title!, _body!, _orderID!, fln);
       }
     } else {
-      await showBigTextNotification(_title, _body, _orderID, fln);
+      await showBigTextNotification(_title!, _body!, _orderID!, fln);
     }
   }
 
@@ -187,5 +187,5 @@ class MyNotification {
 
 Future<dynamic> myBackgroundMessageHandler(RemoteMessage message) async {
   print(
-      "onBackground: ${message.notification.title}/${message.notification.body}/${message.notification.titleLocKey}");
+      "onBackground: ${message.notification?.title}/${message.notification?.body}/${message.notification?.titleLocKey}");
 }
