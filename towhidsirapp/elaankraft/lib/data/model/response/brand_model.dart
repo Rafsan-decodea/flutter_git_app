@@ -1,20 +1,20 @@
 class BrandModel {
-  int _id;
-  String _name;
-  String _image;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
-  int _brandProductsCount;
+  late int _id;
+  late String _name;
+  late String _image;
+  late int _status;
+  late String _createdAt;
+  late String _updatedAt;
+  late int _brandProductsCount;
 
   BrandModel(
-      {int id,
-        String name,
-        String image,
-        int status,
-        String createdAt,
-        String updatedAt,
-        int brandProductsCount}) {
+      {required int id,
+      required String name,
+      required String image,
+      required int status,
+      required String createdAt,
+      required String updatedAt,
+      required int brandProductsCount}) {
     this._id = id;
     this._name = name;
     this._image = image;

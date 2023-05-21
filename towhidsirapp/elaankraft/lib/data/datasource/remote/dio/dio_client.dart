@@ -10,19 +10,21 @@ class DioClient {
   final LoggingInterceptor loggingInterceptor;
   final SharedPreferences sharedPreferences;
 
-  Dio dio;
-  String token;
-  String countryCode;
+  late Dio dio;
+  late String token;
+  late String countryCode;
 
-  DioClient(this.baseUrl,
-      Dio dioC, {
-        this.loggingInterceptor,
-        this.sharedPreferences,
-      }) {
-    token = sharedPreferences.getString(AppConstants.TOKEN);
-    countryCode = sharedPreferences.getString(AppConstants.COUNTRY_CODE) ?? AppConstants.languages[0].countryCode;
+  DioClient(
+    this.baseUrl,
+    Dio dioC, {
+    required this.loggingInterceptor,
+    required this.sharedPreferences,
+  }) {
+    token = sharedPreferences.getString(AppConstants.TOKEN)!;
+    countryCode = sharedPreferences.getString(AppConstants.COUNTRY_CODE) ??
+        AppConstants.languages[0].countryCode;
     print("NNNN $token");
-    dio = dioC ?? Dio();
+    dio = dioC;
     dio
       ..options.baseUrl = baseUrl
       ..options.connectTimeout = 30000
@@ -31,30 +33,39 @@ class DioClient {
       ..options.headers = {
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer $token',
-        AppConstants.LANG_KEY : countryCode == 'US'? 'en':countryCode.toLowerCase(),
-
+        AppConstants.LANG_KEY:
+            countryCode == 'US' ? 'en' : countryCode.toLowerCase(),
       };
     dio.interceptors.add(loggingInterceptor);
   }
 
   void updateHeader(String token, String countryCode) {
+    // ignore: unnecessary_null_comparison
     token = token == null ? this.token : token;
-    countryCode = countryCode == null ? this.countryCode == 'US' ? 'en': this.countryCode.toLowerCase(): countryCode == 'US' ? 'en' : countryCode.toLowerCase();
+    // ignore: unnecessary_null_comparison
+    if (countryCode == null) {
+      countryCode =
+          this.countryCode == 'US' ? 'en' : this.countryCode.toLowerCase();
+    } else {
+      countryCode = countryCode == 'US' ? 'en' : countryCode.toLowerCase();
+    }
     this.token = token;
     this.countryCode = countryCode;
     print('===Country code====>$countryCode');
     dio.options.headers = {
       'Content-Type': 'application/json; charset=UTF-8',
       'Authorization': 'Bearer $token',
-      AppConstants.LANG_KEY: countryCode == 'US'? 'en':countryCode.toLowerCase(),
+      AppConstants.LANG_KEY:
+          countryCode == 'US' ? 'en' : countryCode.toLowerCase(),
     };
   }
 
-  Future<Response> get(String uri, {
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
-    ProgressCallback onReceiveProgress,
+  Future<Response> get(
+    String uri, {
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onReceiveProgress,
   }) async {
     try {
       var response = await dio.get(
@@ -74,13 +85,14 @@ class DioClient {
     }
   }
 
-  Future<Response> post(String uri, {
+  Future<Response> post(
+    final String uri, {
     data,
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
-    ProgressCallback onSendProgress,
-    ProgressCallback onReceiveProgress,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onSendProgress,
+    ProgressCallback? onReceiveProgress,
   }) async {
     try {
       var response = await dio.post(
@@ -100,13 +112,14 @@ class DioClient {
     }
   }
 
-  Future<Response> put(String uri, {
+  Future<Response> put(
+    String uri, {
     data,
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
-    ProgressCallback onSendProgress,
-    ProgressCallback onReceiveProgress,
+    required Map<String, dynamic> queryParameters,
+    required Options options,
+    required CancelToken cancelToken,
+    required ProgressCallback onSendProgress,
+    required ProgressCallback onReceiveProgress,
   }) async {
     try {
       var response = await dio.put(
@@ -126,11 +139,12 @@ class DioClient {
     }
   }
 
-  Future<Response> delete(String uri, {
+  Future<Response> delete(
+    String uri, {
     data,
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
   }) async {
     try {
       var response = await dio.delete(

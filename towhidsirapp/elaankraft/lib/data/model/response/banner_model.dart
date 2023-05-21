@@ -1,29 +1,28 @@
 import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.dart';
 
 class BannerModel {
-  int id;
-  String photo;
-  String bannerType;
-  int published;
-  String createdAt;
-  String updatedAt;
-  String url;
-  String resourceType;
-  int resourceId;
-  Product product;
+  late int id;
+  late String photo;
+  late String bannerType;
+  late int published;
+  late String createdAt;
+  late String updatedAt;
+  late String url;
+  late String resourceType;
+  late int resourceId;
+  late Product product;
 
   BannerModel(
-      {this.id,
-        this.photo,
-        this.bannerType,
-        this.published,
-        this.createdAt,
-        this.updatedAt,
-        this.url,
-        this.resourceType,
-        this.resourceId,
-        this.product
-      });
+      {required this.id,
+      required this.photo,
+      required this.bannerType,
+      required this.published,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.url,
+      required this.resourceType,
+      required this.resourceId,
+      required this.product});
 
   BannerModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -35,7 +34,9 @@ class BannerModel {
     url = json['url'];
     resourceType = json['resource_type'];
     resourceId = json['resource_id'];
-    product = json['product'] != null ? new Product.fromJson(json['product']) : null;
+    product = (json['product'] != null
+        ? new Product.fromJson(json['product'])
+        : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -49,9 +50,7 @@ class BannerModel {
     data['url'] = this.url;
     data['resource_type'] = this.resourceType;
     data['resource_id'] = this.resourceId;
-    if (this.product != null) {
-      data['product'] = this.product.toJson();
-    }
+    data['product'] = this.product.toJson();
     return data;
   }
 }

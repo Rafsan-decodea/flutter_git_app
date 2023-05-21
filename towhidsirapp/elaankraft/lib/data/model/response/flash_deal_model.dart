@@ -1,34 +1,34 @@
-    class FlashDealModel {
-  int _id;
-  String _title;
-  String _startDate;
-  String _endDate;
-  int _status;
-  int _featured;
-  String _backgroundColor;
-  String _textColor;
-  String _banner;
-  String _slug;
-  String _createdAt;
-  String _updatedAt;
-  int _productId;
-  String _dealType;
+class FlashDealModel {
+  late int _id;
+  late String _title;
+  late String _startDate;
+  late String _endDate;
+  late int _status;
+  late int _featured;
+  late String _backgroundColor;
+  late String _textColor;
+  late String _banner;
+  late String _slug;
+  late String _createdAt;
+  late String _updatedAt;
+  late int _productId;
+  late String _dealType;
 
   FlashDealModel(
-      {int id,
-        String title,
-        String startDate,
-        String endDate,
-        int status,
-        int featured,
-        String backgroundColor,
-        String textColor,
-        String banner,
-        String slug,
-        String createdAt,
-        String updatedAt,
-        int productId,
-        String dealType}) {
+      {required int id,
+      required String title,
+      required String startDate,
+      required String endDate,
+      required int status,
+      required int featured,
+      required String backgroundColor,
+      required String textColor,
+      required String banner,
+      required String slug,
+      required String createdAt,
+      required String updatedAt,
+      required int productId,
+      required String dealType}) {
     this._id = id;
     this._title = title;
     this._startDate = startDate;

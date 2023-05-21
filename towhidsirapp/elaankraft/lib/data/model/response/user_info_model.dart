@@ -1,24 +1,32 @@
 class UserInfoModel {
-  int id;
-  String name;
-  String method;
-  String fName;
-  String lName;
-  String phone;
-  String image;
-  String email;
-  String emailVerifiedAt;
-  String createdAt;
-  String updatedAt;
-  double walletBalance;
-  double loyaltyPoint;
+  late int id;
+  late String name;
+  late String method;
+  late String fName;
+  late String lName;
+  late String phone;
+  late String image;
+  late String email;
+  late String emailVerifiedAt;
+  late String createdAt;
+  late String updatedAt;
+  late double walletBalance;
+  late double loyaltyPoint;
 
   UserInfoModel(
-      {this.id, this.name, this.method, this.fName,
-        this.lName, this.phone, this.image,
-        this.email, this.emailVerifiedAt,
-        this.createdAt, this.updatedAt,
-      this.walletBalance, this.loyaltyPoint});
+      {required this.id,
+      required this.name,
+      required this.method,
+      required this.fName,
+      required this.lName,
+      required this.phone,
+      required this.image,
+      required this.email,
+      required this.emailVerifiedAt,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.walletBalance,
+      required this.loyaltyPoint});
 
   UserInfoModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -32,15 +40,14 @@ class UserInfoModel {
     emailVerifiedAt = json['email_verified_at'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
-    if(json['wallet_balance'] != null){
+    if (json['wallet_balance'] != null) {
       walletBalance = json['wallet_balance'].toDouble();
     }
-    if(json['loyalty_point'] != null){
+    if (json['loyalty_point'] != null) {
       loyaltyPoint = json['loyalty_point'].toDouble();
-    }else{
+    } else {
       walletBalance = 0.0;
     }
-
   }
 
   Map<String, dynamic> toJson() {

@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SplashRepo {
   final DioClient dioClient;
   final SharedPreferences sharedPreferences;
-  SplashRepo({@required this.dioClient, @required this.sharedPreferences});
+  SplashRepo({required this.dioClient, required this.sharedPreferences});
 
   Future<ApiResponse> getConfig() async {
     try {
@@ -29,7 +29,7 @@ class SplashRepo {
     if (!sharedPreferences.containsKey(AppConstants.INTRO)) {
       sharedPreferences.setBool(AppConstants.INTRO, true);
     }
-    if(!sharedPreferences.containsKey(AppConstants.CURRENCY)) {
+    if (!sharedPreferences.containsKey(AppConstants.CURRENCY)) {
       sharedPreferences.setString(AppConstants.CURRENCY, '');
     }
   }
@@ -46,9 +46,7 @@ class SplashRepo {
     sharedPreferences.setBool(AppConstants.INTRO, false);
   }
 
-  bool showIntro() {
+  bool? showIntro() {
     return sharedPreferences.getBool(AppConstants.INTRO);
   }
-
-
 }

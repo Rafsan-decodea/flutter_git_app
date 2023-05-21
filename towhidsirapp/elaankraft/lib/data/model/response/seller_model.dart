@@ -1,27 +1,21 @@
 class SellerModel {
-  Seller _seller;
-  int _avgRating;
-  int _totalReview;
-  int _totalOrder;
-  int _totalProduct;
+  late Seller _seller;
+  late int _avgRating;
+  late int _totalReview;
+  late int _totalOrder;
+  late int _totalProduct;
 
   SellerModel(
-      {Seller seller, int avgRating, int totalReview, int totalOrder, int totalProduct}) {
-    if (seller != null) {
-      this._seller = seller;
-    }
-    if (avgRating != null) {
-      this._avgRating = avgRating;
-    }
-    if (totalReview != null) {
-      this._totalReview = totalReview;
-    }
-    if (totalOrder != null) {
-      this._totalOrder = totalOrder;
-    }
-    if (totalProduct != null) {
-      this._totalProduct = totalProduct;
-    }
+      {required Seller seller,
+      required int avgRating,
+      required int totalReview,
+      required int totalOrder,
+      required int totalProduct}) {
+    this._seller = seller;
+    this._avgRating = avgRating;
+    this._totalReview = totalReview;
+    this._totalOrder = totalOrder;
+    this._totalProduct = totalProduct;
   }
 
   Seller get seller => _seller;
@@ -30,10 +24,9 @@ class SellerModel {
   int get totalOrder => _totalOrder;
   int get totalProduct => _totalProduct;
 
-
   SellerModel.fromJson(Map<String, dynamic> json) {
     _seller =
-    json['seller'] != null ? new Seller.fromJson(json['seller']) : null;
+        (json['seller'] != null ? new Seller.fromJson(json['seller']) : null)!;
     _avgRating = json['avg_rating'];
     _totalReview = json['total_review'];
     _totalOrder = json['total_order'];
@@ -54,38 +47,26 @@ class SellerModel {
 }
 
 class Seller {
-  int _id;
-  String _fName;
-  String _lName;
-  String _phone;
-  String _image;
-  Shop _shop;
+  late int _id;
+  late String _fName;
+  late String _lName;
+  late String _phone;
+  late String _image;
+  late Shop _shop;
 
   Seller(
-      {int id,
-        String fName,
-        String lName,
-        String phone,
-        String image,
-        Shop shop}) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (fName != null) {
-      this._fName = fName;
-    }
-    if (lName != null) {
-      this._lName = lName;
-    }
-    if (phone != null) {
-      this._phone = phone;
-    }
-    if (image != null) {
-      this._image = image;
-    }
-    if (shop != null) {
-      this._shop = shop;
-    }
+      {required int id,
+      required String fName,
+      required String lName,
+      required String phone,
+      required String image,
+      required Shop shop}) {
+    this._id = id;
+    this._fName = fName;
+    this._lName = lName;
+    this._phone = phone;
+    this._image = image;
+    this._shop = shop;
   }
 
   int get id => _id;
@@ -101,7 +82,7 @@ class Seller {
     _lName = json['l_name'];
     _phone = json['phone'];
     _image = json['image'];
-    _shop = json['shop'] != null ? new Shop.fromJson(json['shop']) : null;
+    _shop = (json['shop'] != null ? new Shop.fromJson(json['shop']) : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -119,62 +100,43 @@ class Seller {
 }
 
 class Shop {
-  int _id;
-  int _sellerId;
-  String _name;
-  String _address;
-  String _contact;
-  String _image;
-  String _createdAt;
-  String _updatedAt;
-  String _banner;
-  int _temporaryClose;
-  String _vacationEndDate;
-  String _vacationStartDate;
-  int _vacationStatus;
+  late int _id;
+  late int _sellerId;
+  late String _name;
+  late String _address;
+  late String _contact;
+  late String _image;
+  late String _createdAt;
+  late String _updatedAt;
+  late String _banner;
+  late int _temporaryClose;
+  late String _vacationEndDate;
+  late String _vacationStartDate;
+  late int _vacationStatus;
 
   Shop(
-      {int id,
-        int sellerId,
-        String name,
-        String address,
-        String contact,
-        String image,
-        String createdAt,
-        String updatedAt,
-        String banner,
-        int temporaryClose,
-        String vacationEndDate,
-        String vacationStartDate,
-        int vacationStatus
-      }) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (sellerId != null) {
-      this._sellerId = sellerId;
-    }
-    if (name != null) {
-      this._name = name;
-    }
-    if (address != null) {
-      this._address = address;
-    }
-    if (contact != null) {
-      this._contact = contact;
-    }
-    if (image != null) {
-      this._image = image;
-    }
-    if (createdAt != null) {
-      this._createdAt = createdAt;
-    }
-    if (updatedAt != null) {
-      this._updatedAt = updatedAt;
-    }
-    if (banner != null) {
-      this._banner = banner;
-    }
+      {required int id,
+      required int sellerId,
+      required String name,
+      required String address,
+      required String contact,
+      required String image,
+      required String createdAt,
+      required String updatedAt,
+      required String banner,
+      required int temporaryClose,
+      required String vacationEndDate,
+      required String vacationStartDate,
+      required int vacationStatus}) {
+    this._id = id;
+    this._sellerId = sellerId;
+    this._name = name;
+    this._address = address;
+    this._contact = contact;
+    this._image = image;
+    this._createdAt = createdAt;
+    this._updatedAt = updatedAt;
+    this._banner = banner;
     this._temporaryClose = temporaryClose;
     this._vacationEndDate = vacationEndDate;
     this._vacationStartDate = vacationStartDate;
@@ -195,7 +157,6 @@ class Shop {
   String get vacationStartDate => _vacationStartDate;
   int get vacationStatus => _vacationStatus;
 
-
   Shop.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
     _sellerId = int.parse(json['seller_id'].toString());
@@ -206,10 +167,14 @@ class Shop {
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
     _banner = json['banner'];
-    _temporaryClose = json['temporary_close'] != null? int.parse(json['temporary_close'].toString()):0;
+    _temporaryClose = json['temporary_close'] != null
+        ? int.parse(json['temporary_close'].toString())
+        : 0;
     _vacationEndDate = json['vacation_end_date'];
     _vacationStartDate = json['vacation_start_date'];
-    _vacationStatus = json['vacation_status'] != null? int.parse(json['vacation_status'].toString()):0;
+    _vacationStatus = json['vacation_status'] != null
+        ? int.parse(json['vacation_status'].toString())
+        : 0;
   }
 
   Map<String, dynamic> toJson() {

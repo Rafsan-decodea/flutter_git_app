@@ -1,22 +1,22 @@
 class RefundResultModel {
-  double productPrice;
-  int quntity;
-  double productTotalDiscount;
-  double productTotalTax;
-  double subtotal;
-  double couponDiscount;
-  double refundAmount;
-  List<RefundRequest> refundRequest;
+  late double productPrice;
+  late int quntity;
+  late double productTotalDiscount;
+  late double productTotalTax;
+  late double subtotal;
+  late double couponDiscount;
+  late double refundAmount;
+  late List<RefundRequest> refundRequest;
 
   RefundResultModel(
-      {this.productPrice,
-        this.quntity,
-        this.productTotalDiscount,
-        this.productTotalTax,
-        this.subtotal,
-        this.couponDiscount,
-        this.refundAmount,
-        this.refundRequest});
+      {required this.productPrice,
+      required this.quntity,
+      required this.productTotalDiscount,
+      required this.productTotalTax,
+      required this.subtotal,
+      required this.couponDiscount,
+      required this.refundAmount,
+      required this.refundRequest});
 
   RefundResultModel.fromJson(Map<String, dynamic> json) {
     productPrice = json['product_price'].toDouble();
@@ -43,47 +43,44 @@ class RefundResultModel {
     data['subtotal'] = this.subtotal;
     data['coupon_discount'] = this.couponDiscount;
     data['refund_amount'] = this.refundAmount;
-    if (this.refundRequest != null) {
-      data['refund_request'] =
-          this.refundRequest.map((v) => v.toJson()).toList();
-    }
+    data['refund_request'] = this.refundRequest.map((v) => v.toJson()).toList();
     return data;
   }
 }
 
 class RefundRequest {
-  int id;
-  int orderDetailsId;
-  int customerId;
-  String status;
-  double amount;
-  int productId;
-  int orderId;
-  String refundReason;
-  List<String> images;
-  String createdAt;
-  String updatedAt;
-  String approvedNote;
-  String rejectedNote;
-  String paymentInfo;
-  String changeBy;
+  late int id;
+  late int orderDetailsId;
+  late int customerId;
+  late String status;
+  late double amount;
+  late int productId;
+  late int orderId;
+  late String refundReason;
+  late List<String> images;
+  late String createdAt;
+  late String updatedAt;
+  late String approvedNote;
+  late String rejectedNote;
+  late String paymentInfo;
+  late String changeBy;
 
   RefundRequest(
-      {this.id,
-        this.orderDetailsId,
-        this.customerId,
-        this.status,
-        this.amount,
-        this.productId,
-        this.orderId,
-        this.refundReason,
-        this.images,
-        this.createdAt,
-        this.updatedAt,
-        this.approvedNote,
-        this.rejectedNote,
-        this.paymentInfo,
-        this.changeBy});
+      {required this.id,
+      required this.orderDetailsId,
+      required this.customerId,
+      required this.status,
+      required this.amount,
+      required this.productId,
+      required this.orderId,
+      required this.refundReason,
+      required this.images,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.approvedNote,
+      required this.rejectedNote,
+      required this.paymentInfo,
+      required this.changeBy});
 
   RefundRequest.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -94,7 +91,7 @@ class RefundRequest {
     productId = json['product_id'];
     orderId = json['order_id'];
     refundReason = json['refund_reason'];
-    if(json['images'] != null){
+    if (json['images'] != null) {
       images = json['images'].cast<String>();
     }
 

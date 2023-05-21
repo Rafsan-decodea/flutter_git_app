@@ -1,15 +1,18 @@
 class RefundInfoModel {
-  bool alreadyRequested;
-  bool expired;
-  Refund refund;
+  late bool alreadyRequested;
+  late bool expired;
+  late Refund refund;
 
-  RefundInfoModel({this.alreadyRequested, this.expired, this.refund});
+  RefundInfoModel(
+      {required this.alreadyRequested,
+      required this.expired,
+      required this.refund});
 
   RefundInfoModel.fromJson(Map<String, dynamic> json) {
     alreadyRequested = json['already_requested'];
     expired = json['expired'];
     refund =
-    json['refund'] != null ? new Refund.fromJson(json['refund']) : null;
+        (json['refund'] != null ? new Refund.fromJson(json['refund']) : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -24,22 +27,22 @@ class RefundInfoModel {
 }
 
 class Refund {
-  double productPrice;
-  int quntity;
-  double productTotalDiscount;
-  double productTotalTax;
-  double subtotal;
-  double couponDiscount;
-  double refundAmount;
+  late double productPrice;
+  late int quntity;
+  late double productTotalDiscount;
+  late double productTotalTax;
+  late double subtotal;
+  late double couponDiscount;
+  late double refundAmount;
 
   Refund(
-      {this.productPrice,
-        this.quntity,
-        this.productTotalDiscount,
-        this.productTotalTax,
-        this.subtotal,
-        this.couponDiscount,
-        this.refundAmount});
+      {required this.productPrice,
+      required this.quntity,
+      required this.productTotalDiscount,
+      required this.productTotalTax,
+      required this.subtotal,
+      required this.couponDiscount,
+      required this.refundAmount});
 
   Refund.fromJson(Map<String, dynamic> json) {
     productPrice = json['product_price'].toDouble();

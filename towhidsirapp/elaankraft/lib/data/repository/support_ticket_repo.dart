@@ -8,7 +8,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class SupportTicketRepo {
   final DioClient dioClient;
-  SupportTicketRepo({@required this.dioClient});
+  SupportTicketRepo({required this.dioClient});
 
   Future<ApiResponse> sendSupportTicket(SupportTicketBody supportTicketModel) async {
     try {

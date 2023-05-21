@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 class WishListRepo {
   final DioClient dioClient;
 
-  WishListRepo({@required this.dioClient});
+  WishListRepo({required this.dioClient});
 
   Future<ApiResponse> getWishList() async {
     try {

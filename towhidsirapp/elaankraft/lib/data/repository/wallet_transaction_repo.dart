@@ -7,7 +7,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class WalletTransactionRepo {
   final DioClient dioClient;
-  WalletTransactionRepo({@required this.dioClient});
+  WalletTransactionRepo({required this.dioClient});
 
   Future<ApiResponse> getWalletTransactionList(int offset) async {
     try {

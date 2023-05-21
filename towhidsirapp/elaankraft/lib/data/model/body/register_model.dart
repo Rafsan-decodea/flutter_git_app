@@ -2,14 +2,21 @@ class RegisterModel {
   String email;
   String password;
   String fName;
-  String lName;
+  late final String lName;
   String phone;
   String socialId;
   String loginMedium;
 
-  RegisterModel({this.email, this.password, this.fName, this.lName, this.socialId,this.loginMedium});
+  RegisterModel(this.phone,
+      {required this.email,
+      required this.password,
+      required this.fName,
+      required this.lName,
+      required this.socialId,
+      required this.loginMedium});
 
-  RegisterModel.fromJson(Map<String, dynamic> json) {
+  RegisterModel.fromJson(Map<String, dynamic> json, this.email, this.password,
+      this.fName, this.lName, this.phone, this.socialId, this.loginMedium) {
     email = json['email'];
     password = json['password'];
     fName = json['f_name'];

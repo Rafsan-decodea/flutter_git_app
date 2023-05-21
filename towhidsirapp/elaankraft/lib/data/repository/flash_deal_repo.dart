@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class FlashDealRepo {
   final DioClient dioClient;
-  FlashDealRepo({@required this.dioClient});
+  FlashDealRepo({required this.dioClient});
 
   Future<ApiResponse> getFlashDeal() async {
     try {
@@ -19,7 +19,8 @@ class FlashDealRepo {
 
   Future<ApiResponse> getFlashDealList(String productID) async {
     try {
-      final response = await dioClient.get('${AppConstants.FLASH_DEAL_PRODUCT_URI}$productID');
+      final response = await dioClient
+          .get('${AppConstants.FLASH_DEAL_PRODUCT_URI}$productID');
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));

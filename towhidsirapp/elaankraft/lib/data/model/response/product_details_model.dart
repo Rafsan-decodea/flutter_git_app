@@ -2,268 +2,164 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.da
 import 'package:flutter_sixvalley_ecommerce/data/model/response/seller_model.dart';
 
 class ProductDetailsModel {
-  int _id;
-  String _addedBy;
-  int _userId;
-  String _name;
-  String _slug;
-  String _productType;
-  List<CategoryIds> _categoryIds;
-  int _brandId;
-  String _unit;
-  int _minQty;
-  int _refundable;
-  String _digitalProductType;
-  String _digitalFileReady;
-  List<String> _images;
-  String _thumbnail;
-  int _featured;
-  String _videoProvider;
-  String _videoUrl;
-  List<Colors> _colors;
-  int _variantProduct;
-  List<int> _attributes;
-  List<ChoiceOptions> _choiceOptions;
-  List<Variation> _variation;
-  int _published;
-  double _unitPrice;
-  double _purchasePrice;
-  double _tax;
-  String _taxModel;
-  String _taxType;
-  double _discount;
-  String _discountType;
-  int _currentStock;
-  int _minimumOrderQty;
-  String _details;
-  int _freeShipping;
-  String _createdAt;
-  String _updatedAt;
-  int _status;
-  int _featuredStatus;
-  String _metaTitle;
-  String _metaDescription;
-  String _metaImage;
-  int _requestStatus;
-  String _deniedNote;
-  double _shippingCost;
-  int _multiplyQty;
-  String _code;
-  int _reviewsCount;
-  String _averageReview;
-  List<Reviews> _reviews;
-  Seller _seller;
+  late int _id;
+  late String _addedBy;
+  late int _userId;
+  late String _name;
+  late String _slug;
+  late String _productType;
+  late List<CategoryIds> _categoryIds;
+  late int _brandId;
+  late String _unit;
+  late int _minQty;
+  late int _refundable;
+  late String _digitalProductType;
+  late String _digitalFileReady;
+  late List<String> _images;
+  late String _thumbnail;
+  late int _featured;
+  late String _videoProvider;
+  late String _videoUrl;
+  late List<Colors> _colors;
+  late int _variantProduct;
+  late List<int> _attributes;
+  late List<ChoiceOptions> _choiceOptions;
+  late List<Variation> _variation;
+  late int _published;
+  late double _unitPrice;
+  late double _purchasePrice;
+  late double _tax;
+  late String _taxModel;
+  late String _taxType;
+  late double _discount;
+  late String _discountType;
+  late int _currentStock;
+  late int _minimumOrderQty;
+  late String _details;
+  late int _freeShipping;
+  late String _createdAt;
+  late String _updatedAt;
+  late int _status;
+  late int _featuredStatus;
+  late String _metaTitle;
+  late String _metaDescription;
+  late String _metaImage;
+  late int _requestStatus;
+  late String _deniedNote;
+  late double _shippingCost;
+  late int _multiplyQty;
+  late String _code;
+  late int _reviewsCount;
+  late String _averageReview;
+  late List<Reviews> _reviews;
+  late Seller _seller;
 
+  ProductDetailsModel({
+    required int id,
+    required String addedBy,
+    required int userId,
+    required String name,
+    required String slug,
+    required String productType,
+    required List<CategoryIds> categoryIds,
+    required int brandId,
+    required String unit,
+    required int minQty,
+    required int refundable,
+    required String digitalProductType,
+    required String digitalFileReady,
+    required List<String> images,
+    required String thumbnail,
+    required int featured,
+    required String videoProvider,
+    required String videoUrl,
+    required List<Colors> colors,
+    required int variantProduct,
+    required List<int> attributes,
+    required List<ChoiceOptions> choiceOptions,
+    required List<Variation> variation,
+    required int published,
+    required double unitPrice,
+    required double purchasePrice,
+    required double tax,
+    required String taxModel,
+    required String taxType,
+    required double discount,
+    required String discountType,
+    required int currentStock,
+    required int minimumOrderQty,
+    required String details,
+    required int freeShipping,
+    required String createdAt,
+    required String updatedAt,
+    required int status,
+    required int featuredStatus,
+    required String metaTitle,
+    required String metaDescription,
+    required String metaImage,
+    required int requestStatus,
+    required String deniedNote,
+    required double shippingCost,
+    required int multiplyQty,
+    required String code,
+    required int reviewsCount,
+    required String averageReview,
+    required List<Reviews> reviews,
+    required Seller seller,
+  }) {
+    this._id = id;
+    this._addedBy = addedBy;
+    this._userId = userId;
+    this._name = name;
+    this._slug = slug;
+    this._productType = productType;
+    this._categoryIds = categoryIds;
+    this._brandId = brandId;
+    this._unit = unit;
+    this._minQty = minQty;
+    this._refundable = refundable;
+    this._digitalProductType = digitalProductType;
+    this._digitalFileReady = digitalFileReady;
+    this._images = images;
+    this._thumbnail = thumbnail;
+    this._featured = featured;
 
-  ProductDetailsModel(
-      {int id,
-        String addedBy,
-        int userId,
-        String name,
-        String slug,
-        String productType,
-        List<CategoryIds> categoryIds,
-        int brandId,
-        String unit,
-        int minQty,
-        int refundable,
-        String digitalProductType,
-        String digitalFileReady,
-        List<String> images,
-        String thumbnail,
-        int featured,
-        String videoProvider,
-        String videoUrl,
-        List<Colors> colors,
-        int variantProduct,
-        List<int> attributes,
-        List<ChoiceOptions> choiceOptions,
-        List<Variation> variation,
-        int published,
-        double unitPrice,
-        double purchasePrice,
-        double tax,
-        String taxModel,
-        String taxType,
-        double discount,
-        String discountType,
-        int currentStock,
-        int minimumOrderQty,
-        String details,
-        int freeShipping,
-        String createdAt,
-        String updatedAt,
-        int status,
-        int featuredStatus,
-        String metaTitle,
-        String metaDescription,
-        String metaImage,
-        int requestStatus,
-        String deniedNote,
-        double shippingCost,
-        int multiplyQty,
-        String code,
-        int reviewsCount,
-        String averageReview,
-        List<Reviews> reviews,
-        Seller seller,
-      }) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (addedBy != null) {
-      this._addedBy = addedBy;
-    }
-    if (userId != null) {
-      this._userId = userId;
-    }
-    if (name != null) {
-      this._name = name;
-    }
-    if (slug != null) {
-      this._slug = slug;
-    }
-    if (productType != null) {
-      this._productType = productType;
-    }
-    if (categoryIds != null) {
-      this._categoryIds = categoryIds;
-    }
-    if (brandId != null) {
-      this._brandId = brandId;
-    }
-    if (unit != null) {
-      this._unit = unit;
-    }
-    if (minQty != null) {
-      this._minQty = minQty;
-    }
-    if (refundable != null) {
-      this._refundable = refundable;
-    }
-    if (digitalProductType != null) {
-      this._digitalProductType = digitalProductType;
-    }
-    if (digitalFileReady != null) {
-      this._digitalFileReady = digitalFileReady;
-    }
-    if (images != null) {
-      this._images = images;
-    }
-    if (thumbnail != null) {
-      this._thumbnail = thumbnail;
-    }
-    if (featured != null) {
-      this._featured = featured;
-    }
+    this._videoProvider = videoProvider;
+    this._videoUrl = videoUrl;
+    this._colors = colors;
+    this._variantProduct = variantProduct;
+    this._attributes = attributes;
+    this._choiceOptions = choiceOptions;
+    this._variation = variation;
+    this._published = published;
+    this._unitPrice = unitPrice;
+    this._purchasePrice = purchasePrice;
+    this._tax = tax;
+    this._taxModel = taxModel;
+    this._taxType = taxType;
+    this._discount = discount;
+    this._discountType = discountType;
+    this._currentStock = currentStock;
+    this._minimumOrderQty = minimumOrderQty;
+    this._details = details;
+    this._freeShipping = freeShipping;
 
-    if (videoProvider != null) {
-      this._videoProvider = videoProvider;
-    }
-    if (videoUrl != null) {
-      this._videoUrl = videoUrl;
-    }
-    if (colors != null) {
-      this._colors = colors;
-    }
-    if (variantProduct != null) {
-      this._variantProduct = variantProduct;
-    }
-    if (attributes != null) {
-      this._attributes = attributes;
-    }
-    if (choiceOptions != null) {
-      this._choiceOptions = choiceOptions;
-    }
-    if (variation != null) {
-      this._variation = variation;
-    }
-    if (published != null) {
-      this._published = published;
-    }
-    if (unitPrice != null) {
-      this._unitPrice = unitPrice;
-    }
-    if (purchasePrice != null) {
-      this._purchasePrice = purchasePrice;
-    }
-    if (tax != null) {
-      this._tax = tax;
-    }
-    if (taxModel != null) {
-      this._taxModel = taxModel;
-    }
-    if (taxType != null) {
-      this._taxType = taxType;
-    }
-    if (discount != null) {
-      this._discount = discount;
-    }
-    if (discountType != null) {
-      this._discountType = discountType;
-    }
-    if (currentStock != null) {
-      this._currentStock = currentStock;
-    }
-    if (minimumOrderQty != null) {
-      this._minimumOrderQty = minimumOrderQty;
-    }
-    if (details != null) {
-      this._details = details;
-    }
-    if (freeShipping != null) {
-      this._freeShipping = freeShipping;
-    }
-
-    if (createdAt != null) {
-      this._createdAt = createdAt;
-    }
-    if (updatedAt != null) {
-      this._updatedAt = updatedAt;
-    }
-    if (status != null) {
-      this._status = status;
-    }
-    if (featuredStatus != null) {
-      this._featuredStatus = featuredStatus;
-    }
-    if (metaTitle != null) {
-      this._metaTitle = metaTitle;
-    }
-    if (metaDescription != null) {
-      this._metaDescription = metaDescription;
-    }
-    if (metaImage != null) {
-      this._metaImage = metaImage;
-    }
-    if (requestStatus != null) {
-      this._requestStatus = requestStatus;
-    }
-    if (deniedNote != null) {
-      this._deniedNote = deniedNote;
-    }
-    if (shippingCost != null) {
-      this._shippingCost = shippingCost;
-    }
-    if (multiplyQty != null) {
-      this._multiplyQty = multiplyQty;
-    }
-    if (code != null) {
-      this._code = code;
-    }
-    if (reviewsCount != null) {
-      this._reviewsCount = reviewsCount;
-    }
-    if (averageReview != null) {
-      this._averageReview = averageReview;
-    }
-    if (reviews != null) {
-      this._reviews = reviews;
-    }
-    if (seller != null) {
-      this._seller = seller;
-    }
-
+    this._createdAt = createdAt;
+    this._updatedAt = updatedAt;
+    this._status = status;
+    this._featuredStatus = featuredStatus;
+    this._metaTitle = metaTitle;
+    this._metaDescription = metaDescription;
+    this._metaImage = metaImage;
+    this._requestStatus = requestStatus;
+    this._deniedNote = deniedNote;
+    this._shippingCost = shippingCost;
+    this._multiplyQty = multiplyQty;
+    this._code = code;
+    this._reviewsCount = reviewsCount;
+    this._averageReview = averageReview;
+    this._reviews = reviews;
+    this._seller = seller;
   }
 
   int get id => _id;
@@ -371,9 +267,9 @@ class ProductDetailsModel {
     _discount = json['discount'].toDouble();
     _discountType = json['discount_type'];
     _currentStock = json['current_stock'];
-    if(json['minimum_order_qty'] != null){
+    if (json['minimum_order_qty'] != null) {
       _minimumOrderQty = int.parse(json['minimum_order_qty'].toString());
-    }else{
+    } else {
       _minimumOrderQty = 1;
     }
 
@@ -399,7 +295,8 @@ class ProductDetailsModel {
         _reviews.add(new Reviews.fromJson(v));
       });
     }
-    _seller = json['seller'] != null ? new Seller.fromJson(json['seller']) : null;
+    _seller =
+        (json['seller'] != null ? new Seller.fromJson(json['seller']) : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -410,9 +307,7 @@ class ProductDetailsModel {
     data['name'] = this._name;
     data['slug'] = this._slug;
     data['product_type'] = this._productType;
-    if (this._categoryIds != null) {
-      data['category_ids'] = this._categoryIds.map((v) => v.toJson()).toList();
-    }
+    data['category_ids'] = this._categoryIds.map((v) => v.toJson()).toList();
     data['brand_id'] = this._brandId;
     data['unit'] = this._unit;
     data['min_qty'] = this._minQty;
@@ -424,18 +319,12 @@ class ProductDetailsModel {
     data['featured'] = this._featured;
     data['video_provider'] = this._videoProvider;
     data['video_url'] = this._videoUrl;
-    if (this._colors != null) {
-      data['colors_formatted'] = this._colors.map((v) => v.toJson()).toList();
-    }
+    data['colors_formatted'] = this._colors.map((v) => v.toJson()).toList();
     data['variant_product'] = this._variantProduct;
     data['attributes'] = this._attributes;
-    if (this._choiceOptions != null) {
-      data['choice_options'] =
-          this._choiceOptions.map((v) => v.toJson()).toList();
-    }
-    if (this._variation != null) {
-      data['variation'] = this._variation.map((v) => v.toJson()).toList();
-    }
+    data['choice_options'] =
+        this._choiceOptions.map((v) => v.toJson()).toList();
+    data['variation'] = this._variation.map((v) => v.toJson()).toList();
     data['published'] = this._published;
     data['unit_price'] = this._unitPrice;
     data['purchase_price'] = this._purchasePrice;
@@ -462,33 +351,24 @@ class ProductDetailsModel {
     data['code'] = this._code;
     data['reviews_count'] = this._reviewsCount;
     data['average_review'] = this._averageReview;
-    if (this._reviews != null) {
-      data['reviews'] = this._reviews.map((v) => v.toJson()).toList();
-    }
-    if (this._seller != null) {
-      data['seller'] = this._seller.toJson();
-    }
+    data['reviews'] = this._reviews.map((v) => v.toJson()).toList();
+    data['seller'] = this._seller.toJson();
 
     return data;
   }
 }
 
 class CategoryIds {
-  String _id;
-  int _position;
+  late String _id;
+  late int _position;
 
-  CategoryIds({String id, int position}) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (position != null) {
-      this._position = position;
-    }
+  CategoryIds({required String id, required int position}) {
+    this._id = id;
+    this._position = position;
   }
 
   String get id => _id;
   int get position => _position;
-
 
   CategoryIds.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
@@ -504,21 +384,16 @@ class CategoryIds {
 }
 
 class Colors {
-  String _name;
-  String _code;
+  late String _name;
+  late String _code;
 
-  Colors({String name, String code}) {
-    if (name != null) {
-      this._name = name;
-    }
-    if (code != null) {
-      this._code = code;
-    }
+  Colors({required String name, required String code}) {
+    this._name = name;
+    this._code = code;
   }
 
   String get name => _name;
   String get code => _code;
-
 
   Colors.fromJson(Map<String, dynamic> json) {
     _name = json['name'];
@@ -533,61 +408,39 @@ class Colors {
   }
 }
 
-
-
 class Reviews {
-  int _id;
-  int _productId;
-  int _customerId;
-  String _comment;
-  String _attachment;
-  int _rating;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
-  Customer _customer;
+  late int _id;
+  late int _productId;
+  late int _customerId;
+  late String _comment;
+  late String _attachment;
+  late int _rating;
+  late int _status;
+  late String _createdAt;
+  late String _updatedAt;
+  late Customer _customer;
 
   Reviews(
-      {int id,
-        int productId,
-        int customerId,
-        String comment,
-        String attachment,
-        int rating,
-        int status,
-        String createdAt,
-        String updatedAt,
-        Customer customer}) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (productId != null) {
-      this._productId = productId;
-    }
-    if (customerId != null) {
-      this._customerId = customerId;
-    }
-    if (comment != null) {
-      this._comment = comment;
-    }
-    if (attachment != null) {
-      this._attachment = attachment;
-    }
-    if (rating != null) {
-      this._rating = rating;
-    }
-    if (status != null) {
-      this._status = status;
-    }
-    if (createdAt != null) {
-      this._createdAt = createdAt;
-    }
-    if (updatedAt != null) {
-      this._updatedAt = updatedAt;
-    }
-    if (customer != null) {
-      this._customer = customer;
-    }
+      {required int id,
+      required int productId,
+      required int customerId,
+      required String comment,
+      required String attachment,
+      required int rating,
+      required int status,
+      required String createdAt,
+      required String updatedAt,
+      required Customer customer}) {
+    this._id = id;
+    this._productId = productId;
+    this._customerId = customerId;
+    this._comment = comment;
+    this._attachment = attachment;
+    this._rating = rating;
+    this._status = status;
+    this._createdAt = createdAt;
+    this._updatedAt = updatedAt;
+    this._customer = customer;
   }
 
   int get id => _id;
@@ -601,7 +454,6 @@ class Reviews {
   String get updatedAt => _updatedAt;
   Customer get customer => _customer;
 
-
   Reviews.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
     _productId = json['product_id'];
@@ -612,9 +464,9 @@ class Reviews {
     _status = json['status'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _customer = json['customer'] != null
+    _customer = (json['customer'] != null
         ? new Customer.fromJson(json['customer'])
-        : null;
+        : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -628,48 +480,33 @@ class Reviews {
     data['status'] = this._status;
     data['created_at'] = this._createdAt;
     data['updated_at'] = this._updatedAt;
-    if (this._customer != null) {
-      data['customer'] = this._customer.toJson();
-    }
+    data['customer'] = this._customer.toJson();
     return data;
   }
 }
 
 class Customer {
-  int _id;
-  String _fName;
-  String _lName;
-  String _phone;
-  String _image;
-  String _email;
+  late int _id;
+  late String _fName;
+  late String _lName;
+  late String _phone;
+  late String _image;
+  late String _email;
 
-  Customer(
-      {int id,
-        String fName,
-        String lName,
-        String phone,
-        String image,
-        String email,
-      }) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (fName != null) {
-      this._fName = fName;
-    }
-    if (lName != null) {
-      this._lName = lName;
-    }
-    if (phone != null) {
-      this._phone = phone;
-    }
-    if (image != null) {
-      this._image = image;
-    }
-    if (email != null) {
-      this._email = email;
-    }
-
+  Customer({
+    required int id,
+    required String fName,
+    required String lName,
+    required String phone,
+    required String image,
+    required String email,
+  }) {
+    this._id = id;
+    this._fName = fName;
+    this._lName = lName;
+    this._phone = phone;
+    this._image = image;
+    this._email = email;
   }
 
   int get id => _id;
@@ -679,7 +516,6 @@ class Customer {
   String get image => _image;
   String get email => _email;
 
-
   Customer.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
     _fName = json['f_name'];
@@ -687,7 +523,6 @@ class Customer {
     _phone = json['phone'];
     _image = json['image'];
     _email = json['email'];
-
   }
 
   Map<String, dynamic> toJson() {

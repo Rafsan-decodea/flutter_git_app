@@ -1,38 +1,54 @@
 class AddressModel {
-  int id;
-  int customerId;
-  String contactPersonName;
-  String addressType;
-  String address;
-  String city;
-  String zip;
-  String phone;
-  String createdAt;
-  String updatedAt;
-  String state;
-  String country;
-  String latitude;
-  String longitude;
-  int isBilling;
+  late final int id;
+  late final int customerId;
+  late final String contactPersonName;
+  late final String addressType;
+  late final String address;
+  late final String city;
+  late final String zip;
+  late final String phone;
+  late final String createdAt;
+  late final String updatedAt;
+  late final String state;
+  late final String country;
+  late final String latitude;
+  late final String longitude;
+  late final int isBilling;
 
   AddressModel(
-      {this.id,
-        this.customerId,
-        this.contactPersonName,
-        this.addressType,
-        this.address,
-        this.city,
-        this.zip,
-        this.phone,
-        this.createdAt,
-        this.updatedAt,
-        this.state,
-        this.country,
-        this.latitude,
-        this.longitude,
-        this.isBilling});
+      {required this.id,
+      required this.customerId,
+      required this.contactPersonName,
+      required this.addressType,
+      required this.address,
+      required this.city,
+      required this.zip,
+      required this.phone,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.state,
+      required this.country,
+      required this.latitude,
+      required this.longitude,
+      required this.isBilling});
 
-  AddressModel.fromJson(Map<String, dynamic> json) {
+  AddressModel.fromJson(
+      Map<String, dynamic> json,
+      this.id,
+      this.customerId,
+      this.contactPersonName,
+      this.addressType,
+      this.address,
+      this.city,
+      this.zip,
+      this.phone,
+      this.createdAt,
+      this.updatedAt,
+      this.state,
+      this.country,
+      this.latitude,
+      this.longitude,
+      this.isBilling) {
     id = json['id'];
     customerId = json['customer_id'];
     contactPersonName = json['contact_person_name'];

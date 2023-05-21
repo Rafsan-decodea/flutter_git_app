@@ -1,12 +1,16 @@
 import 'package:flutter_sixvalley_ecommerce/data/model/response/chat_model.dart';
 
 class MessageModel {
-  int totalSize;
-  String limit;
-  String offset;
-  List<Message> message;
+  late int totalSize;
+  late String limit;
+  late String offset;
+  late List<Message> message;
 
-  MessageModel({this.totalSize, this.limit, this.offset, this.message});
+  MessageModel(
+      {required this.totalSize,
+      required this.limit,
+      required this.offset,
+      required this.message});
 
   MessageModel.fromJson(Map<String, dynamic> json) {
     totalSize = json['total_size'];
@@ -33,26 +37,26 @@ class MessageModel {
 }
 
 class Message {
-  int id;
-  String message;
-  int sentByCustomer;
-  int sentBySeller;
-  int sentByAdmin;
-  int seenByDeliveryMan;
-  String createdAt;
-  DeliveryMan deliveryMan;
-  SellerInfo sellerInfo;
+  late int id;
+  late String message;
+  late int sentByCustomer;
+  late int sentBySeller;
+  late int sentByAdmin;
+  late int seenByDeliveryMan;
+  late String createdAt;
+  late DeliveryMan deliveryMan;
+  late SellerInfo sellerInfo;
 
   Message(
-      {this.id,
-        this.message,
-        this.sentByCustomer,
-        this.sentBySeller,
-        this.sentByAdmin,
-        this.seenByDeliveryMan,
-        this.createdAt,
-        this.deliveryMan,
-        this.sellerInfo});
+      {required this.id,
+      required this.message,
+      required this.sentByCustomer,
+      required this.sentBySeller,
+      required this.sentByAdmin,
+      required this.seenByDeliveryMan,
+      required this.createdAt,
+      required this.deliveryMan,
+      required this.sellerInfo});
 
   Message.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -60,13 +64,17 @@ class Message {
     sentByCustomer = json['sent_by_customer'];
     sentBySeller = json['sent_by_seller'];
     sentByAdmin = json['sent_by_admin'];
-    if(json['seen_by_delivery_man'] != null){
+    if (json['seen_by_delivery_man'] != null) {
       seenByDeliveryMan = int.parse(json['seen_by_delivery_man'].toString());
     }
 
     createdAt = json['created_at'];
-    deliveryMan = json['delivery_man'] != null ? DeliveryMan.fromJson(json['delivery_man']) : null;
-    sellerInfo = json['seller_info'] != null ? SellerInfo.fromJson(json['seller_info']) : null;
+    deliveryMan = (json['delivery_man'] != null
+        ? DeliveryMan.fromJson(json['delivery_man'])
+        : null)!;
+    sellerInfo = (json['seller_info'] != null
+        ? SellerInfo.fromJson(json['seller_info'])
+        : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -78,16 +86,8 @@ class Message {
     data['sent_by_admin'] = sentByAdmin;
     data['seen_by_delivery_man'] = seenByDeliveryMan;
     data['created_at'] = createdAt;
-    if (deliveryMan != null) {
-      data['delivery_man'] = deliveryMan.toJson();
-    }
-    if (sellerInfo != null) {
-      data['seller_info'] = sellerInfo.toJson();
-    }
+    data['delivery_man'] = deliveryMan.toJson();
+    data['seller_info'] = sellerInfo.toJson();
     return data;
   }
 }
-
-
-
-

@@ -1,24 +1,24 @@
 class Category {
-  int _id;
-  String _name;
-  String _slug;
-  String _icon;
-  int _parentId;
-  int _position;
-  String _createdAt;
-  String _updatedAt;
-  List<SubCategory> _subCategories;
+  late int _id;
+  late String _name;
+  late String _slug;
+  late String _icon;
+  late int _parentId;
+  late int _position;
+  late String _createdAt;
+  late String _updatedAt;
+  late List<SubCategory> _subCategories;
 
   Category(
-      {int id,
-        String name,
-        String slug,
-        String icon,
-        int parentId,
-        int position,
-        String createdAt,
-        String updatedAt,
-        List<SubCategory> subCategories}) {
+      {required int id,
+      required String name,
+      required String slug,
+      required String icon,
+      required int parentId,
+      required int position,
+      required String createdAt,
+      required String updatedAt,
+      required List<SubCategory> subCategories}) {
     this._id = id;
     this._name = name;
     this._slug = slug;
@@ -75,26 +75,26 @@ class Category {
 }
 
 class SubCategory {
-  int _id;
-  String _name;
-  String _slug;
-  String _icon;
-  int _parentId;
-  int _position;
-  String _createdAt;
-  String _updatedAt;
-  List<SubSubCategory> _subSubCategories;
+  late int _id;
+  late String _name;
+  late String _slug;
+  late String _icon;
+  late int _parentId;
+  late int _position;
+  late String _createdAt;
+  late String _updatedAt;
+  late List<SubSubCategory> _subSubCategories;
 
   SubCategory(
-      {int id,
-        String name,
-        String slug,
-        String icon,
-        int parentId,
-        int position,
-        String createdAt,
-        String updatedAt,
-        List<SubSubCategory> subSubCategories}) {
+      {required int id,
+      required String name,
+      required String slug,
+      required String icon,
+      required int parentId,
+      required int position,
+      required String createdAt,
+      required String updatedAt,
+      required List<SubSubCategory> subSubCategories}) {
     this._id = id;
     this._name = name;
     this._slug = slug;
@@ -151,24 +151,24 @@ class SubCategory {
 }
 
 class SubSubCategory {
-  int _id;
-  String _name;
-  String _slug;
-  String _icon;
-  int _parentId;
-  int _position;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late String _name;
+  late String _slug;
+  late String _icon;
+  late int _parentId;
+  late int _position;
+  late String _createdAt;
+  late String _updatedAt;
 
   SubSubCategory(
-      {int id,
-        String name,
-        String slug,
-        String icon,
-        int parentId,
-        int position,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required String name,
+      required String slug,
+      required String icon,
+      required int parentId,
+      required int position,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._name = name;
     this._slug = slug;

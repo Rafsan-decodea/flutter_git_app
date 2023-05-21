@@ -1,32 +1,32 @@
 class CouponModel {
-  int _id;
-  String _couponType;
-  String _title;
-  String _code;
-  String _startDate;
-  String _expireDate;
-  double _minPurchase;
-  double _maxDiscount;
-  double _discount;
-  String _discountType;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late String _couponType;
+  late String _title;
+  late String _code;
+  late String _startDate;
+  late String _expireDate;
+  late double _minPurchase;
+  late double _maxDiscount;
+  late double _discount;
+  late String _discountType;
+  late int _status;
+  late String _createdAt;
+  late String _updatedAt;
 
   CouponModel(
-      {int id,
-        String couponType,
-        String title,
-        String code,
-        String startDate,
-        String expireDate,
-        double minPurchase,
-        double maxDiscount,
-        double discount,
-        String discountType,
-        int status,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required String couponType,
+      required String title,
+      required String code,
+      required String startDate,
+      required String expireDate,
+      required double minPurchase,
+      required double maxDiscount,
+      required double discount,
+      required String discountType,
+      required int status,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._couponType = couponType;
     this._title = title;
@@ -60,9 +60,9 @@ class CouponModel {
     _id = json['id'];
     _couponType = json['coupon_type'];
     _title = json['title'];
-    if(json['code'] != null){
+    if (json['code'] != null) {
       _code = json['code'];
-    }else{
+    } else {
       _code = '';
     }
     _startDate = json['start_date'];

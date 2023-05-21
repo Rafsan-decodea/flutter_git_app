@@ -1,18 +1,18 @@
 class ChosenShippingMethodModel {
-  int _id;
-  String _cartGroupId;
-  int _shippingMethodId;
-  double _shippingCost;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late String _cartGroupId;
+  late int _shippingMethodId;
+  late double _shippingCost;
+  late String _createdAt;
+  late String _updatedAt;
 
   ChosenShippingMethodModel(
-      {int id,
-        String cartGroupId,
-        int shippingMethodId,
-        double shippingCost,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required String cartGroupId,
+      required int shippingMethodId,
+      required double shippingCost,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._cartGroupId = cartGroupId;
     this._shippingMethodId = shippingMethodId;

@@ -1,20 +1,20 @@
 class NotificationModel {
-  int _id;
-  String _title;
-  String _description;
-  String _image;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late String _title;
+  late String _description;
+  late String _image;
+  late int _status;
+  late String _createdAt;
+  late String _updatedAt;
 
   NotificationModel(
-      {int id,
-        String title,
-        String description,
-        String image,
-        int status,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required String title,
+      required String description,
+      required String image,
+      required int status,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._title = title;
     this._description = description;

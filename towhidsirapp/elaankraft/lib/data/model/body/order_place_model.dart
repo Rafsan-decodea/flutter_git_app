@@ -3,8 +3,8 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.da
 
 class OrderPlaceModel {
 
-  String _paymentMethod;
-  double _discount;
+  late final String _paymentMethod;
+ late final double _discount;
 
   OrderPlaceModel(
 

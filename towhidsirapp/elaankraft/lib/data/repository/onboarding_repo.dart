@@ -7,9 +7,9 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/onboarding_model
 import 'package:flutter_sixvalley_ecommerce/localization/language_constrants.dart';
 import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
-class OnBoardingRepo{
+class OnBoardingRepo {
   final DioClient dioClient;
-  OnBoardingRepo({@required this.dioClient});
+  OnBoardingRepo({required this.dioClient});
 
   Future<ApiResponse> getOnBoardingList(BuildContext context) async {
     try {
@@ -31,7 +31,10 @@ class OnBoardingRepo{
         ),
       ];
 
-      Response response = Response(requestOptions: RequestOptions(path: ''), data: onBoardingList,statusCode: 200);
+      Response response = Response(
+          requestOptions: RequestOptions(path: ''),
+          data: onBoardingList,
+          statusCode: 200);
       return ApiResponse.withSuccess(response);
     } catch (e) {
       return ApiResponse.withError(ApiErrorHandler.getMessage(e));

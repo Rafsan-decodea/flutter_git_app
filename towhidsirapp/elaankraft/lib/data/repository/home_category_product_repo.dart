@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class HomeCategoryProductRepo {
   final DioClient dioClient;
-  HomeCategoryProductRepo({@required this.dioClient});
+  HomeCategoryProductRepo({required this.dioClient});
 
   Future<ApiResponse> getHomeCategoryProductList() async {
     try {

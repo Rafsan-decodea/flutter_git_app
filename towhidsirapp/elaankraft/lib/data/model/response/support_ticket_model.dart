@@ -1,26 +1,26 @@
 class SupportTicketModel {
-  int _id;
-  int _customerId;
-  String _subject;
-  String _type;
-  String _priority;
-  String _description;
-  String _reply;
-  String _status;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late int _customerId;
+  late String _subject;
+  late String _type;
+  late String _priority;
+  late String _description;
+  late String _reply;
+  late String _status;
+  late String _createdAt;
+  late String _updatedAt;
 
   SupportTicketModel(
-      {int id,
-        int customerId,
-        String subject,
-        String type,
-        String priority,
-        String description,
-        String reply,
-        String status,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required int customerId,
+      required String subject,
+      required String type,
+      required String priority,
+      required String description,
+      required String reply,
+      required String status,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._customerId = customerId;
     this._subject = subject;

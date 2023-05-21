@@ -6,10 +6,9 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class BrandRepo {
   final DioClient dioClient;
-  BrandRepo({@required this.dioClient});
+  BrandRepo({required this.dioClient});
 
   Future<ApiResponse> getBrandList() async {
-
     try {
       final response = await dioClient.get(AppConstants.BRANDS_URI);
       return ApiResponse.withSuccess(response);

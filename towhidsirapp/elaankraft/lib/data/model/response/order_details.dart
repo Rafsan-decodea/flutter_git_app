@@ -2,52 +2,52 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/product_model.da
 import 'package:flutter_sixvalley_ecommerce/data/model/response/seller_model.dart';
 
 class OrderDetailsModel {
-  int _id;
-  int _orderId;
-  int _productId;
-  int _sellerId;
-  String _digitalFileAfterSell;
-  Product _productDetails;
-  int _qty;
-  double _price;
-  double _tax;
-  String _taxModel;
-  double _discount;
-  String _deliveryStatus;
-  String _paymentStatus;
-  String _createdAt;
-  String _updatedAt;
-  int _shippingMethodId;
-  String _variant;
-  int _refundReq;
-  Seller _seller;
+  late int _id;
+  late int _orderId;
+  late int _productId;
+  late int _sellerId;
+  late String _digitalFileAfterSell;
+  late Product _productDetails;
+  late int _qty;
+  late double _price;
+  late double _tax;
+  late String _taxModel;
+  late double _discount;
+  late String _deliveryStatus;
+  late String _paymentStatus;
+  late String _createdAt;
+  late String _updatedAt;
+  late int _shippingMethodId;
+  late String _variant;
+  late int _refundReq;
+  late Seller _seller;
 
-  OrderDetailsModel(
-      {int id,
-        int orderId,
-        int productId,
-        int sellerId,
-        String digitalFileAfterSell,
-        Product productDetails,
-        int qty,
-        double price,
-        double tax,
-        String taxModel,
-        double discount,
-        String deliveryStatus,
-        String paymentStatus,
-        String createdAt,
-        String updatedAt,
-        int shippingMethodId,
-        String variant,
-        int refundReq,
-        Seller seller,
-      }) {
+  OrderDetailsModel({
+    required int id,
+    required int orderId,
+    required int productId,
+    required int sellerId,
+    required String digitalFileAfterSell,
+    required Product productDetails,
+    required int qty,
+    required double price,
+    required double tax,
+    required String taxModel,
+    required double discount,
+    required String deliveryStatus,
+    required String paymentStatus,
+    required String createdAt,
+    required String updatedAt,
+    required int shippingMethodId,
+    required String variant,
+    required int refundReq,
+    required Seller seller,
+  }) {
     this._id = id;
     this._orderId = orderId;
     this._productId = productId;
     this._sellerId = sellerId;
-    if(digitalFileAfterSell != null){
+    if (digitalFileAfterSell != null) {
       this._digitalFileAfterSell = digitalFileAfterSell;
     }
     this._productDetails = productDetails;
@@ -66,7 +66,6 @@ class OrderDetailsModel {
     if (seller != null) {
       this._seller = seller;
     }
-
   }
 
   int get id => _id;
@@ -94,10 +93,10 @@ class OrderDetailsModel {
     _orderId = json['order_id'];
     _productId = json['product_id'];
     _sellerId = json['seller_id'];
-    if(json['digital_file_after_sell'] != null) {
+    if (json['digital_file_after_sell'] != null) {
       _digitalFileAfterSell = json['digital_file_after_sell'];
     }
-    if(json['product_details'] != null) {
+    if (json['product_details'] != null) {
       _productDetails = Product.fromJson(json['product_details']);
     }
     _qty = json['qty'];
@@ -112,8 +111,8 @@ class OrderDetailsModel {
     _shippingMethodId = json['shipping_method_id'];
     _variant = json['variant'];
     _refundReq = json['refund_request'];
-    _seller = json['seller'] != null ? new Seller.fromJson(json['seller']) : null;
-
+    _seller =
+        (json['seller'] != null ? new Seller.fromJson(json['seller']) : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -123,7 +122,7 @@ class OrderDetailsModel {
     data['product_id'] = this._productId;
     data['seller_id'] = this._sellerId;
     data['digital_file_after_sell'] = this._digitalFileAfterSell;
-    if(this._productDetails != null) {
+    if (this._productDetails != null) {
       data['product_details'] = this._productDetails.toJson();
     }
     data['qty'] = this._qty;
@@ -138,9 +137,7 @@ class OrderDetailsModel {
     data['shipping_method_id'] = this._shippingMethodId;
     data['variant'] = this._variant;
     data['refund_request'] = this._refundReq;
-    if (this._seller != null) {
-      data['seller'] = this._seller.toJson();
-    }
+    data['seller'] = this._seller.toJson();
     return data;
   }
 }

@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class CategoryRepo {
   final DioClient dioClient;
-  CategoryRepo({@required this.dioClient});
+  CategoryRepo({required this.dioClient});
 
   Future<ApiResponse> getCategoryList() async {
     try {

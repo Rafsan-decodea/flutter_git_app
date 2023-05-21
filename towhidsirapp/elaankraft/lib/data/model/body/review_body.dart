@@ -1,18 +1,18 @@
 class ReviewBody {
-  String _productId;
-  String _comment;
-  String _rating;
-  List<String> _fileUpload;
+  late final String _productId;
+  late final String _comment;
+  late final String _rating;
+  late List<String> _fileUpload;
 
-  ReviewBody(
-      {String productId,
-        String comment,
-        String rating,
-        List<String> fileUpload}) {
-    this._productId = productId;
-    this._comment = comment;
+  ReviewBody(this._productId, this._comment, this._rating,
+      {String? productId,
+      String? comment,
+      required String rating,
+      List<String>? fileUpload}) {
+    this._productId = productId!;
+    this._comment = comment!;
     this._rating = rating;
-    this._fileUpload = fileUpload;
+    this._fileUpload = fileUpload!;
   }
 
   String get productId => _productId;

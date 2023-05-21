@@ -1,17 +1,20 @@
 class SocialLoginModel {
-  String token;
-  String uniqueId;
-  String medium;
-  String email;
+  late String token;
+  late String uniqueId;
+  late String medium;
+  late String email;
 
-  SocialLoginModel({this.token, this.uniqueId, this.medium, this.email});
+  SocialLoginModel(
+      {required this.token,
+      required this.uniqueId,
+      required this.medium,
+      required this.email});
 
   SocialLoginModel.fromJson(Map<String, dynamic> json) {
     token = json['token'];
     uniqueId = json['unique_id'];
     medium = json['medium'];
     email = json['email'];
-
   }
 
   Map<String, dynamic> toJson() {

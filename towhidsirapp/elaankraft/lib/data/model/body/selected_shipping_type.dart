@@ -1,8 +1,9 @@
 class SelectedShippingType {
-  int _sellerId;
-  String _selectedShippingType;
+  late final int _sellerId;
+  late final String _selectedShippingType;
 
-  SelectedShippingType({int sellerId, String selectedShippingType}) {
+  SelectedShippingType(this._sellerId, this._selectedShippingType,
+      {required int sellerId, required String selectedShippingType}) {
     if (sellerId != null) {
       this._sellerId = sellerId;
     }

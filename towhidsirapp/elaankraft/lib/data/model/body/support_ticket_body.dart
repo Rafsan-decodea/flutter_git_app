@@ -1,9 +1,10 @@
 class SupportTicketBody {
-  String _type;
-  String _subject;
-  String _description;
+  late final String _type;
+  late final String _subject;
+  late final String _description;
 
-  SupportTicketBody(String type, String subject, String description) {
+  SupportTicketBody(String type, String subject, String description, this._type,
+      this._subject, this._description) {
     this._type = type;
     this._subject = subject;
     this._description = description;

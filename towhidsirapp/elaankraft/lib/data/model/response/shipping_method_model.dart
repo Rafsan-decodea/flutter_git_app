@@ -1,24 +1,24 @@
 class ShippingMethodModel {
-  int id;
-  int creatorId;
-  String creatorType;
-  String title;
-  double cost;
-  String duration;
-  int status;
-  String createdAt;
-  String updatedAt;
+  late int id;
+  late int creatorId;
+  late String creatorType;
+  late String title;
+  late double cost;
+  late String duration;
+  late int status;
+  late String createdAt;
+  late String updatedAt;
 
   ShippingMethodModel(
-      {int id,
-        int creatorId,
-        String creatorType,
-        String title,
-        double cost,
-        String duration,
-        int status,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required int creatorId,
+      required String creatorType,
+      required String title,
+      required double cost,
+      required String duration,
+      required int status,
+      required String createdAt,
+      required String updatedAt}) {
     this.id = id;
     this.creatorId = creatorId;
     this.creatorType = creatorType;
@@ -29,8 +29,6 @@ class ShippingMethodModel {
     this.createdAt = createdAt;
     this.updatedAt = updatedAt;
   }
-
-
 
   ShippingMethodModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];

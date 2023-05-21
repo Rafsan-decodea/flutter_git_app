@@ -1,90 +1,88 @@
 class ConfigModel {
-  int _systemDefaultCurrency;
-  bool _digitalPayment;
-  bool _cod;
-  BaseUrls _baseUrls;
-  StaticUrls _staticUrls;
-  String _aboutUs;
-  String _privacyPolicy;
-  List<Faq> _faq;
-  String _termsConditions;
-  RefundPolicy _refundPolicy;
-  RefundPolicy _returnPolicy;
-  RefundPolicy _cancellationPolicy;
-  List<CurrencyList> _currencyList;
-  String _currencySymbolPosition;
-  bool _maintenanceMode;
-  List<String> _language;
-  List<Colors> _colors;
-  List<String> _unit;
-  String _shippingMethod;
-  String _currencyModel;
-  bool _emailVerification;
-  bool _phoneVerification;
-  String _countryCode;
-  List<SocialLogin> _socialLogin;
-  String _forgetPasswordVerification;
-  Announcement _announcement;
-  String _version;
-  String _businessMode;
-  int _decimalPointSetting;
-  String _inHouseSelectedShippingType;
-  int _billingAddress;
-  int _walletStatus;
-  int _loyaltyPointStatus;
-  int _loyaltyPointExchangeRate;
-  int _loyaltyPointMinimumPoint;
-  String _brandSetting;
-  String _digitalProductSetting;
-  bool _cashOnDelivery;
-  int _deliveryCountryRestriction;
-  int _deliveryZipCodeAreaRestriction;
-  PaymentMethods _paymentMethods;
+  late int _systemDefaultCurrency;
+  late bool _digitalPayment;
+  late bool _cod;
+  late BaseUrls _baseUrls;
+  late StaticUrls _staticUrls;
+  late String _aboutUs;
+  late String _privacyPolicy;
+  late List<Faq> _faq;
+  late String _termsConditions;
+  late RefundPolicy _refundPolicy;
+  late RefundPolicy _returnPolicy;
+  late RefundPolicy _cancellationPolicy;
+  late List<CurrencyList> _currencyList;
+  late String _currencySymbolPosition;
+  late bool _maintenanceMode;
+  late List<String> _language;
+  late List<Colors> _colors;
+  late List<String> _unit;
+  late String _shippingMethod;
+  late String _currencyModel;
+  late bool _emailVerification;
+  late bool _phoneVerification;
+  late String _countryCode;
+  late List<SocialLogin> _socialLogin;
+  late String _forgetPasswordVerification;
+  late Announcement _announcement;
+  late String _version;
+  late String _businessMode;
+  late int _decimalPointSetting;
+  late String _inHouseSelectedShippingType;
+  late int _billingAddress;
+  late int _walletStatus;
+  late int _loyaltyPointStatus;
+  late int _loyaltyPointExchangeRate;
+  late int _loyaltyPointMinimumPoint;
+  late String _brandSetting;
+  late String _digitalProductSetting;
+  late bool _cashOnDelivery;
+  late int _deliveryCountryRestriction;
+  late int _deliveryZipCodeAreaRestriction;
+  late PaymentMethods _paymentMethods;
 
   ConfigModel(
-      {int systemDefaultCurrency,
-        bool digitalPayment,
-        bool cod,
-        BaseUrls baseUrls,
-        StaticUrls staticUrls,
-        String aboutUs,
-        String privacyPolicy,
-        List<Faq> faq,
-        String termsConditions,
-        RefundPolicy refundPolicy,
-        RefundPolicy returnPolicy,
-        RefundPolicy cancellationPolicy,
-        List<CurrencyList> currencyList,
-        String currencySymbolPosition,
-        bool maintenanceMode,
-        List<String> language,
-        List<Colors> colors,
-        List<String> unit,
-        String shippingMethod,
-        String currencyModel,
-        bool emailVerification,
-        bool phoneVerification,
-        String countryCode,
-        List<SocialLogin> socialLogin,
-        String forgetPasswordVerification,
-        Announcement announcement,
-        String version,
-        String businessMode,
-        int decimalPointSetting,
-        String inHouseSelectedShippingType,
-        int billingAddress,
-        int walletStatus,
-        int loyaltyPointStatus,
-        int loyaltyPointExchangeRate,
-        int loyaltyPointMinimumPoint,
-        String brandSetting,
-        String digitalProductSetting,
-        bool cashOnDelivery,
-        int deliveryCountryRestriction,
-        int deliveryZipCodeAreaRestriction,
-        PaymentMethods paymentMethods
-
-      }) {
+      {required int systemDefaultCurrency,
+      required bool digitalPayment,
+      required bool cod,
+      required BaseUrls baseUrls,
+      required StaticUrls staticUrls,
+      required String aboutUs,
+      required String privacyPolicy,
+      required List<Faq> faq,
+      required String termsConditions,
+      required RefundPolicy refundPolicy,
+      required RefundPolicy returnPolicy,
+      required RefundPolicy cancellationPolicy,
+      required List<CurrencyList> currencyList,
+      required String currencySymbolPosition,
+      required bool maintenanceMode,
+      required List<String> language,
+      required List<Colors> colors,
+      required List<String> unit,
+      required String shippingMethod,
+      required String currencyModel,
+      required bool emailVerification,
+      required bool phoneVerification,
+      required String countryCode,
+      required List<SocialLogin> socialLogin,
+      required String forgetPasswordVerification,
+      required Announcement announcement,
+      required String version,
+      required String businessMode,
+      required int decimalPointSetting,
+      required String inHouseSelectedShippingType,
+      required int billingAddress,
+      required int walletStatus,
+      required int loyaltyPointStatus,
+      required int loyaltyPointExchangeRate,
+      required int loyaltyPointMinimumPoint,
+      required String brandSetting,
+      required String digitalProductSetting,
+      required bool cashOnDelivery,
+      required int deliveryCountryRestriction,
+      required int deliveryZipCodeAreaRestriction,
+      required PaymentMethods paymentMethods}) {
     this._systemDefaultCurrency = systemDefaultCurrency;
     this._digitalPayment = digitalPayment;
     this._cod = cod;
@@ -122,38 +120,17 @@ class ConfigModel {
     this._decimalPointSetting = decimalPointSetting;
     this._inHouseSelectedShippingType = inHouseSelectedShippingType;
     this._billingAddress = billingAddress;
-    if (walletStatus != null) {
-      this._walletStatus = walletStatus;
-    }
-    if (loyaltyPointStatus != null) {
-      this._loyaltyPointStatus = loyaltyPointStatus;
-    }
-    if (loyaltyPointExchangeRate != null) {
-      this._loyaltyPointExchangeRate = loyaltyPointExchangeRate;
-    }
-    if (loyaltyPointMinimumPoint != null) {
-      this._loyaltyPointMinimumPoint = loyaltyPointMinimumPoint;
-    }
-    if (brandSetting != null) {
-      this._brandSetting = brandSetting;
-    }
-    if (digitalProductSetting != null) {
-      this._digitalProductSetting = digitalProductSetting;
-    }
+    this._walletStatus = walletStatus;
+    this._loyaltyPointStatus = loyaltyPointStatus;
+    this._loyaltyPointExchangeRate = loyaltyPointExchangeRate;
+    this._loyaltyPointMinimumPoint = loyaltyPointMinimumPoint;
+    this._brandSetting = brandSetting;
+    this._digitalProductSetting = digitalProductSetting;
 
-    if (cashOnDelivery != null) {
-      this._cashOnDelivery = cashOnDelivery;
-    }
-    if (deliveryCountryRestriction != null) {
-      this._deliveryCountryRestriction = deliveryCountryRestriction;
-    }
-    if (deliveryZipCodeAreaRestriction != null) {
-      this._deliveryZipCodeAreaRestriction = deliveryZipCodeAreaRestriction;
-    }
-    if (paymentMethods != null) {
-      this._paymentMethods = paymentMethods;
-    }
-
+    this._cashOnDelivery = cashOnDelivery;
+    this._deliveryCountryRestriction = deliveryCountryRestriction;
+    this._deliveryZipCodeAreaRestriction = deliveryZipCodeAreaRestriction;
+    this._paymentMethods = paymentMethods;
   }
 
   int get systemDefaultCurrency => _systemDefaultCurrency;
@@ -178,7 +155,7 @@ class ConfigModel {
   String get currencyModel => _currencyModel;
   bool get emailVerification => _emailVerification;
   bool get phoneVerification => _phoneVerification;
-  String get countryCode =>_countryCode;
+  String get countryCode => _countryCode;
   List<SocialLogin> get socialLogin => _socialLogin;
   String get forgetPasswordVerification => _forgetPasswordVerification;
   Announcement get announcement => _announcement;
@@ -198,32 +175,38 @@ class ConfigModel {
   int get deliveryZipCodeAreaRestriction => _deliveryZipCodeAreaRestriction;
   PaymentMethods get paymentMethods => _paymentMethods;
 
-
-
   ConfigModel.fromJson(Map<String, dynamic> json) {
     _systemDefaultCurrency = json['system_default_currency'];
     _digitalPayment = json['digital_payment'];
     _cod = json['cash_on_delivery'];
-    _baseUrls = json['base_urls'] != null
+    _baseUrls = (json['base_urls'] != null
         ? new BaseUrls.fromJson(json['base_urls'])
-        : null;
-    _staticUrls = json['static_urls'] != null
+        : null)!;
+    _staticUrls = (json['static_urls'] != null
         ? new StaticUrls.fromJson(json['static_urls'])
-        : null;
+        : null)!;
     _aboutUs = json['about_us'];
     _privacyPolicy = json['privacy_policy'];
     if (json['faq'] != null) {
       _faq = [];
-      json['faq'].forEach((v) {_faq.add(new Faq.fromJson(v));
+      json['faq'].forEach((v) {
+        _faq.add(new Faq.fromJson(v));
       });
     }
     _termsConditions = json['terms_&_conditions'];
-    _refundPolicy = json['refund_policy'] != null ? new RefundPolicy.fromJson(json['refund_policy']) : null;
-    _returnPolicy = json['return_policy'] != null ? new RefundPolicy.fromJson(json['return_policy']) : null;
-    _cancellationPolicy = json['cancellation_policy'] != null ? new RefundPolicy.fromJson(json['cancellation_policy']) : null;
+    _refundPolicy = (json['refund_policy'] != null
+        ? new RefundPolicy.fromJson(json['refund_policy'])
+        : null)!;
+    _returnPolicy = (json['return_policy'] != null
+        ? new RefundPolicy.fromJson(json['return_policy'])
+        : null)!;
+    _cancellationPolicy = (json['cancellation_policy'] != null
+        ? new RefundPolicy.fromJson(json['cancellation_policy'])
+        : null)!;
     if (json['currency_list'] != null) {
       _currencyList = [];
-      json['currency_list'].forEach((v) {_currencyList.add(new CurrencyList.fromJson(v));
+      json['currency_list'].forEach((v) {
+        _currencyList.add(new CurrencyList.fromJson(v));
       });
     }
     _currencySymbolPosition = json['currency_symbol_position'];
@@ -231,7 +214,8 @@ class ConfigModel {
     _language = json['language'].cast<String>();
     if (json['colors'] != null) {
       _colors = [];
-      json['colors'].forEach((v) {_colors.add(new Colors.fromJson(v));
+      json['colors'].forEach((v) {
+        _colors.add(new Colors.fromJson(v));
       });
     }
 
@@ -243,54 +227,59 @@ class ConfigModel {
     _countryCode = json['country_code'];
     if (json['social_login'] != null) {
       _socialLogin = [];
-      json['social_login'].forEach((v) { _socialLogin.add(new SocialLogin.fromJson(v)); });
+      json['social_login'].forEach((v) {
+        _socialLogin.add(new SocialLogin.fromJson(v));
+      });
     }
     _forgetPasswordVerification = json['forgot_password_verification'];
-    _announcement = json['announcement'] != null
+    _announcement = (json['announcement'] != null
         ? new Announcement.fromJson(json['announcement'])
-        : null;
+        : null)!;
 
-    if(json['software_version'] != null){
+    if (json['software_version'] != null) {
       _version = json['software_version'];
     }
-    if(json['business_mode'] != null){
+    if (json['business_mode'] != null) {
       _businessMode = json['business_mode'];
     }
-    if(json['decimal_point_settings'] != null && json['decimal_point_settings'] != "" ){
-      _decimalPointSetting = int.parse(json['decimal_point_settings'].toString());
+    if (json['decimal_point_settings'] != null &&
+        json['decimal_point_settings'] != "") {
+      _decimalPointSetting =
+          int.parse(json['decimal_point_settings'].toString());
     }
-    if(json['inhouse_selected_shipping_type'] != null){
-      _inHouseSelectedShippingType = json['inhouse_selected_shipping_type'].toString();
-    }else{
+    if (json['inhouse_selected_shipping_type'] != null) {
+      _inHouseSelectedShippingType =
+          json['inhouse_selected_shipping_type'].toString();
+    } else {
       _inHouseSelectedShippingType = 'order_wise';
     }
-    if(json['billing_input_by_customer']!=null){
-      try{
+    if (json['billing_input_by_customer'] != null) {
+      try {
         _billingAddress = json['billing_input_by_customer'];
-      }catch(e){
-        _billingAddress = int.parse(json['billing_input_by_customer'].toString());
+      } catch (e) {
+        _billingAddress =
+            int.parse(json['billing_input_by_customer'].toString());
       }
-
     }
 
     _walletStatus = json['wallet_status'];
     _loyaltyPointStatus = json['loyalty_point_status'];
 
-
-    if(json['loyalty_point_exchange_rate'] != null){
-      try{
+    if (json['loyalty_point_exchange_rate'] != null) {
+      try {
         _loyaltyPointExchangeRate = json['loyalty_point_exchange_rate'];
-      }catch(e){
-        _loyaltyPointExchangeRate = int.parse(json['loyalty_point_exchange_rate'].toString());
-
+      } catch (e) {
+        _loyaltyPointExchangeRate =
+            int.parse(json['loyalty_point_exchange_rate'].toString());
       }
     }
 
-    if(json['loyalty_point_minimum_point'] != null){
-      try{
+    if (json['loyalty_point_minimum_point'] != null) {
+      try {
         _loyaltyPointMinimumPoint = json['loyalty_point_minimum_point'];
-      }catch(e){
-        _loyaltyPointMinimumPoint = int.parse(json['loyalty_point_minimum_point'].toString());
+      } catch (e) {
+        _loyaltyPointMinimumPoint =
+            int.parse(json['loyalty_point_minimum_point'].toString());
       }
     }
 
@@ -298,26 +287,22 @@ class ConfigModel {
     _digitalProductSetting = json['digital_product_setting'];
     _cashOnDelivery = json['cash_on_delivery'];
 
-
-
-    if(json['delivery_country_restriction'] != null){
-      _deliveryCountryRestriction = int.parse(json['delivery_country_restriction'].toString());
-    }else{
+    if (json['delivery_country_restriction'] != null) {
+      _deliveryCountryRestriction =
+          int.parse(json['delivery_country_restriction'].toString());
+    } else {
       _deliveryCountryRestriction = 0;
     }
-    if(json['delivery_zip_code_area_restriction'] != null){
-      _deliveryZipCodeAreaRestriction = int.parse(json['delivery_zip_code_area_restriction'].toString());
-    }else{
+    if (json['delivery_zip_code_area_restriction'] != null) {
+      _deliveryZipCodeAreaRestriction =
+          int.parse(json['delivery_zip_code_area_restriction'].toString());
+    } else {
       _deliveryZipCodeAreaRestriction = 0;
     }
 
-    _paymentMethods = json['payment_methods'] != null
+    _paymentMethods = (json['payment_methods'] != null
         ? new PaymentMethods.fromJson(json['payment_methods'])
-        : null;
-
-
-
-
+        : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -353,34 +338,20 @@ class ConfigModel {
     data['currency_symbol_position'] = this._currencySymbolPosition;
     data['maintenance_mode'] = this._maintenanceMode;
     data['language'] = this._language;
-    if (this._colors != null) {
-      data['colors'] = this._colors.map((v) => v.toJson()).toList();
-    }
+    data['colors'] = this._colors.map((v) => v.toJson()).toList();
     data['unit'] = this._unit;
     data['shipping_method'] = this._shippingMethod;
     data['currency_model'] = this._currencyModel;
     data['email_verification'] = this._emailVerification;
     data['phone_verification'] = this._phoneVerification;
     data['country_code'] = this._countryCode;
-    if (this._socialLogin != null) {
-      data['social_login'] = this._socialLogin.map((v) => v.toJson()).toList();
-    }
+    data['social_login'] = this._socialLogin.map((v) => v.toJson()).toList();
     data['forgot_password_verification'] = this._forgetPasswordVerification;
-    if (this._announcement != null) {
-      data['announcement'] = this._announcement.toJson();
-    }
-    if (this._version != null) {
-      data['software_version'] = this._version;
-    }
-    if (this._businessMode != null) {
-      data['business_mode'] = this._businessMode;
-    }
-    if (this._decimalPointSetting != null) {
-      data['decimal_point_settings'] = this._decimalPointSetting;
-    }
-    if (this._inHouseSelectedShippingType != null) {
-      data['inhouse_selected_shipping_type'] = this._inHouseSelectedShippingType;
-    }
+    data['announcement'] = this._announcement.toJson();
+    data['software_version'] = this._version;
+    data['business_mode'] = this._businessMode;
+    data['decimal_point_settings'] = this._decimalPointSetting;
+    data['inhouse_selected_shipping_type'] = this._inHouseSelectedShippingType;
     data['wallet_status'] = this._walletStatus;
     data['loyalty_point_status'] = this._loyaltyPointStatus;
     data['loyalty_point_exchange_rate'] = this._loyaltyPointExchangeRate;
@@ -389,7 +360,8 @@ class ConfigModel {
     data['digital_product_setting'] = this._digitalProductSetting;
     data['cash_on_delivery'] = this._cashOnDelivery;
     data['delivery_country_restriction'] = this._deliveryCountryRestriction;
-    data['delivery_zip_code_area_restriction'] = this._deliveryZipCodeAreaRestriction;
+    data['delivery_zip_code_area_restriction'] =
+        this._deliveryZipCodeAreaRestriction;
     if (this._paymentMethods != null) {
       data['payment_methods'] = this._paymentMethods.toJson();
     }
@@ -398,33 +370,33 @@ class ConfigModel {
 }
 
 class BaseUrls {
-  String _productImageUrl;
-  String _productThumbnailUrl;
-  String _brandImageUrl;
-  String _customerImageUrl;
-  String _bannerImageUrl;
-  String _categoryImageUrl;
-  String _reviewImageUrl;
-  String _sellerImageUrl;
-  String _shopImageUrl;
-  String _notificationImageUrl;
-  String _digitalProductUrl;
-  String _deliveryManImage;
+  late String _productImageUrl;
+  late String _productThumbnailUrl;
+  late String _brandImageUrl;
+  late String _customerImageUrl;
+  late String _bannerImageUrl;
+  late String _categoryImageUrl;
+  late String _reviewImageUrl;
+  late String _sellerImageUrl;
+  late String _shopImageUrl;
+  late String _notificationImageUrl;
+  late String _digitalProductUrl;
+  late String _deliveryManImage;
 
-  BaseUrls(
-      {String productImageUrl,
-        String productThumbnailUrl,
-        String brandImageUrl,
-        String customerImageUrl,
-        String bannerImageUrl,
-        String categoryImageUrl,
-        String reviewImageUrl,
-        String sellerImageUrl,
-        String shopImageUrl,
-        String notificationImageUrl,
-        String digitalProductUrl,
-        String deliveryManImage,
-      }) {
+  BaseUrls({
+    required String productImageUrl,
+    required String productThumbnailUrl,
+    required String brandImageUrl,
+    required String customerImageUrl,
+    required String bannerImageUrl,
+    required String categoryImageUrl,
+    required String reviewImageUrl,
+    required String sellerImageUrl,
+    required String shopImageUrl,
+    required String notificationImageUrl,
+    required String digitalProductUrl,
+    required String deliveryManImage,
+  }) {
     this._productImageUrl = productImageUrl;
     this._productThumbnailUrl = productThumbnailUrl;
     this._brandImageUrl = brandImageUrl;
@@ -453,7 +425,6 @@ class BaseUrls {
   String get notificationImageUrl => _notificationImageUrl;
   String get digitalProductUrl => _digitalProductUrl;
   String get deliveryManImage => _deliveryManImage;
-
 
   BaseUrls.fromJson(Map<String, dynamic> json) {
     _productImageUrl = json['product_image_url'];
@@ -489,16 +460,16 @@ class BaseUrls {
 }
 
 class StaticUrls {
-  String _contactUs;
-  String _brands;
-  String _categories;
-  String _customerAccount;
+  late String _contactUs;
+  late String _brands;
+  late String _categories;
+  late String _customerAccount;
 
   StaticUrls(
-      {String contactUs,
-        String brands,
-        String categories,
-        String customerAccount}) {
+      {required String contactUs,
+      required String brands,
+      required String categories,
+      required String customerAccount}) {
     this._contactUs = contactUs;
     this._brands = brands;
     this._categories = categories;
@@ -509,7 +480,6 @@ class StaticUrls {
   String get brands => _brands;
   String get categories => _categories;
   String get customerAccount => _customerAccount;
-
 
   StaticUrls.fromJson(Map<String, dynamic> json) {
     _contactUs = json['contact_us'];
@@ -529,10 +499,10 @@ class StaticUrls {
 }
 
 class SocialLogin {
-  String _loginMedium;
-  bool _status;
+  late String _loginMedium;
+  late bool _status;
 
-  SocialLogin({String loginMedium, bool status}) {
+  SocialLogin({required String loginMedium, required bool status}) {
     this._loginMedium = loginMedium;
     this._status = status;
   }
@@ -554,22 +524,22 @@ class SocialLogin {
 }
 
 class Faq {
-  int _id;
-  String _question;
-  String _answer;
-  int _ranking;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late String _question;
+  late String _answer;
+  late int _ranking;
+  late int _status;
+  late String _createdAt;
+  late String _updatedAt;
 
   Faq(
-      {int id,
-        String question,
-        String answer,
-        int ranking,
-        int status,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required String question,
+      required String answer,
+      required int ranking,
+      required int status,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._question = question;
     this._answer = answer;
@@ -586,7 +556,6 @@ class Faq {
   int get status => _status;
   String get createdAt => _createdAt;
   String get updatedAt => _updatedAt;
-
 
   Faq.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
@@ -612,24 +581,24 @@ class Faq {
 }
 
 class CurrencyList {
-  int _id;
-  String _name;
-  String _symbol;
-  String _code;
-  double _exchangeRate;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late String _name;
+  late String _symbol;
+  late String _code;
+  late double _exchangeRate;
+  late int _status;
+  late String _createdAt;
+  late String _updatedAt;
 
   CurrencyList(
-      {int id,
-        String name,
-        String symbol,
-        String code,
-        double exchangeRate,
-        int status,
-        String createdAt,
-        String updatedAt}) {
+      {required int id,
+      required String name,
+      required String symbol,
+      required String code,
+      required double exchangeRate,
+      required int status,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._name = name;
     this._symbol = symbol;
@@ -648,7 +617,6 @@ class CurrencyList {
   int get status => _status;
   String get createdAt => _createdAt;
   String get updatedAt => _updatedAt;
-
 
   CurrencyList.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
@@ -676,14 +644,18 @@ class CurrencyList {
 }
 
 class Colors {
-  int _id;
-  String _name;
-  String _code;
-  String _createdAt;
-  String _updatedAt;
+  late int _id;
+  late String _name;
+  late String _code;
+  late String _createdAt;
+  late String _updatedAt;
 
   Colors(
-      {int id, String name, String code, String createdAt, String updatedAt}) {
+      {required int id,
+      required String name,
+      required String code,
+      required String createdAt,
+      required String updatedAt}) {
     this._id = id;
     this._name = name;
     this._code = code;
@@ -696,7 +668,6 @@ class Colors {
   String get code => _code;
   String get createdAt => _createdAt;
   String get updatedAt => _updatedAt;
-
 
   Colors.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
@@ -716,25 +687,22 @@ class Colors {
     return data;
   }
 }
-class Announcement {
-  String _status;
-  String _color;
-  String _textColor;
-  String _announcement;
 
-  Announcement({String status, String color,String textColor, String announcement}) {
-    if (status != null) {
-      this._status = status;
-    }
-    if (color != null) {
-      this._color = color;
-    }
-    if (textColor != null) {
-      this._textColor = textColor;
-    }
-    if (announcement != null) {
-      this._announcement = announcement;
-    }
+class Announcement {
+  late String _status;
+  late String _color;
+  late String _textColor;
+  late String _announcement;
+
+  Announcement(
+      {required String status,
+      required String color,
+      required String textColor,
+      required String announcement}) {
+    this._status = status;
+    this._color = color;
+    this._textColor = textColor;
+    this._announcement = announcement;
   }
 
   String get status => _status;
@@ -759,21 +727,16 @@ class Announcement {
 }
 
 class RefundPolicy {
-  int _status;
-  String _content;
+  late int _status;
+  late String _content;
 
-  RefundPolicy({int status, String content}) {
-    if (status != null) {
-      this._status = status;
-    }
-    if (content != null) {
-      this._content = content;
-    }
+  RefundPolicy({required int status, required String content}) {
+    this._status = status;
+    this._content = content;
   }
 
   int get status => _status;
   String get content => _content;
-
 
   RefundPolicy.fromJson(Map<String, dynamic> json) {
     _status = json['status'];
@@ -788,89 +751,55 @@ class RefundPolicy {
   }
 }
 
-
 class PaymentMethods {
-  bool _offlinePayment;
-  bool _sslCommerzPayment;
-  bool _paypal;
-  bool _stripe;
-  bool _razorPay;
-  bool _senangPay;
-  bool _paytabs;
-  bool _paystack;
-  bool _paymobAccept;
-  bool _fawryPay;
-  bool _mercadopago;
-  bool _liqpay;
-  bool _flutterwave;
-  bool _paytm;
-  bool _bkash;
+  late bool _offlinePayment;
+  late bool _sslCommerzPayment;
+  late bool _paypal;
+  late bool _stripe;
+  late bool _razorPay;
+  late bool _senangPay;
+  late bool _paytabs;
+  late bool _paystack;
+  late bool _paymobAccept;
+  late bool _fawryPay;
+  late bool _mercadopago;
+  late bool _liqpay;
+  late bool _flutterwave;
+  late bool _paytm;
+  late bool _bkash;
 
   PaymentMethods(
-      {
-        bool offlinePayment,
-        bool sslCommerzPayment,
-        bool paypal,
-        bool stripe,
-        bool razorPay,
-        bool senangPay,
-        bool paytabs,
-        bool paystack,
-        bool paymobAccept,
-        bool fawryPay,
-        bool mercadopago,
-        bool liqpay,
-        bool flutterwave,
-        bool paytm,
-        bool bkash}) {
-
-    if (offlinePayment != null) {
-      this._offlinePayment = offlinePayment;
-    }
-    if (sslCommerzPayment != null) {
-      this._sslCommerzPayment = sslCommerzPayment;
-    }
-    if (paypal != null) {
-      this._paypal = paypal;
-    }
-    if (stripe != null) {
-      this._stripe = stripe;
-    }
-    if (razorPay != null) {
-      this._razorPay = razorPay;
-    }
-    if (senangPay != null) {
-      this._senangPay = senangPay;
-    }
-    if (paytabs != null) {
-      this._paytabs = paytabs;
-    }
-    if (paystack != null) {
-      this._paystack = paystack;
-    }
-    if (paymobAccept != null) {
-      this._paymobAccept = paymobAccept;
-    }
-    if (fawryPay != null) {
-      this._fawryPay = fawryPay;
-    }
-    if (mercadopago != null) {
-      this._mercadopago = mercadopago;
-    }
-    if (liqpay != null) {
-      this._liqpay = liqpay;
-    }
-    if (flutterwave != null) {
-      this._flutterwave = flutterwave;
-    }
-    if (paytm != null) {
-      this._paytm = paytm;
-    }
-    if (bkash != null) {
-      this._bkash = bkash;
-    }
+      {required bool offlinePayment,
+      required bool sslCommerzPayment,
+      required bool paypal,
+      required bool stripe,
+      required bool razorPay,
+      required bool senangPay,
+      required bool paytabs,
+      required bool paystack,
+      required bool paymobAccept,
+      required bool fawryPay,
+      required bool mercadopago,
+      required bool liqpay,
+      required bool flutterwave,
+      required bool paytm,
+      required bool bkash}) {
+    this._offlinePayment = offlinePayment;
+    this._sslCommerzPayment = sslCommerzPayment;
+    this._paypal = paypal;
+    this._stripe = stripe;
+    this._razorPay = razorPay;
+    this._senangPay = senangPay;
+    this._paytabs = paytabs;
+    this._paystack = paystack;
+    this._paymobAccept = paymobAccept;
+    this._fawryPay = fawryPay;
+    this._mercadopago = mercadopago;
+    this._liqpay = liqpay;
+    this._flutterwave = flutterwave;
+    this._paytm = paytm;
+    this._bkash = bkash;
   }
-
 
   bool get offlinePayment => _offlinePayment;
   bool get sslCommerzPayment => _sslCommerzPayment;

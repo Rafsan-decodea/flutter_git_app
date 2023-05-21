@@ -1,26 +1,26 @@
 class ReviewModel {
-  int _id;
-  int _productId;
-  int _customerId;
-  String _comment;
-  List<String> _attachment;
-  int _rating;
-  int _status;
-  String _createdAt;
-  String _updatedAt;
-  Customer _customer;
+  late int _id;
+  late int _productId;
+  late int _customerId;
+  late String _comment;
+  late List<String> _attachment;
+  late int _rating;
+  late int _status;
+  late String _createdAt;
+  late String _updatedAt;
+  late Customer _customer;
 
   ReviewModel(
-      {int id,
-        int productId,
-        int customerId,
-        String comment,
-        List<String> attachment,
-        int rating,
-        int status,
-        String createdAt,
-        String updatedAt,
-        Customer customer}) {
+      {required int id,
+      required int productId,
+      required int customerId,
+      required String comment,
+      required List<String> attachment,
+      required int rating,
+      required int status,
+      required String createdAt,
+      required String updatedAt,
+      required Customer customer}) {
     this._id = id;
     this._productId = productId;
     this._customerId = customerId;
@@ -49,7 +49,7 @@ class ReviewModel {
     _productId = json['product_id'];
     _customerId = json['customer_id'];
     _comment = json['comment'];
-    if(json['attachment'] != null){
+    if (json['attachment'] != null) {
       _attachment = json['attachment'].cast<String>();
     }
 
@@ -57,9 +57,9 @@ class ReviewModel {
     _status = json['status'];
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
-    _customer = json['customer'] != null
+    _customer = (json['customer'] != null
         ? new Customer.fromJson(json['customer'])
-        : null;
+        : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -68,55 +68,51 @@ class ReviewModel {
     data['product_id'] = this._productId;
     data['customer_id'] = this._customerId;
     data['comment'] = this._comment;
-    if (this._customer != null) {
-      data['customer'] = this._customer.toJson();
-    }
+    data['customer'] = this._customer.toJson();
     data['rating'] = this._rating;
     data['status'] = this._status;
     data['created_at'] = this._createdAt;
     data['updated_at'] = this._updatedAt;
-    if (this._customer != null) {
-      data['customer'] = this._customer.toJson();
-    }
+    data['customer'] = this._customer.toJson();
     return data;
   }
 }
 
 class Customer {
-  int _id;
-  String _name;
-  String _fName;
-  String _lName;
-  String _phone;
-  String _image;
-  String _email;
-  String _emailVerifiedAt;
-  String _createdAt;
-  String _updatedAt;
-  String _streetAddress;
-  String _country;
-  String _city;
-  String _zip;
-  String _houseNo;
-  String _apartmentNo;
+  late int _id;
+  late String _name;
+  late String _fName;
+  late String _lName;
+  late String _phone;
+  late String _image;
+  late String _email;
+  late String _emailVerifiedAt;
+  late String _createdAt;
+  late String _updatedAt;
+  late String _streetAddress;
+  late String _country;
+  late String _city;
+  late String _zip;
+  late String _houseNo;
+  late String _apartmentNo;
 
   Customer(
-      {int id,
-        String name,
-        String fName,
-        String lName,
-        String phone,
-        String image,
-        String email,
-        String emailVerifiedAt,
-        String createdAt,
-        String updatedAt,
-        String streetAddress,
-        String country,
-        String city,
-        String zip,
-        String houseNo,
-        String apartmentNo}) {
+      {required int id,
+      required String name,
+      required String fName,
+      required String lName,
+      required String phone,
+      required String image,
+      required String email,
+      required String emailVerifiedAt,
+      required String createdAt,
+      required String updatedAt,
+      required String streetAddress,
+      required String country,
+      required String city,
+      required String zip,
+      required String houseNo,
+      required String apartmentNo}) {
     this._id = id;
     this._name = name;
     this._fName = fName;

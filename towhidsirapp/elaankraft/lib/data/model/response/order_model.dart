@@ -1,60 +1,58 @@
 class OrderModel {
-  int _id;
-  int _customerId;
-  String _customerType;
-  String _paymentStatus;
-  String _orderStatus;
-  String _paymentMethod;
-  String _transactionRef;
-  double _orderAmount;
-  int _shippingAddress;
-  int _billingAddress;
-  ShippingAddressData _shippingAddressData;
-  BillingAddressData _billingAddressData;
-  int _sellerId;
-  int _shippingMethodId;
-  double _shippingCost;
-  String _createdAt;
-  String _updatedAt;
-  double _discountAmount;
-  String _discountType;
-  String _orderNote;
-  String _orderType;
-  double _extraDiscount;
-  String _extraDiscountType;
-  String _thirdPartyServiceName;
-  String _thirdPartyTrackingId;
-  DeliveryMan _deliveryMan;
-
+  late int _id;
+  late int _customerId;
+  late String _customerType;
+  late String _paymentStatus;
+  late String _orderStatus;
+  late String _paymentMethod;
+  late String _transactionRef;
+  late double _orderAmount;
+  late int _shippingAddress;
+  late int _billingAddress;
+  late ShippingAddressData _shippingAddressData;
+  late BillingAddressData _billingAddressData;
+  late int _sellerId;
+  late int _shippingMethodId;
+  late double _shippingCost;
+  late String _createdAt;
+  late String _updatedAt;
+  late double _discountAmount;
+  late String _discountType;
+  late String _orderNote;
+  late String _orderType;
+  late double _extraDiscount;
+  late String _extraDiscountType;
+  late String _thirdPartyServiceName;
+  late String _thirdPartyTrackingId;
+  late DeliveryMan _deliveryMan;
 
   OrderModel(
-      {int id,
-        int customerId,
-        String customerType,
-        String paymentStatus,
-        String orderStatus,
-        String paymentMethod,
-        String transactionRef,
-        double orderAmount,
-        int shippingAddress,
-        int billingAddress,
-        ShippingAddressData shippingAddressData,
-        BillingAddressData billingAddressData,
-        int sellerId,
-        int shippingMethodId,
-        double shippingCost,
-        String createdAt,
-        String updatedAt,
-        double discountAmount,
-        String discountType,
-        String orderNote,
-        String orderType,
-        double extraDiscount,
-        String extraDiscountType,
-        String thirdPartyServiceNam,
-        String thirdPartyTrackingId,
-        DeliveryMan deliveryMan
-      }) {
+      {required int id,
+      required int customerId,
+      required String customerType,
+      required String paymentStatus,
+      required String orderStatus,
+      required String paymentMethod,
+      required String transactionRef,
+      required double orderAmount,
+      required int shippingAddress,
+      required int billingAddress,
+      required ShippingAddressData shippingAddressData,
+      required BillingAddressData billingAddressData,
+      required int sellerId,
+      required int shippingMethodId,
+      required double shippingCost,
+      required String createdAt,
+      required String updatedAt,
+      required double discountAmount,
+      required String discountType,
+      required String orderNote,
+      required String orderType,
+      required double extraDiscount,
+      required String extraDiscountType,
+      required String thirdPartyServiceNam,
+      required String thirdPartyTrackingId,
+      required DeliveryMan deliveryMan}) {
     this._id = id;
     this._customerId = customerId;
     this._customerType = customerType;
@@ -64,9 +62,7 @@ class OrderModel {
     this._transactionRef = transactionRef;
     this._orderAmount = orderAmount;
     this._shippingAddress = shippingAddress;
-    if (shippingAddressData != null) {
-      this._shippingAddressData = shippingAddressData;
-    }
+    this._shippingAddressData = shippingAddressData;
     this._billingAddress = billingAddress;
     this._billingAddressData = billingAddressData;
     this._sellerId = sellerId;
@@ -78,22 +74,11 @@ class OrderModel {
     this._discountType = discountType;
     this._orderNote = orderNote;
     this._orderType = orderType;
-    if (extraDiscount != null) {
-      this._extraDiscount = extraDiscount;
-    }
-    if (extraDiscountType != null) {
-      this._extraDiscountType = extraDiscountType;
-    }
-    if (thirdPartyServiceNam != null) {
-      this._thirdPartyServiceName = thirdPartyServiceNam;
-    }
-    if (thirdPartyTrackingId != null) {
-      this._thirdPartyTrackingId = thirdPartyTrackingId;
-    }
-    if (deliveryMan != null) {
-      this._deliveryMan = deliveryMan;
-    }
-
+    this._extraDiscount = extraDiscount;
+    this._extraDiscountType = extraDiscountType;
+    this._thirdPartyServiceName = thirdPartyServiceNam;
+    this._thirdPartyTrackingId = thirdPartyTrackingId;
+    this._deliveryMan = deliveryMan;
   }
 
   int get id => _id;
@@ -119,8 +104,8 @@ class OrderModel {
   String get orderType => _orderType;
   double get extraDiscount => _extraDiscount;
   String get extraDiscountType => _extraDiscountType;
-  String get  thirdPartyServiceName => _thirdPartyServiceName;
-  String get  thirdPartyTrackingId => _thirdPartyTrackingId;
+  String get thirdPartyServiceName => _thirdPartyServiceName;
+  String get thirdPartyTrackingId => _thirdPartyTrackingId;
   DeliveryMan get deliveryMan => _deliveryMan;
 
   OrderModel.fromJson(Map<String, dynamic> json) {
@@ -133,20 +118,20 @@ class OrderModel {
     _transactionRef = json['transaction_ref'];
     _orderAmount = json['order_amount'].toDouble();
     _shippingAddress = json['shipping_address'];
-    _shippingAddressData = json['shipping_address_data'] != null
+    _shippingAddressData = (json['shipping_address_data'] != null
         ? new ShippingAddressData.fromJson(json['shipping_address_data'])
-        : null;
+        : null)!;
     _billingAddress = json['billing_address'];
-    _billingAddressData = json['billing_address_data'] != null
+    _billingAddressData = (json['billing_address_data'] != null
         ? new BillingAddressData.fromJson(json['billing_address_data'])
-        : null;
+        : null)!;
 
-    if(json['seller_id'] !=null && json['seller_id'] != ''){
+    if (json['seller_id'] != null && json['seller_id'] != '') {
       _sellerId = json['seller_id'];
     }
     _shippingMethodId = int.parse(json['shipping_method_id'].toString());
     _shippingCost = double.parse(json['shipping_cost'].toString());
-    if(json['created_at'] != null){
+    if (json['created_at'] != null) {
       _createdAt = json['created_at'];
     }
     _updatedAt = json['updated_at'];
@@ -156,15 +141,17 @@ class OrderModel {
     _orderType = json['order_type'];
     _extraDiscount = json['extra_discount'].toDouble();
     _extraDiscountType = json['extra_discount_type'];
-    if(json['delivery_service_name']!=null && json['delivery_service_name']!= ""){
+    if (json['delivery_service_name'] != null &&
+        json['delivery_service_name'] != "") {
       _thirdPartyServiceName = json['delivery_service_name'];
     }
-    if(json['third_party_delivery_tracking_id']!=null && json['third_party_delivery_tracking_id']!= ""){
+    if (json['third_party_delivery_tracking_id'] != null &&
+        json['third_party_delivery_tracking_id'] != "") {
       _thirdPartyTrackingId = json['third_party_delivery_tracking_id'];
     }
-    _deliveryMan = json['delivery_man'] != null
+    _deliveryMan = (json['delivery_man'] != null
         ? new DeliveryMan.fromJson(json['delivery_man'])
-        : null;
+        : null)!;
   }
 
   Map<String, dynamic> toJson() {
@@ -205,37 +192,38 @@ class OrderModel {
     return data;
   }
 }
+
 class BillingAddressData {
-  int id;
-  int customerId;
-  String contactPersonName;
-  String addressType;
-  String address;
-  String city;
-  String zip;
-  String phone;
-  String createdAt;
-  String updatedAt;
-  String country;
-  String latitude;
-  String longitude;
-  int isBilling;
+  late int id;
+  late int customerId;
+  late String contactPersonName;
+  late String addressType;
+  late String address;
+  late String city;
+  late String zip;
+  late String phone;
+  late String createdAt;
+  late String updatedAt;
+  late String country;
+  late String latitude;
+  late String longitude;
+  late int isBilling;
 
   BillingAddressData(
-      {this.id,
-        this.customerId,
-        this.contactPersonName,
-        this.addressType,
-        this.address,
-        this.city,
-        this.zip,
-        this.phone,
-        this.createdAt,
-        this.updatedAt,
-        this.country,
-        this.latitude,
-        this.longitude,
-        this.isBilling});
+      {required this.id,
+      required this.customerId,
+      required this.contactPersonName,
+      required this.addressType,
+      required this.address,
+      required this.city,
+      required this.zip,
+      required this.phone,
+      required this.createdAt,
+      required this.updatedAt,
+      required this.country,
+      required this.latitude,
+      required this.longitude,
+      required this.isBilling});
 
   BillingAddressData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -275,65 +263,43 @@ class BillingAddressData {
 }
 
 class ShippingAddressData {
-  int _id;
-  int _customerId;
-  String _contactPersonName;
-  String _addressType;
-  String _address;
-  String _city;
-  String _zip;
-  String _phone;
-  String _createdAt;
-  String _updatedAt;
-  String _country;
+  late int _id;
+  late int _customerId;
+  late String _contactPersonName;
+  late String _addressType;
+  late String _address;
+  late String _city;
+  late String _zip;
+  late String _phone;
+  late String _createdAt;
+  late String _updatedAt;
+  late String _country;
 
   ShippingAddressData(
-      {int id,
-        int customerId,
-        String contactPersonName,
-        String addressType,
-        String address,
-        String city,
-        String zip,
-        String phone,
-        String createdAt,
-        String updatedAt,
-        Null state,
-        String country}) {
-    if (id != null) {
-      this._id = id;
-    }
-    if (customerId != null) {
-      this._customerId = customerId;
-    }
-    if (contactPersonName != null) {
-      this._contactPersonName = contactPersonName;
-    }
-    if (addressType != null) {
-      this._addressType = addressType;
-    }
-    if (address != null) {
-      this._address = address;
-    }
-    if (city != null) {
-      this._city = city;
-    }
-    if (zip != null) {
-      this._zip = zip;
-    }
-    if (phone != null) {
-      this._phone = phone;
-    }
-    if (createdAt != null) {
-      this._createdAt = createdAt;
-    }
-    if (updatedAt != null) {
-      this._updatedAt = updatedAt;
-    }
+      {required int id,
+      required int customerId,
+      required String contactPersonName,
+      required String addressType,
+      required String address,
+      required String city,
+      required String zip,
+      required String phone,
+      required String createdAt,
+      required String updatedAt,
+      required Null state,
+      required String country}) {
+    this._id = id;
+    this._customerId = customerId;
+    this._contactPersonName = contactPersonName;
+    this._addressType = addressType;
+    this._address = address;
+    this._city = city;
+    this._zip = zip;
+    this._phone = phone;
+    this._createdAt = createdAt;
+    this._updatedAt = updatedAt;
 
-    if (country != null) {
-      this._country = country;
-    }
+    this._country = country;
   }
 
   int get id => _id;
@@ -347,7 +313,6 @@ class ShippingAddressData {
   String get createdAt => _createdAt;
   String get updatedAt => _updatedAt;
   String get country => _country;
-
 
   ShippingAddressData.fromJson(Map<String, dynamic> json) {
     _id = json['id'];
@@ -381,44 +346,27 @@ class ShippingAddressData {
 }
 
 class DeliveryMan {
-  int _id;
-  String _fName;
-  String _lName;
-  String _phone;
-  String _email;
-  String _image;
+  late int _id;
+  late String _fName;
+  late String _lName;
+  late String _phone;
+  late String _email;
+  late String _image;
   DeliveryMan(
-      {
-        int id,
-        String fName,
-        String lName,
-        String phone,
-        String email,
-        String image
-      }) {
+      {required int id,
+      required String fName,
+      required String lName,
+      required String phone,
+      required String email,
+      required String image}) {
+    this._id = id;
+    this._fName = fName;
+    this._lName = lName;
+    this._phone = phone;
+    this._email = email;
 
-    if (id != null) {
-      this._id = id;
-    }
-    if (fName != null) {
-      this._fName = fName;
-    }
-    if (lName != null) {
-      this._lName = lName;
-    }
-    if (phone != null) {
-      this._phone = phone;
-    }
-    if (email != null) {
-      this._email = email;
-    }
-
-    if (image != null) {
-      this._image = image;
-    }
-
+    this._image = image;
   }
-
 
   int get id => _id;
   String get fName => _fName;
@@ -428,14 +376,12 @@ class DeliveryMan {
   String get image => _image;
 
   DeliveryMan.fromJson(Map<String, dynamic> json) {
-
     _id = json['id'];
     _fName = json['f_name'];
     _lName = json['l_name'];
     _phone = json['phone'];
     _email = json['email'];
     _image = json['image'];
-
   }
 
   Map<String, dynamic> toJson() {

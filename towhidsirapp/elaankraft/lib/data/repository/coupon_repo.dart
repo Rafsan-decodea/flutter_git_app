@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class CouponRepo {
   final DioClient dioClient;
-  CouponRepo({@required this.dioClient});
+  CouponRepo({required this.dioClient});
 
   Future<ApiResponse> getCoupon(String coupon) async {
     try {

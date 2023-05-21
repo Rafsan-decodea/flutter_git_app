@@ -6,7 +6,7 @@ import 'package:flutter_sixvalley_ecommerce/utill/app_constants.dart';
 
 class SellerRepo {
   final DioClient dioClient;
-  SellerRepo({@required this.dioClient});
+  SellerRepo({required this.dioClient});
 
   Future<ApiResponse> getSeller(String sellerId) async {
     try {

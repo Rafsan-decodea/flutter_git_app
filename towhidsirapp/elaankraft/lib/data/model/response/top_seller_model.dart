@@ -1,33 +1,32 @@
 class TopSellerModel {
-  int _id;
-  int _sellerId;
-  String _name;
-  String _address;
-  String _contact;
-  String _image;
-  String _createdAt;
-  String _updatedAt;
-  String _banner;
-  int _temporaryClose;
-  String _vacationEndDate;
-  String _vacationStartDate;
-  int _vacationStatus;
+  late int _id;
+  late int _sellerId;
+  late String _name;
+  late String _address;
+  late String _contact;
+  late String _image;
+  late String _createdAt;
+  late String _updatedAt;
+  late String _banner;
+  late int _temporaryClose;
+  late String _vacationEndDate;
+  late String _vacationStartDate;
+  late int _vacationStatus;
 
   TopSellerModel(
-      {int id,
-        int sellerId,
-        String name,
-        String address,
-        String contact,
-        String image,
-        String createdAt,
-        String updatedAt,
-        String banner,
-        int temporaryClose,
-        String vacationEndDate,
-        String vacationStartDate,
-        int vacationStatus
-      }) {
+      {required int id,
+      required int sellerId,
+      required String name,
+      required String address,
+      required String contact,
+      required String image,
+      required String createdAt,
+      required String updatedAt,
+      required String banner,
+      required int temporaryClose,
+      required String vacationEndDate,
+      required String vacationStartDate,
+      required int vacationStatus}) {
     this._id = id;
     this._sellerId = sellerId;
     this._name = name;
@@ -67,10 +66,14 @@ class TopSellerModel {
     _createdAt = json['created_at'];
     _updatedAt = json['updated_at'];
     _banner = json['banner'];
-    _temporaryClose = json['temporary_close'] != null? int.parse(json['temporary_close'].toString()):0;
+    _temporaryClose = json['temporary_close'] != null
+        ? int.parse(json['temporary_close'].toString())
+        : 0;
     _vacationEndDate = json['vacation_end_date'];
     _vacationStartDate = json['vacation_start_date'];
-    _vacationStatus = json['vacation_status'] != null? int.parse(json['vacation_status'].toString()):0;
+    _vacationStatus = json['vacation_status'] != null
+        ? int.parse(json['vacation_status'].toString())
+        : 0;
   }
 
   Map<String, dynamic> toJson() {

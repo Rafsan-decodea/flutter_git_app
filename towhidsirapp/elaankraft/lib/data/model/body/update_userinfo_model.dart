@@ -1,15 +1,16 @@
 class UpdateUserInfoModel {
-  String fName;
-  String lName;
-  String phone;
+  late final String fName;
+  late final String lName;
+  late final String phone;
 
   UpdateUserInfoModel({
-    this.fName,
-    this.lName,
-    this.phone,
+    required this.fName,
+    required this.lName,
+    required this.phone,
   });
 
-  UpdateUserInfoModel.fromJson(Map<String, dynamic> json) {
+  UpdateUserInfoModel.fromJson(
+      Map<String, dynamic> json, this.fName, this.lName, this.phone) {
     fName = json['f_name'];
     lName = json['l_name'];
     phone = json['phone'];
