@@ -73,15 +73,15 @@ class MyNotification {
       _orderID = message.notification?.titleLocKey;
       if (Platform.isAndroid) {
         _image = (message.notification?.android?.imageUrl != null &&
-                message.notification.android.imageUrl.isNotEmpty)
-            ? message.notification.android.imageUrl.startsWith('http')
+                message.notification.android.imageUrl!.isNotEmpty)
+            ? message.notification.android.imageUrl!.startsWith('http')
                 ? message.notification.android.imageUrl
                 : '${AppConstants.BASE_URL}/storage/app/public/notification/${message.notification.android.imageUrl}'
             : null;
       } else if (Platform.isIOS) {
         _image = (message.notification?.apple?.imageUrl != null &&
-                message.notification.apple.imageUrl?.isNotEmpty)
-            ? message.notification.apple?.imageUrl.startsWith('http')
+                message.notification.apple.imageUrl?.isNotEmpty == true)
+            ? message.notification.apple.imageUrl!.startsWith('http')
                 ? message.notification.apple.imageUrl
                 : '${AppConstants.BASE_URL}/storage/app/public/notification/${message.notification.apple.imageUrl}'
             : null;
