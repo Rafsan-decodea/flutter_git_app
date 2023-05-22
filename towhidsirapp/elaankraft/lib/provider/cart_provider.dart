@@ -444,7 +444,7 @@ class CartProvider extends ChangeNotifier {
         await cartRepo.getSelectedShippingType(sellerId, sellerType);
     if (apiResponse.response != null &&
         apiResponse.response?.statusCode == 200) {
-      _selectedShippingType = apiResponse.response.data['shipping_type'];
+      _selectedShippingType = apiResponse.response?.data['shipping_type'];
       _selectedShippingTypeList.add(SelectedShippingType(
           sellerId: sellerId, selectedShippingType: _selectedShippingType));
     } else {
