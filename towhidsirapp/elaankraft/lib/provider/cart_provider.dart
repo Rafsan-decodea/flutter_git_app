@@ -446,7 +446,8 @@ class CartProvider extends ChangeNotifier {
         apiResponse.response?.statusCode == 200) {
       _selectedShippingType = apiResponse.response?.data['shipping_type'];
       _selectedShippingTypeList.add(SelectedShippingType(
-          sellerId: sellerId, selectedShippingType: _selectedShippingType));
+          sellerId, _selectedShippingType,
+          selectedShippingType: '', sellerId: sellerId));
     } else {
       ApiChecker.checkApi(context, apiResponse);
     }
