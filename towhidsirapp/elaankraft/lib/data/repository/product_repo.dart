@@ -16,16 +16,16 @@ class ProductRepo {
 
     if (productType == ProductType.BEST_SELLING) {
       endUrl = AppConstants.BEST_SELLING_PRODUCTS_URI;
-      title = getTranslated('best_selling', context);
+      title = getTranslated('best_selling', context) ?? '';
     } else if (productType == ProductType.NEW_ARRIVAL) {
       endUrl = AppConstants.NEW_ARRIVAL_PRODUCTS_URI;
-      title = getTranslated('new_arrival', context);
+      title = getTranslated('new_arrival', context) ?? '';
     } else if (productType == ProductType.TOP_PRODUCT) {
       endUrl = AppConstants.TOP_PRODUCTS_URI;
-      title = getTranslated('top_product', context);
+      title = getTranslated('top_product', context) ?? '';
     } else if (productType == ProductType.DISCOUNTED_PRODUCT) {
       endUrl = AppConstants.DISCOUNTED_PRODUCTS_URI;
-      title = getTranslated('discounted_product', context);
+      title = getTranslated('discounted_product', context) ?? '';
     }
 
     try {

@@ -124,8 +124,8 @@ class AuthProvider with ChangeNotifier {
     ApiResponse apiResponse = await authRepo.login(loginBody);
     _isLoading = false;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      Map map = apiResponse.response.data;
+        apiResponse.response?.statusCode == 200) {
+      Map map = apiResponse.response?.data;
       String temporaryToken = '';
       String token = '';
       String message = '';
@@ -166,7 +166,7 @@ class AuthProvider with ChangeNotifier {
   Future<void> updateToken(BuildContext context) async {
     ApiResponse apiResponse = await authRepo.updateToken();
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
+        apiResponse.response?.statusCode == 200) {
     } else {
       ApiChecker.checkApi(context, apiResponse);
     }
@@ -182,8 +182,8 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     ResponseModel responseModel;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      responseModel = ResponseModel(apiResponse.response.data['token'], true);
+        apiResponse.response?.statusCode == 200) {
+      responseModel = ResponseModel(apiResponse.response?.data['token'], true);
     } else {
       String errorMessage;
       if (apiResponse.error is String) {
@@ -211,8 +211,8 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     ResponseModel responseModel;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      authRepo.saveUserToken(apiResponse.response.data['token']);
+        apiResponse.response?.statusCode == 200) {
+      authRepo.saveUserToken(apiResponse.response?.data['token']);
       await authRepo.updateToken();
       responseModel = ResponseModel('Successful', true);
     } else {
@@ -243,8 +243,8 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     ResponseModel responseModel;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      responseModel = ResponseModel(apiResponse.response.data["token"], true);
+        apiResponse.response?.statusCode == 200) {
+      responseModel = ResponseModel(apiResponse.response?.data["token"], true);
     } else {
       String errorMessage;
       if (apiResponse.error is String) {
@@ -272,8 +272,9 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     ResponseModel responseModel;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      responseModel = ResponseModel(apiResponse.response.data["message"], true);
+        apiResponse.response?.statusCode == 200) {
+      responseModel =
+          ResponseModel(apiResponse.response?.data["message"], true);
     } else {
       String errorMessage;
       if (apiResponse.error is String) {
@@ -301,8 +302,9 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     ResponseModel responseModel;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      responseModel = ResponseModel(apiResponse.response.data["message"], true);
+        apiResponse.response?.statusCode == 200) {
+      responseModel =
+          ResponseModel(apiResponse.response?.data["message"], true);
     } else {
       String errorMessage;
       if (apiResponse.error is String) {
@@ -331,8 +333,9 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     ResponseModel responseModel;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      responseModel = ResponseModel(apiResponse.response.data["message"], true);
+        apiResponse.response?.statusCode == 200) {
+      responseModel =
+          ResponseModel(apiResponse.response?.data["message"], true);
     } else {
       String errorMessage;
       if (apiResponse.error is String) {
@@ -440,8 +443,9 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     ResponseModel responseModel;
     if (apiResponse.response != null &&
-        apiResponse.response.statusCode == 200) {
-      responseModel = ResponseModel(apiResponse.response.data["message"], true);
+        apiResponse.response?.statusCode == 200) {
+      responseModel =
+          ResponseModel(apiResponse.response?.data["message"], true);
     } else {
       String errorMessage;
       if (apiResponse.error is String) {

@@ -30,15 +30,14 @@ class NetworkInfo {
             ? SizedBox()
             : ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: isNotConnected ? Colors.red : Colors.green,
-          duration: Duration(seconds: isNotConnected ? 6000 : 3),
-          content: Text(
-            isNotConnected
-                ? getTranslated('no_connection', context)
-                : getTranslated('connected', context),
-            textAlign: TextAlign.center,
-          ),
-        ));
+            backgroundColor: isNotConnected ? Colors.red : Colors.green,
+            duration: Duration(seconds: isNotConnected ? 6000 : 3),
+            content: Text(
+              isNotConnected
+                  ? getTranslated('no_connection', context) ?? ''
+                  : getTranslated('connected', context) ?? '',
+              textAlign: TextAlign.center,
+            )));
       }
       _firstTime = false;
     });

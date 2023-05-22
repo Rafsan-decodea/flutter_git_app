@@ -17,17 +17,17 @@ class OnBoardingRepo {
         OnboardingModel(
           'assets/images/onboarding_image_one.png',
           '${getTranslated('on_boarding_title_one', context)} ${AppConstants.APP_NAME}',
-          getTranslated('on_boarding_description_one', context),
+          getTranslated('on_boarding_description_one', context) ?? '',
         ),
         OnboardingModel(
           'assets/images/onboarding_image_two.png',
-          getTranslated('on_boarding_title_two', context),
-          getTranslated('on_boarding_description_two', context),
+          getTranslated('on_boarding_title_two', context) ?? '',
+          getTranslated('on_boarding_description_two', context) ?? '',
         ),
         OnboardingModel(
           'assets/images/onboarding_image_three.png',
-          getTranslated('on_boarding_title_three', context),
-          getTranslated('on_boarding_description_three', context),
+          getTranslated('on_boarding_title_three', context) ?? '',
+          getTranslated('on_boarding_description_three', context) ?? '',
         ),
       ];
 
