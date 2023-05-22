@@ -58,7 +58,8 @@ class BrandProvider extends ChangeNotifier {
       _brandList
           .sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
       Iterable iterable = _brandList.reversed;
-      _brandList = iterable.toList();
+      _brandList =
+          iterable.toList().map((item) => BrandModel.fromJson(item)).toList();
       isTopBrand = false;
       isAZ = false;
       isZA = true;
