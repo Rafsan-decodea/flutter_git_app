@@ -155,7 +155,7 @@ class _CartScreenState extends State<CartScreen> {
                                   PriceConverter.convertPrice(
                                       context, amount + shippingAmount),
                                   style: titilliumSemiBold.copyWith(
-                                      color: Theme.of(context).primaryColor,
+                                      color: Color(0xFFD5AF37),
                                       fontSize: Dimensions.FONT_SIZE_LARGE),
                                 ),
                               ],
@@ -229,7 +229,7 @@ class _CartScreenState extends State<CartScreen> {
                                   width:
                                       MediaQuery.of(context).size.width / 3.5,
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).primaryColor,
+                                    color: Color(0xFFD5AF37),
                                     borderRadius: BorderRadius.circular(
                                         Dimensions.PADDING_SIZE_SMALL),
                                   ),
