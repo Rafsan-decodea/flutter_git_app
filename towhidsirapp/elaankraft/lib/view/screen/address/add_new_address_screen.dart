@@ -19,7 +19,6 @@ import 'package:flutter_sixvalley_ecommerce/view/basewidget/textfield/custom_tex
 import 'package:flutter_sixvalley_ecommerce/view/screen/address/select_location_screen.dart';
 import 'package:geolocator/geolocator.dart';
 
-
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -28,15 +27,21 @@ class AddNewAddressScreen extends StatefulWidget {
   final bool fromCheckout;
   final AddressModel address;
   final bool isBilling;
-  AddNewAddressScreen({this.isEnableUpdate = false, this.address, this.fromCheckout = false, this.isBilling});
+  AddNewAddressScreen(
+      {this.isEnableUpdate = false,
+      this.address,
+      this.fromCheckout = false,
+      this.isBilling});
 
   @override
   State<AddNewAddressScreen> createState() => _AddNewAddressScreenState();
 }
 
 class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
-  final TextEditingController _contactPersonNameController = TextEditingController();
-  final TextEditingController _contactPersonNumberController = TextEditingController();
+  final TextEditingController _contactPersonNameController =
+      TextEditingController();
+  final TextEditingController _contactPersonNumberController =
+      TextEditingController();
   final TextEditingController _cityController = TextEditingController();
   final TextEditingController _zipCodeController = TextEditingController();
   final TextEditingController _countryCodeController = TextEditingController();
@@ -50,47 +55,69 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
   bool _updateAddress = true;
   Address _address;
 
-  String zip = '',  country = '';
+  String zip = '', country = '';
 
   @override
   void initState() {
     super.initState();
-    if(widget.isBilling){
+    if (widget.isBilling) {
       _address = Address.billing;
-    }else{
+    } else {
       _address = Address.shipping;
     }
 
     country = 'BD';
     _countryCodeController.text = country;
-    Provider.of<LocationProvider>(context, listen: false).initializeAllAddressType(context: context);
-    Provider.of<ProfileProvider>(context, listen: false).initAddressTypeList(context);
-    Provider.of<LocationProvider>(context, listen: false).getRestrictedDeliveryCountryList(context);
-    Provider.of<LocationProvider>(context, listen: false).getRestrictedDeliveryZipList(context);
+    Provider.of<LocationProvider>(context, listen: false)
+        .initializeAllAddressType(context: context);
+    Provider.of<ProfileProvider>(context, listen: false)
+        .initAddressTypeList(context);
+    Provider.of<LocationProvider>(context, listen: false)
+        .getRestrictedDeliveryCountryList(context);
+    Provider.of<LocationProvider>(context, listen: false)
+        .getRestrictedDeliveryZipList(context);
 
-
-    Provider.of<LocationProvider>(context, listen: false).updateAddressStatusMessae(message: '');
-    Provider.of<LocationProvider>(context, listen: false).updateErrorMessage(message: '');
-    _checkPermission(() => Provider.of<LocationProvider>(context, listen: false).getCurrentLocation(context, true, mapController: _controller),context);
+    Provider.of<LocationProvider>(context, listen: false)
+        .updateAddressStatusMessae(message: '');
+    Provider.of<LocationProvider>(context, listen: false)
+        .updateErrorMessage(message: '');
+    _checkPermission(
+        () => Provider.of<LocationProvider>(context, listen: false)
+            .getCurrentLocation(context, true, mapController: _controller),
+        context);
     if (widget.isEnableUpdate && widget.address != null) {
       _updateAddress = false;
-      Provider.of<LocationProvider>(context, listen: false).updatePosition(CameraPosition(target: LatLng(double.parse(widget.address.latitude), double.parse(widget.address.longitude))), true, widget.address.address, context);
+      Provider.of<LocationProvider>(context, listen: false).updatePosition(
+          CameraPosition(
+              target: LatLng(double.parse(widget.address.latitude),
+                  double.parse(widget.address.longitude))),
+          true,
+          widget.address.address,
+          context);
       _contactPersonNameController.text = '${widget.address.contactPersonName}';
       _contactPersonNumberController.text = '${widget.address.phone}';
       if (widget.address.addressType == 'Home') {
-        Provider.of<LocationProvider>(context, listen: false).updateAddressIndex(0, false);
+        Provider.of<LocationProvider>(context, listen: false)
+            .updateAddressIndex(0, false);
       } else if (widget.address.addressType == 'Workplace') {
-        Provider.of<LocationProvider>(context, listen: false).updateAddressIndex(1, false);
+        Provider.of<LocationProvider>(context, listen: false)
+            .updateAddressIndex(1, false);
       } else {
-        Provider.of<LocationProvider>(context, listen: false).updateAddressIndex(2, false);
+        Provider.of<LocationProvider>(context, listen: false)
+            .updateAddressIndex(2, false);
       }
-    }else {
-      if(Provider.of<ProfileProvider>(context, listen: false).userInfoModel!=null){
-        _contactPersonNameController.text = '${Provider.of<ProfileProvider>(context, listen: false).userInfoModel.fName ?? ''}'
+    } else {
+      if (Provider.of<ProfileProvider>(context, listen: false).userInfoModel !=
+          null) {
+        _contactPersonNameController.text =
+            '${Provider.of<ProfileProvider>(context, listen: false).userInfoModel.fName ?? ''}'
             ' ${Provider.of<ProfileProvider>(context, listen: false).userInfoModel.lName ?? ''}';
-        _contactPersonNumberController.text = Provider.of<ProfileProvider>(context, listen: false).userInfoModel.phone ?? '';
+        _contactPersonNumberController.text =
+            Provider.of<ProfileProvider>(context, listen: false)
+                    .userInfoModel
+                    .phone ??
+                '';
       }
-
     }
   }
 
@@ -104,14 +131,16 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustomAppBar(title: widget.isEnableUpdate ? getTranslated('update_address', context) : getTranslated('add_new_address', context)),
+              CustomAppBar(
+                  title: widget.isEnableUpdate
+                      ? getTranslated('update_address', context)
+                      : getTranslated('add_new_address', context)),
               Consumer<LocationProvider>(
                 builder: (context, locationProvider, child) {
                   return Container(
-                    padding: EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_DEFAULT),
-
+                    padding: EdgeInsets.symmetric(
+                        horizontal: Dimensions.PADDING_SIZE_DEFAULT),
                     child: Column(
-
                       children: [
                         Center(
                           child: SizedBox(
@@ -122,99 +151,165 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                   height: 126,
                                   width: MediaQuery.of(context).size.width,
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(Dimensions.PADDING_SIZE_SMALL),
+                                    borderRadius: BorderRadius.circular(
+                                        Dimensions.PADDING_SIZE_SMALL),
                                     child: Stack(
-                                      clipBehavior: Clip.none, children: [
-                                      GoogleMap(
-                                        mapType: MapType.normal,
-                                        initialCameraPosition: CameraPosition(
-                                          target: widget.isEnableUpdate
-                                              ? LatLng(double.parse(widget.address.latitude) ?? 0.0, double.parse(widget.address.longitude) ?? 0.0)
-                                              : LatLng(locationProvider.position.latitude ?? 0.0, locationProvider.position.longitude ?? 0.0),
-                                          zoom: 17,
-                                        ),
-                                        onTap: (latLng) {
-                                          Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => SelectLocationScreen(googleMapController: _controller)));
-                                        },
-                                        zoomControlsEnabled: false,
-                                        compassEnabled: false,
-                                        indoorViewEnabled: true,
-                                        mapToolbarEnabled: false,
-                                        onCameraIdle: () {
-                                          if(_updateAddress) {
-                                            locationProvider.updatePosition(_cameraPosition, true, null, context);
-                                          }else {
-                                            _updateAddress = true;
-                                          }
-                                        },
-                                        onCameraMove: ((_position) => _cameraPosition = _position),
-                                        onMapCreated: (GoogleMapController controller) {
-                                          _controller = controller;
-                                          if (!widget.isEnableUpdate && _controller != null) {
-                                            Provider.of<LocationProvider>(context, listen: false).getCurrentLocation(context, true, mapController: _controller);
-                                          }
-                                        },
-                                      ),
-                                      locationProvider.loading ? Center(child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(Theme
-                                          .of(context).primaryColor))) : SizedBox(),
-                                      Container(
-                                          width: MediaQuery.of(context).size.width,
-                                          alignment: Alignment.center,
-                                          height: MediaQuery.of(context).size.height,
-                                          child: Icon(
-                                            Icons.location_on,
-                                            size: 40,
-                                            color: Theme.of(context).primaryColor,
-                                          )),
-                                      Positioned(
-                                        bottom: 10,
-                                        right: 0,
-                                        child: InkWell(
-                                          onTap: () {
-                                            _checkPermission(() => locationProvider.getCurrentLocation(context, true, mapController: _controller),context);
+                                      clipBehavior: Clip.none,
+                                      children: [
+                                        GoogleMap(
+                                          mapType: MapType.normal,
+                                          initialCameraPosition: CameraPosition(
+                                            target: widget.isEnableUpdate
+                                                ? LatLng(
+                                                    double.parse(widget.address
+                                                            .latitude) ??
+                                                        0.0,
+                                                    double.parse(widget.address
+                                                            .longitude) ??
+                                                        0.0)
+                                                : LatLng(
+                                                    locationProvider.position
+                                                            .latitude ??
+                                                        0.0,
+                                                    locationProvider.position
+                                                            .longitude ??
+                                                        0.0),
+                                            zoom: 17,
+                                          ),
+                                          onTap: (latLng) {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        SelectLocationScreen(
+                                                            googleMapController:
+                                                                _controller)));
                                           },
-                                          child: Container(
-                                            width: 30,
-                                            height: 30,
-                                            margin: EdgeInsets.only(right: Dimensions.PADDING_SIZE_LARGE),
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(Dimensions.PADDING_SIZE_SMALL),
-                                              color: ColorResources.getChatIcon(context),
-                                            ),
+                                          zoomControlsEnabled: false,
+                                          compassEnabled: false,
+                                          indoorViewEnabled: true,
+                                          mapToolbarEnabled: false,
+                                          onCameraIdle: () {
+                                            if (_updateAddress) {
+                                              locationProvider.updatePosition(
+                                                  _cameraPosition,
+                                                  true,
+                                                  null,
+                                                  context);
+                                            } else {
+                                              _updateAddress = true;
+                                            }
+                                          },
+                                          onCameraMove: ((_position) =>
+                                              _cameraPosition = _position),
+                                          onMapCreated:
+                                              (GoogleMapController controller) {
+                                            _controller = controller;
+                                            if (!widget.isEnableUpdate &&
+                                                _controller != null) {
+                                              Provider.of<LocationProvider>(
+                                                      context,
+                                                      listen: false)
+                                                  .getCurrentLocation(
+                                                      context, true,
+                                                      mapController:
+                                                          _controller);
+                                            }
+                                          },
+                                        ),
+                                        locationProvider.loading
+                                            ? Center(
+                                                child: CircularProgressIndicator(
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                                Color>(
+                                                            Theme.of(context)
+                                                                .primaryColor)))
+                                            : SizedBox(),
+                                        Container(
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            alignment: Alignment.center,
+                                            height: MediaQuery.of(context)
+                                                .size
+                                                .height,
                                             child: Icon(
-                                              Icons.my_location,
-                                              color: Theme.of(context).primaryColor,
-                                              size: 20,
+                                              Icons.location_on,
+                                              size: 40,
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                            )),
+                                        Positioned(
+                                          bottom: 10,
+                                          right: 0,
+                                          child: InkWell(
+                                            onTap: () {
+                                              _checkPermission(
+                                                  () => locationProvider
+                                                      .getCurrentLocation(
+                                                          context, true,
+                                                          mapController:
+                                                              _controller),
+                                                  context);
+                                            },
+                                            child: Container(
+                                              width: 30,
+                                              height: 30,
+                                              margin: EdgeInsets.only(
+                                                  right: Dimensions
+                                                      .PADDING_SIZE_LARGE),
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius
+                                                    .circular(Dimensions
+                                                        .PADDING_SIZE_SMALL),
+                                                color:
+                                                    ColorResources.getChatIcon(
+                                                        context),
+                                              ),
+                                              child: Icon(
+                                                Icons.my_location,
+                                                color: Color(0xFFD5AF37),
+                                                size: 20,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      Positioned(
-                                        top: 10,
-                                        right: 0,
-                                        child: InkWell(
-                                          onTap: () {
-
-                                            Navigator.of(context).push(MaterialPageRoute(
-                                                builder: (BuildContext context) => SelectLocationScreen(googleMapController: _controller)));
-                                          },
-                                          child: Container(
-                                            width: 30,
-                                            height: 30,
-                                            margin: EdgeInsets.only(right: Dimensions.PADDING_SIZE_LARGE),
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(Dimensions.PADDING_SIZE_SMALL),
-                                              color: Colors.white,
-                                            ),
-                                            child: Icon(
-                                              Icons.fullscreen,
-                                              color: Theme.of(context).primaryColor,
-                                              size: 20,
+                                        Positioned(
+                                          top: 10,
+                                          right: 0,
+                                          child: InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                      builder: (BuildContext
+                                                              context) =>
+                                                          SelectLocationScreen(
+                                                              googleMapController:
+                                                                  _controller)));
+                                            },
+                                            child: Container(
+                                              width: 30,
+                                              height: 30,
+                                              margin: EdgeInsets.only(
+                                                  right: Dimensions
+                                                      .PADDING_SIZE_LARGE),
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius
+                                                    .circular(Dimensions
+                                                        .PADDING_SIZE_SMALL),
+                                                color: Colors.white,
+                                              ),
+                                              child: Icon(
+                                                Icons.fullscreen,
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                size: 20,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
                                     ),
                                   ),
                                 ),
@@ -222,19 +317,34 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                   padding: const EdgeInsets.only(top: 10),
                                   child: Center(
                                       child: Text(
-                                        getTranslated('add_the_location_correctly', context),
-                                        style: Theme.of(context).textTheme.displayMedium.copyWith(color: ColorResources.getTextTitle(context), fontSize: Dimensions.FONT_SIZE_SMALL),
-                                      )),
+                                    getTranslated(
+                                        'add_the_location_correctly', context),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displayMedium
+                                        .copyWith(
+                                            color: ColorResources.getTextTitle(
+                                                context),
+                                            fontSize:
+                                                Dimensions.FONT_SIZE_SMALL),
+                                  )),
                                 ),
-
 
                                 // for label us
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: Dimensions.PADDING_SIZE_EXTRA_EXTRA_SMALL),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: Dimensions
+                                          .PADDING_SIZE_EXTRA_EXTRA_SMALL),
                                   child: Text(
                                     getTranslated('label_us', context),
-                                    style:
-                                    Theme.of(context).textTheme.displaySmall.copyWith(color: ColorResources.getHint(context), fontSize: Dimensions.FONT_SIZE_LARGE),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall
+                                        .copyWith(
+                                            color:
+                                                ColorResources.getHint(context),
+                                            fontSize:
+                                                Dimensions.FONT_SIZE_LARGE),
                                   ),
                                 ),
 
@@ -244,94 +354,130 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                     shrinkWrap: true,
                                     scrollDirection: Axis.horizontal,
                                     physics: BouncingScrollPhysics(),
-                                    itemCount: locationProvider.getAllAddressType.length,
+                                    itemCount: locationProvider
+                                        .getAllAddressType.length,
                                     itemBuilder: (context, index) => InkWell(
                                       onTap: () {
-                                        locationProvider.updateAddressIndex(index, true);
+                                        locationProvider.updateAddressIndex(
+                                            index, true);
                                       },
                                       child: Container(
-                                        padding: EdgeInsets.symmetric(vertical: Dimensions.PADDING_SIZE_DEFAULT, horizontal: Dimensions.PADDING_SIZE_LARGE),
+                                        padding: EdgeInsets.symmetric(
+                                            vertical:
+                                                Dimensions.PADDING_SIZE_DEFAULT,
+                                            horizontal:
+                                                Dimensions.PADDING_SIZE_LARGE),
                                         margin: EdgeInsets.only(right: 17),
                                         decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(
                                               Dimensions.PADDING_SIZE_SMALL,
                                             ),
                                             border: Border.all(
-                                                color: locationProvider.selectAddressIndex == index
-                                                    ? Theme.of(context).primaryColor : ColorResources.getHint(context)),
-                                            color: locationProvider.selectAddressIndex == index
-                                                ? Theme.of(context).primaryColor : ColorResources.getChatIcon(context)),
+                                                color: locationProvider
+                                                            .selectAddressIndex ==
+                                                        index
+                                                    ? Color(0xFFD5AF37)
+                                                    : ColorResources.getHint(
+                                                        context)),
+                                            color: locationProvider
+                                                        .selectAddressIndex ==
+                                                    index
+                                                ? Color(0xFFD5AF37)
+                                                : ColorResources.getChatIcon(
+                                                    context)),
                                         child: Text(
-                                          getTranslated(locationProvider.getAllAddressType[index].toLowerCase(), context),
+                                          getTranslated(
+                                              locationProvider
+                                                  .getAllAddressType[index]
+                                                  .toLowerCase(),
+                                              context),
                                           style: robotoRegular.copyWith(
-                                              color: locationProvider.selectAddressIndex == index
-                                                  ? Theme.of(context).cardColor : ColorResources.getHint(context)),
+                                              color: locationProvider
+                                                          .selectAddressIndex ==
+                                                      index
+                                                  ? Theme.of(context).cardColor
+                                                  : ColorResources.getHint(
+                                                      context)),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
 
-
-                                Container(height: 50,
-                                  child: Row(children: <Widget>[
-                                    Row(
-                                      children: [
-                                        Radio<Address>(
-                                          value: Address.shipping,
-                                          groupValue: _address,
-                                          onChanged: (Address value) {
-                                            setState(() {
-                                              _address = value;
-                                            });
-                                          },
-                                        ),
-                                        Text(getTranslated('shipping_address', context)),
-
-                                      ],
+                                Container(
+                                  height: 50,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Row(
+                                        children: [
+                                          Radio<Address>(
+                                            value: Address.shipping,
+                                            groupValue: _address,
+                                            onChanged: (Address value) {
+                                              setState(() {
+                                                _address = value;
+                                              });
+                                            },
+                                          ),
+                                          Text(getTranslated(
+                                              'shipping_address', context)),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Radio<Address>(
+                                            value: Address.billing,
+                                            groupValue: _address,
+                                            onChanged: (Address value) {
+                                              setState(() {
+                                                _address = value;
+                                              });
+                                            },
+                                          ),
+                                          Text(getTranslated(
+                                              'billing_address', context)),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                    Row(
-                                      children: [
-                                        Radio<Address>(
-                                          value: Address.billing,
-                                          groupValue: _address,
-                                          onChanged: (Address value) {
-                                            setState(() {
-                                              _address = value;
-                                            });
-                                          },
-                                        ),
-                                        Text(getTranslated('billing_address', context)),
-
-
-                                      ],
-                                  ),
-                              ],
-                            ),
                                 ),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5,),
+                                  padding: const EdgeInsets.only(
+                                    top: 5,
+                                  ),
                                   child: Text(
                                     getTranslated('delivery_address', context),
-                                    style: Theme.of(context).textTheme.displaySmall.copyWith(color: ColorResources.getHint(context), fontSize: Dimensions.FONT_SIZE_LARGE),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .displaySmall
+                                        .copyWith(
+                                            color:
+                                                ColorResources.getHint(context),
+                                            fontSize:
+                                                Dimensions.FONT_SIZE_LARGE),
                                   ),
                                 ),
 
                                 // for Address Field
                                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
                                 CustomTextField(
-                                  hintText: getTranslated('address_line_02', context),
+                                  hintText:
+                                      getTranslated('address_line_02', context),
                                   textInputType: TextInputType.streetAddress,
                                   textInputAction: TextInputAction.next,
                                   focusNode: _addressNode,
                                   nextNode: _nameNode,
-                                  controller: locationProvider.locationController,
+                                  controller:
+                                      locationProvider.locationController,
                                 ),
-                                SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT_ADDRESS),
+                                SizedBox(
+                                    height: Dimensions
+                                        .PADDING_SIZE_DEFAULT_ADDRESS),
                                 Text(
                                   getTranslated('city', context),
-                                  style: robotoRegular.copyWith(color: ColorResources.getHint(context)),
+                                  style: robotoRegular.copyWith(
+                                      color: ColorResources.getHint(context)),
                                 ),
                                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
                                 CustomTextField(
@@ -342,99 +488,141 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                   nextNode: _zipNode,
                                   controller: _cityController,
                                 ),
-                                SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT_ADDRESS),
+                                SizedBox(
+                                    height: Dimensions
+                                        .PADDING_SIZE_DEFAULT_ADDRESS),
                                 Text(
                                   getTranslated('zip', context),
-                                  style: robotoRegular.copyWith(color: ColorResources.getHint(context)),
+                                  style: robotoRegular.copyWith(
+                                      color: ColorResources.getHint(context)),
                                 ),
                                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
 
-                                Column(children: [
-                                  Provider.of<SplashProvider>(context, listen: false).configModel.deliveryZipCodeAreaRestriction == 0?
-                                  CustomTextField(
-                                    hintText: getTranslated('zip', context),
-                                    textInputAction: TextInputAction.next,
-                                    focusNode: _zipNode,
-                                    nextNode: _nameNode,
-                                    controller: _zipCodeController,
-                                  ):
-                                  DropdownSearch<RestrictedZipModel>(
-                                    items: locationProvider.restrictedZipList,
-                                    itemAsString: (RestrictedZipModel u) => u.zipcode,
-                                    onChanged: (value){
-                                      _zipCodeController.text = value.zipcode;
-                                    },
-                                    dropdownDecoratorProps: DropDownDecoratorProps(
-                                      dropdownSearchDecoration: InputDecoration(labelText: "zip"),
-                                    ),
+                                Column(
+                                  children: [
+                                    Provider.of<SplashProvider>(context,
+                                                    listen: false)
+                                                .configModel
+                                                .deliveryZipCodeAreaRestriction ==
+                                            0
+                                        ? CustomTextField(
+                                            hintText:
+                                                getTranslated('zip', context),
+                                            textInputAction:
+                                                TextInputAction.next,
+                                            focusNode: _zipNode,
+                                            nextNode: _nameNode,
+                                            controller: _zipCodeController,
+                                          )
+                                        : DropdownSearch<RestrictedZipModel>(
+                                            items: locationProvider
+                                                .restrictedZipList,
+                                            itemAsString:
+                                                (RestrictedZipModel u) =>
+                                                    u.zipcode,
+                                            onChanged: (value) {
+                                              _zipCodeController.text =
+                                                  value.zipcode;
+                                            },
+                                            dropdownDecoratorProps:
+                                                DropDownDecoratorProps(
+                                              dropdownSearchDecoration:
+                                                  InputDecoration(
+                                                      labelText: "zip"),
+                                            ),
+                                          )
+                                  ],
+                                ),
 
-                                  )
-
-                                ],),
-
-                                SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT_ADDRESS),
-
+                                SizedBox(
+                                    height: Dimensions
+                                        .PADDING_SIZE_DEFAULT_ADDRESS),
 
                                 Padding(
-                                  padding: const EdgeInsets.only(bottom : 8.0),
-                                  child: Text(getTranslated('country', context),
-                                    style: robotoRegular.copyWith(color: ColorResources.getHint(context)),
+                                  padding: const EdgeInsets.only(bottom: 8.0),
+                                  child: Text(
+                                    getTranslated('country', context),
+                                    style: robotoRegular.copyWith(
+                                        color: ColorResources.getHint(context)),
                                   ),
                                 ),
                                 Consumer<LocationProvider>(
-                                  builder: (context, locationProvider, _) {
-                                    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                                      Provider.of<SplashProvider>(context, listen: false).configModel.deliveryCountryRestriction == 1?
+                                    builder: (context, locationProvider, _) {
+                                  return Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Provider.of<SplashProvider>(context,
+                                                        listen: false)
+                                                    .configModel
+                                                    .deliveryCountryRestriction ==
+                                                1
+                                            ? DropdownSearch<String>(
+                                                popupProps: PopupProps.menu(
+                                                  showSelectedItems: true,
+                                                ),
+                                                items: locationProvider
+                                                    .restrictedCountryList,
+                                                dropdownDecoratorProps:
+                                                    DropDownDecoratorProps(
+                                                  dropdownSearchDecoration:
+                                                      InputDecoration(
+                                                    labelText: "country",
+                                                    hintText:
+                                                        "country in menu mode",
+                                                  ),
+                                                ),
+                                                onChanged: (value) {
+                                                  _countryCodeController.text =
+                                                      value;
+                                                  print('value===>$value');
+                                                },
+                                              )
+                                            : Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: Dimensions
+                                                        .PADDING_SIZE_SMALL,
+                                                    vertical: Dimensions
+                                                        .PADDING_SIZE_SMALL),
+                                                decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                        color: Theme.of(context)
+                                                            .hintColor
+                                                            .withOpacity(.25)),
+                                                    borderRadius: BorderRadius
+                                                        .circular(Dimensions
+                                                            .PADDING_SIZE_EXTRA_SMALL)),
+                                                child: CountryPickerDropdown(
+                                                  initialValue: country,
+                                                  itemBuilder:
+                                                      _buildDropdownItemForCountry,
+                                                  onValuePicked:
+                                                      (Country country) {
+                                                    print("${country.name}");
+                                                    _countryCodeController
+                                                        .text = country.name;
+                                                    //locationProvider.searchCountryController.text = country.name;
+                                                  },
+                                                ),
+                                              ),
+                                        // CountrySearchDialog(),
+                                      ]);
+                                }),
 
-                                      DropdownSearch<String>(
-                                        popupProps: PopupProps.menu(
-                                          showSelectedItems: true,
-                                        ),
-                                        items: locationProvider.restrictedCountryList,
-                                        dropdownDecoratorProps: DropDownDecoratorProps(
-                                          dropdownSearchDecoration: InputDecoration(
-                                            labelText: "country",
-                                            hintText: "country in menu mode",
-                                          ),
-                                        ),
-                                        onChanged: (value){
-                                          _countryCodeController.text = value;
-                                          print('value===>$value');
-                                        },
-
-                                      ):
-                                      Container(
-                                        padding: EdgeInsets.symmetric(horizontal: Dimensions.PADDING_SIZE_SMALL,
-                                        vertical: Dimensions.PADDING_SIZE_SMALL),
-                                        decoration: BoxDecoration(
-                                          border: Border.all(color: Theme.of(context).hintColor.withOpacity(.25)),
-                                          borderRadius: BorderRadius.circular(Dimensions.PADDING_SIZE_EXTRA_SMALL)
-                                        ),
-                                        child: CountryPickerDropdown(
-                                          initialValue: country,
-                                          itemBuilder: _buildDropdownItemForCountry,
-                                          onValuePicked: (Country country) {
-                                            print("${country.name}");
-                                            _countryCodeController.text = country.name;
-                                            //locationProvider.searchCountryController.text = country.name;
-                                          },
-                                        ),
-                                      ),
-                                      // CountrySearchDialog(),
-                                    ]);
-                                  }
-                                ),
-
-                                SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT_ADDRESS),
+                                SizedBox(
+                                    height: Dimensions
+                                        .PADDING_SIZE_DEFAULT_ADDRESS),
 
                                 // for Contact Person Name
                                 Text(
                                   getTranslated('contact_person_name', context),
-                                  style: robotoRegular.copyWith(color: ColorResources.getHint(context)),
+                                  style: robotoRegular.copyWith(
+                                      color: ColorResources.getHint(context)),
                                 ),
                                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
                                 CustomTextField(
-                                  hintText: getTranslated('enter_contact_person_name', context),
+                                  hintText: getTranslated(
+                                      'enter_contact_person_name', context),
                                   textInputType: TextInputType.name,
                                   controller: _contactPersonNameController,
                                   focusNode: _nameNode,
@@ -442,67 +630,176 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                                   textInputAction: TextInputAction.next,
                                   capitalization: TextCapitalization.words,
                                 ),
-                                SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT_ADDRESS),
+                                SizedBox(
+                                    height: Dimensions
+                                        .PADDING_SIZE_DEFAULT_ADDRESS),
 
                                 // for Contact Person Number
                                 Text(
-                                  getTranslated('contact_person_number', context),
-                                  style: robotoRegular.copyWith(color: ColorResources.getHint(context)),),
+                                  getTranslated(
+                                      'contact_person_number', context),
+                                  style: robotoRegular.copyWith(
+                                      color: ColorResources.getHint(context)),
+                                ),
                                 SizedBox(height: Dimensions.PADDING_SIZE_SMALL),
                                 CustomTextField(
-                                  hintText: getTranslated('enter_contact_person_number', context),
+                                  hintText: getTranslated(
+                                      'enter_contact_person_number', context),
                                   textInputType: TextInputType.phone,
                                   textInputAction: TextInputAction.done,
                                   focusNode: _numberNode,
                                   controller: _contactPersonNumberController,
                                 ),
 
-                                SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT),
+                                SizedBox(
+                                    height: Dimensions.PADDING_SIZE_DEFAULT),
 
                                 Container(
                                   height: 50.0,
-                                  margin: EdgeInsets.all(Dimensions.PADDING_SIZE_SMALL),
-                                  child: !locationProvider.isLoading ? CustomButton(
-                                    buttonText: widget.isEnableUpdate ? getTranslated('update_address', context) : getTranslated('save_location', context),
-                                    onTap: locationProvider.loading ? null : () { AddressModel addressModel = AddressModel(
-                                      addressType: locationProvider.getAllAddressType[locationProvider.selectAddressIndex],
-                                      contactPersonName: _contactPersonNameController.text ?? '',
-                                      phone: _contactPersonNumberController.text ?? '',
-                                      city: _cityController.text ?? '',
-                                      zip: _zipCodeController.text,
-                                      country:  _countryCodeController.text,
-                                      isBilling: _address == Address.billing ? 1:0,
-                                      address: locationProvider.locationController.text ?? '',
-                                      latitude: widget.isEnableUpdate ? locationProvider.position.latitude.toString() ?? widget.address.latitude : locationProvider.position.latitude.toString() ?? '',
-                                      longitude: widget.isEnableUpdate ? locationProvider.position.longitude.toString() ?? widget.address.longitude
-                                          : locationProvider.position.longitude.toString() ?? '',
-                                    );
-                                    if (widget.isEnableUpdate) {
-                                      addressModel.id = widget.address.id;
-                                      // addressModel.method = 'put';
-                                      locationProvider.updateAddress(context, addressModel: addressModel, addressId: addressModel.id).then((value) {});
-                                    } else {
-                                      locationProvider.addAddress(addressModel, context).then((value) {
-                                        if (value.isSuccess) {
-                                          Provider.of<ProfileProvider>(context, listen: false).initAddressList(context);
-                                          Navigator.pop(context);
-                                          if (widget.fromCheckout) {
-                                            Provider.of<ProfileProvider>(context, listen: false).initAddressList(context);
-                                            Provider.of<OrderProvider>(context, listen: false).setAddressIndex(-1);
-                                          } else {
-                                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(value.message), duration: Duration(milliseconds: 600), backgroundColor: Colors.green));
-                                          }
-                                        } else {
-                                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(value.message), duration: Duration(milliseconds: 600), backgroundColor: Colors.red));
-                                        }
-                                      });
-                                    }
-                                    },
-                                  )
+                                  margin: EdgeInsets.all(
+                                      Dimensions.PADDING_SIZE_SMALL),
+                                  child: !locationProvider.isLoading
+                                      ? CustomButton(
+                                          buttonText: widget.isEnableUpdate
+                                              ? getTranslated(
+                                                  'update_address', context)
+                                              : getTranslated(
+                                                  'save_location', context),
+                                          onTap: locationProvider.loading
+                                              ? null
+                                              : () {
+                                                  AddressModel addressModel =
+                                                      AddressModel(
+                                                    addressType: locationProvider
+                                                            .getAllAddressType[
+                                                        locationProvider
+                                                            .selectAddressIndex],
+                                                    contactPersonName:
+                                                        _contactPersonNameController
+                                                                .text ??
+                                                            '',
+                                                    phone:
+                                                        _contactPersonNumberController
+                                                                .text ??
+                                                            '',
+                                                    city:
+                                                        _cityController.text ??
+                                                            '',
+                                                    zip:
+                                                        _zipCodeController.text,
+                                                    country:
+                                                        _countryCodeController
+                                                            .text,
+                                                    isBilling: _address ==
+                                                            Address.billing
+                                                        ? 1
+                                                        : 0,
+                                                    address: locationProvider
+                                                            .locationController
+                                                            .text ??
+                                                        '',
+                                                    latitude: widget
+                                                            .isEnableUpdate
+                                                        ? locationProvider
+                                                                .position
+                                                                .latitude
+                                                                .toString() ??
+                                                            widget.address
+                                                                .latitude
+                                                        : locationProvider
+                                                                .position
+                                                                .latitude
+                                                                .toString() ??
+                                                            '',
+                                                    longitude: widget
+                                                            .isEnableUpdate
+                                                        ? locationProvider
+                                                                .position
+                                                                .longitude
+                                                                .toString() ??
+                                                            widget.address
+                                                                .longitude
+                                                        : locationProvider
+                                                                .position
+                                                                .longitude
+                                                                .toString() ??
+                                                            '',
+                                                  );
+                                                  if (widget.isEnableUpdate) {
+                                                    addressModel.id =
+                                                        widget.address.id;
+                                                    // addressModel.method = 'put';
+                                                    locationProvider
+                                                        .updateAddress(context,
+                                                            addressModel:
+                                                                addressModel,
+                                                            addressId:
+                                                                addressModel.id)
+                                                        .then((value) {});
+                                                  } else {
+                                                    locationProvider
+                                                        .addAddress(
+                                                            addressModel,
+                                                            context)
+                                                        .then((value) {
+                                                      if (value.isSuccess) {
+                                                        Provider.of<ProfileProvider>(
+                                                                context,
+                                                                listen: false)
+                                                            .initAddressList(
+                                                                context);
+                                                        Navigator.pop(context);
+                                                        if (widget
+                                                            .fromCheckout) {
+                                                          Provider.of<ProfileProvider>(
+                                                                  context,
+                                                                  listen: false)
+                                                              .initAddressList(
+                                                                  context);
+                                                          Provider.of<OrderProvider>(
+                                                                  context,
+                                                                  listen: false)
+                                                              .setAddressIndex(
+                                                                  -1);
+                                                        } else {
+                                                          ScaffoldMessenger
+                                                                  .of(context)
+                                                              .showSnackBar(SnackBar(
+                                                                  content: Text(
+                                                                      value
+                                                                          .message),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          600),
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .green));
+                                                        }
+                                                      } else {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(SnackBar(
+                                                                content: Text(
+                                                                    value
+                                                                        .message),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        600),
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .red));
+                                                      }
+                                                    });
+                                                  }
+                                                },
+                                        )
                                       : Center(
-                                      child: CircularProgressIndicator(
-                                        valueColor: new AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor),
-                                      )),
+                                          child: CircularProgressIndicator(
+                                          valueColor:
+                                              new AlwaysStoppedAnimation<Color>(
+                                                  Theme.of(context)
+                                                      .primaryColor),
+                                        )),
                                 )
                               ],
                             ),
@@ -533,8 +830,6 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
                         //     )
                         //   ],
                         // ),
-
-
                       ],
                     ),
                   );
@@ -546,34 +841,42 @@ class _AddNewAddressScreenState extends State<AddNewAddressScreen> {
       ),
     );
   }
+
   void _checkPermission(Function callback, BuildContext context) async {
     LocationPermission permission = await Geolocator.requestPermission();
-    if(permission == LocationPermission.denied || permission == LocationPermission.whileInUse) {
+    if (permission == LocationPermission.denied ||
+        permission == LocationPermission.whileInUse) {
       InkWell(
-        onTap: () async{
+          onTap: () async {
             Navigator.pop(context);
             await Geolocator.requestPermission();
             _checkPermission(callback, context);
-        },
-          child: AlertDialog(content: MyDialog(icon: Icons.location_on_outlined, title: '', description: getTranslated('you_denied', context))));
-    }else if(permission == LocationPermission.deniedForever) {
-      InkWell(
-          onTap: () async{
-              Navigator.pop(context);
-              await Geolocator.openAppSettings();
-              _checkPermission(callback,context);
           },
-          child: AlertDialog(content: MyDialog(icon: Icons.location_on_outlined, title: '',description: getTranslated('you_denied', context))));
-    }else {
+          child: AlertDialog(
+              content: MyDialog(
+                  icon: Icons.location_on_outlined,
+                  title: '',
+                  description: getTranslated('you_denied', context))));
+    } else if (permission == LocationPermission.deniedForever) {
+      InkWell(
+          onTap: () async {
+            Navigator.pop(context);
+            await Geolocator.openAppSettings();
+            _checkPermission(callback, context);
+          },
+          child: AlertDialog(
+              content: MyDialog(
+                  icon: Icons.location_on_outlined,
+                  title: '',
+                  description: getTranslated('you_denied', context))));
+    } else {
       callback();
     }
   }
 }
 
-enum Address {shipping, billing }
+enum Address { shipping, billing }
 
 Widget _buildDropdownItemForCountry(Country country) => Container(
-  child: Container(
-      width: 300,
-      child: Text("${country.name}")),
-);
+      child: Container(width: 300, child: Text("${country.name}")),
+    );
