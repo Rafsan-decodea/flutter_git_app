@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "345361776726",
+    "project_id": "mmanager-74265",
+    "storage_bucket": "mmanager-74265.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345361776726:android:2a40e3c93da77e5fbefbf7",
+        "android_client_info": {
+          "package_name": "com.erhacorpdotcom.mmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345361776726-1hotil9sv8t78ocvdjm8ers4ocgk6h4l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.erhacorpdotcom.mmanager",
+            "certificate_hash": "00faad96bd0e9a264954677d7ffebc2a48c8b520"
+          }
+        },
+        {
+          "client_id": "345361776726-fc5i2dastrqvvlmn3rrok0m0rfea0vfe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.erhacorpdotcom.mmanager",
+            "certificate_hash": "ebf1d39edcd391a851c5ccbcca4d375cebc31ab3"
+          }
+        },
+        {
+          "client_id": "345361776726-tbv6d330a7pcldkj2u84eoqsp8uqblfs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6eFJEFDcbiIKtarF1CWe1c3AKJtKOLp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345361776726-tbv6d330a7pcldkj2u84eoqsp8uqblfs.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "345361776726-va0vgagnaldvmacf8falc216d59kqu8k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.erhacorpdotcom.mmanager"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
