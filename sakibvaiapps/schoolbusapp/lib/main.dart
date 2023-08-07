@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
+import 'package:schoolbusapp/screens/report1.dart';
+import 'package:schoolbusapp/screens/report2.dart';
+import 'package:schoolbusapp/screens/sign-up.dart';
+import 'package:schoolbusapp/screens/welcome-to.dart';
 import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:myapp/utils.dart';
-import 'package:myapp/page-1/splash.dart';
+import 'package:schoolbusapp/utils.dart';
+import 'package:schoolbusapp/screens/splash.dart';
 // import 'package:myapp/page-1/urban-transport-paper-style-arrangement-1.dart';
 // import 'package:myapp/page-1/started-page.dart';
 // import 'package:myapp/page-1/sign-in.dart';
@@ -38,20 +40,20 @@ import 'package:myapp/page-1/splash.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-	@override
-	Widget build(BuildContext context) {
-	return MaterialApp(
-		title: 'Flutter',
-		debugShowCheckedModeBanner: false,
-		scrollBehavior: MyCustomScrollBehavior(),
-		theme: ThemeData(
-		primarySwatch: Colors.blue,
-		),
-		home: Scaffold(
-		body: SingleChildScrollView(
-			child: Scene(),
-		),
-		),
-	);
-	}
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter',
+      debugShowCheckedModeBanner: false,
+      scrollBehavior: MyCustomScrollBehavior(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        body: SingleChildScrollView(
+          child: Report1(),
+        ),
+      ),
+    );
+  }
 }

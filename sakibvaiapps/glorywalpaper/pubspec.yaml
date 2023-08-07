@@ -55,10 +55,8 @@ dependencies:
   intro_views_flutter: ^2.8.2
 
   # This is easy share
-  esys_flutter_share: ^1.0.2
 
   # This is image downloader
-  image_downloader: ^0.20.1
 
   # This is cache manager
   flutter_cache_manager: ^2.1.1

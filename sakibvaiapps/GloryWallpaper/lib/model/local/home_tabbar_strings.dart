@@ -1,3 +1,0 @@
-class HomeTabbarStrings{
-  String imageNames;
-}
