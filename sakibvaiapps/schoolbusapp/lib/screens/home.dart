@@ -300,13 +300,7 @@ class Home extends StatelessWidget {
                       width: double.infinity,
                       height: 142 * fem,
                       decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x3f000000),
-                            offset: Offset(0 * fem, 4 * fem),
-                            blurRadius: 2 * fem,
-                          ),
-                        ],
+                        boxShadow: [],
                       ),
                       child: Container(
                         // frame34041WgH (114:1955)
@@ -314,214 +308,172 @@ class Home extends StatelessWidget {
                             5 * fem, 0 * fem, 0 * fem, 0 * fem),
                         width: double.infinity,
                         height: double.infinity,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              // autogroupycyk3AR (2Tm6peHfBrtXJNJtVPYcyK)
-                              padding: EdgeInsets.fromLTRB(
-                                  10 * fem, 12 * fem, 19 * fem, 17 * fem),
-                              width: 166 * fem,
-                              height: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Color(0xffffffff),
-                                borderRadius: BorderRadius.circular(18 * fem),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x4cd9d9d9),
-                                    offset: Offset(0 * fem, 15 * fem),
-                                    blurRadius: 15 * fem,
-                                  ),
-                                  BoxShadow(
-                                    color: Color(0x3f000000),
-                                    offset: Offset(0 * fem, 4 * fem),
-                                    blurRadius: 2 * fem,
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // report1iXT (114:1963)
-                                    margin: EdgeInsets.fromLTRB(
-                                        1 * fem, 0 * fem, 0 * fem, 16 * fem),
-                                    width: 70 * fem,
-                                    height: 70 * fem,
-                                    child: Image.asset(
-                                      'assets/page-1/images/report-1.png',
-                                      fit: BoxFit.cover,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                // autogroupycyk3AR (2Tm6peHfBrtXJNJtVPYcyK)
+                                padding: EdgeInsets.fromLTRB(
+                                    10 * fem, 12 * fem, 19 * fem, 17 * fem),
+                                width: 166 * fem,
+                                height: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffffffff),
+                                  borderRadius: BorderRadius.circular(18 * fem),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x4cd9d9d9),
+                                      offset: Offset(0 * fem, 15 * fem),
+                                      blurRadius: 15 * fem,
                                     ),
-                                  ),
-                                  Text(
-                                    // studentreportcsj (114:1960)
-                                    'Student Report',
-                                    style: SafeGoogleFont(
-                                      'Poppins',
-                                      fontSize: 18 * ffem,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.5 * ffem / fem,
-                                      color: Color(0xff131313),
+                                    BoxShadow(
+                                      color: Color(0x3f000000),
+                                      offset: Offset(0 * fem, 4 * fem),
+                                      blurRadius: 2 * fem,
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 21 * fem,
-                            ),
-                            Container(
-                              // autogroupnx1bjhT (2Tm6wPbRB2ipMospGTnx1b)
-                              padding: EdgeInsets.fromLTRB(
-                                  19 * fem, 11 * fem, 18 * fem, 23 * fem),
-                              width: 166 * fem,
-                              height: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Color(0xffffffff),
-                                borderRadius: BorderRadius.circular(18 * fem),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x4cd9d9d9),
-                                    offset: Offset(0 * fem, 15 * fem),
-                                    blurRadius: 15 * fem,
-                                  ),
-                                  BoxShadow(
-                                    color: Color(0x3f000000),
-                                    offset: Offset(0 * fem, 4 * fem),
-                                    blurRadius: 2 * fem,
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // livestreaming1Cb3 (114:1965)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 1 * fem, 11 * fem),
-                                    width: 70 * fem,
-                                    height: 70 * fem,
-                                    child: Image.asset(
-                                      'assets/page-1/images/live-streaming-1.png',
-                                      fit: BoxFit.cover,
+                                  ],
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      // report1iXT (114:1963)
+                                      margin: EdgeInsets.fromLTRB(
+                                          1 * fem, 0 * fem, 0 * fem, 16 * fem),
+                                      width: 70 * fem,
+                                      height: 70 * fem,
+                                      child: Image.asset(
+                                        'assets/page-1/images/report-1.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    // livewatching7xu (114:1961)
-                                    'Live Watching',
-                                    style: SafeGoogleFont(
-                                      'Poppins',
-                                      fontSize: 18 * ffem,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.5 * ffem / fem,
-                                      color: Color(0xff131313),
+                                    Text(
+                                      // studentreportcsj (114:1960)
+                                      'Student Report',
+                                      style: SafeGoogleFont(
+                                        'Poppins',
+                                        fontSize: 18 * ffem,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.5 * ffem / fem,
+                                        color: Color(0xff131313),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 21 * fem,
-                            ),
-                            Container(
-                              // autogroupa5ru3Lm (2Tm73UFctXdefwt8fBa5ru)
-                              padding: EdgeInsets.fromLTRB(
-                                  30 * fem, 11 * fem, 19 * fem, 23 * fem),
-                              width: 167 * fem,
-                              height: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Color(0xffffffff),
-                                borderRadius: BorderRadius.circular(18 * fem),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x4cd9d9d9),
-                                    offset: Offset(0 * fem, 15 * fem),
-                                    blurRadius: 15 * fem,
-                                  ),
-                                  BoxShadow(
-                                    color: Color(0x3f000000),
-                                    offset: Offset(0 * fem, 4 * fem),
-                                    blurRadius: 2 * fem,
-                                  ),
-                                ],
+                              SizedBox(
+                                width: 21 * fem,
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // bus1hgD (114:1966)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 0 * fem, 11 * fem),
-                                    width: 70 * fem,
-                                    height: 70 * fem,
-                                    child: Image.asset(
-                                      'assets/page-1/images/bus-1.png',
-                                      fit: BoxFit.cover,
+                              Container(
+                                // autogroupnx1bjhT (2Tm6wPbRB2ipMospGTnx1b)
+                                padding: EdgeInsets.fromLTRB(
+                                    19 * fem, 11 * fem, 18 * fem, 23 * fem),
+                                width: 166 * fem,
+                                height: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffffffff),
+                                  borderRadius: BorderRadius.circular(18 * fem),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x4cd9d9d9),
+                                      offset: Offset(0 * fem, 15 * fem),
+                                      blurRadius: 15 * fem,
                                     ),
-                                  ),
-                                  Text(
-                                    // bustrackingEAM (114:1962)
-                                    'Bus Tracking',
-                                    style: SafeGoogleFont(
-                                      'Poppins',
-                                      fontSize: 18 * ffem,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.5 * ffem / fem,
-                                      color: Color(0xff131313),
+                                    BoxShadow(
+                                      color: Color(0x3f000000),
+                                      offset: Offset(0 * fem, 4 * fem),
+                                      blurRadius: 2 * fem,
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 21 * fem,
-                            ),
-                            Container(
-                              // autogrouperqyMVs (2Tm79PFS37K7oFzoCpERQy)
-                              padding: EdgeInsets.fromLTRB(
-                                  52 * fem, 12 * fem, 31 * fem, 16 * fem),
-                              width: 166 * fem,
-                              height: double.infinity,
-                              decoration: BoxDecoration(
-                                color: Color(0xffffffff),
-                                borderRadius: BorderRadius.circular(18 * fem),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x3f000000),
-                                    offset: Offset(0 * fem, 4 * fem),
-                                    blurRadius: 2 * fem,
-                                  ),
-                                ],
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    // cashlesspayment1EZf (114:1964)
-                                    margin: EdgeInsets.fromLTRB(
-                                        0 * fem, 0 * fem, 1 * fem, 17 * fem),
-                                    width: 70 * fem,
-                                    height: 70 * fem,
-                                    child: Image.asset(
-                                      'assets/page-1/images/cashless-payment-1.png',
-                                      fit: BoxFit.cover,
+                                  ],
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      // livestreaming1Cb3 (114:1965)
+                                      margin: EdgeInsets.fromLTRB(
+                                          0 * fem, 0 * fem, 1 * fem, 11 * fem),
+                                      width: 70 * fem,
+                                      height: 70 * fem,
+                                      child: Image.asset(
+                                        'assets/page-1/images/live-streaming-1.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    // paymentMeH (114:1967)
-                                    'Payment',
-                                    style: SafeGoogleFont(
-                                      'Poppins',
-                                      fontSize: 18 * ffem,
-                                      fontWeight: FontWeight.w600,
-                                      height: 1.5 * ffem / fem,
-                                      color: Color(0xff131313),
+                                    Text(
+                                      // livewatching7xu (114:1961)
+                                      'Live Watching',
+                                      style: SafeGoogleFont(
+                                        'Poppins',
+                                        fontSize: 18 * ffem,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.5 * ffem / fem,
+                                        color: Color(0xff131313),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                              SizedBox(
+                                width: 21 * fem,
+                              ),
+                              Container(
+                                // autogroupa5ru3Lm (2Tm73UFctXdefwt8fBa5ru)
+                                padding: EdgeInsets.fromLTRB(
+                                    30 * fem, 11 * fem, 19 * fem, 23 * fem),
+                                width: 167 * fem,
+                                height: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffffffff),
+                                  borderRadius: BorderRadius.circular(18 * fem),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x4cd9d9d9),
+                                      offset: Offset(0 * fem, 15 * fem),
+                                      blurRadius: 15 * fem,
+                                    ),
+                                    BoxShadow(
+                                      color: Color(0x3f000000),
+                                      offset: Offset(0 * fem, 4 * fem),
+                                      blurRadius: 2 * fem,
+                                    ),
+                                  ],
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      // bus1hgD (114:1966)
+                                      margin: EdgeInsets.fromLTRB(
+                                          0 * fem, 0 * fem, 0 * fem, 11 * fem),
+                                      width: 70 * fem,
+                                      height: 70 * fem,
+                                      child: Image.asset(
+                                        'assets/page-1/images/bus-1.png',
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Text(
+                                      // bustrackingEAM (114:1962)
+                                      'Bus Tracking',
+                                      style: SafeGoogleFont(
+                                        'Poppins',
+                                        fontSize: 18 * ffem,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.5 * ffem / fem,
+                                        color: Color(0xff131313),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                width: 21 * fem,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -1013,22 +965,23 @@ class Home extends StatelessWidget {
                         height: 182.62 * fem,
                         child: Stack(
                           children: [
-                            Positioned(
-                              // ellipse6gFs (114:1969)
-                              left: 207.9438476562 * fem,
-                              top: 70.2591094971 * fem,
-                              child: Align(
-                                child: SizedBox(
-                                  width: 112.36 * fem,
-                                  height: 112.36 * fem,
-                                  child: Image.asset(
-                                    'assets/page-1/images/ellipse-6.png',
-                                    width: 112.36 * fem,
-                                    height: 112.36 * fem,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            // Qr Image Option
+                            // Positioned(
+                            //   // ellipse6gFs (114:1969)
+                            //   left: 207.9438476562 * fem,
+                            //   top: 70.2591094971 * fem,
+                            //   child: Align(
+                            //     child: SizedBox(
+                            //       width: 112.36 * fem,
+                            //       height: 112.36 * fem,
+                            //       child: Image.asset(
+                            //         'assets/page-1/images/ellipse-6.png',
+                            //         width: 112.36 * fem,
+                            //         height: 112.36 * fem,
+                            //       ),
+                            //     ),
+                            //   ),
+                            // ),
                             Positioned(
                               // frame10nJu (114:1970)
                               left: 0 * fem,
