@@ -1,4 +1,4 @@
-package com.nrbd.fashion
+package com.nrbdfashion.userapp
 
 import io.flutter.embedding.android.FlutterActivity
 

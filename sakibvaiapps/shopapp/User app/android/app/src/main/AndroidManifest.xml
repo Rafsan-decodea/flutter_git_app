@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nrbd.fashion"
+    package="com.nrbdfashion.userapp"
     android:targetSandboxVersion="1">
 
     <uses-permission android:name="android.permission.INTERNET"/>
