@@ -2,10 +2,10 @@ import 'package:flutter_sixvalley_ecommerce/data/model/response/language_model.d
 import 'package:flutter_sixvalley_ecommerce/utill/images.dart';
 
 class AppConstants {
-  static const String appName = 'NRBD Fashion';
+  static const String appName = 'NR Fashion';
   static const String slogan = 'E-Commerce Marketplace';
-  static const String appVersion = '14.2';
-  static const String baseUrl = 'https://nrbdfashion.com/';
+  static const String appVersion = '1.0';
+  static const String baseUrl = 'https://nrbdfashion.com';
   static const String userId = 'userId';
   static const String name = 'name';
   static const String categoriesUri = '/api/v1/categories?guest_id=1';

@@ -127,7 +127,7 @@ class ColorResources {
   static Color getPrimary(BuildContext context) {
     return Provider.of<ThemeProvider>(context).darkTheme
         ? const Color(0xFFf0f0f0)
-        : const Color(0xffD11FDD);
+        : const Color(0xff1455AC);
   }
 
   static Color getSearchBg(BuildContext context) {
@@ -224,5 +224,5 @@ class ColorResources {
   };
 
   static const MaterialColor primaryMaterial =
-      MaterialColor(0xffD11FDD, colorMap);
+      MaterialColor(0xff1455AC, colorMap);
 }

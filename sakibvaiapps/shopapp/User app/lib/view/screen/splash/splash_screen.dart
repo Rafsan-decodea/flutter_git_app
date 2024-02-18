@@ -37,19 +37,26 @@ class SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     bool firstTime = true;
-    _onConnectivityChanged = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
-      if(!firstTime) {
-        bool isNotConnected = result != ConnectivityResult.wifi && result != ConnectivityResult.mobile;
-        isNotConnected ? const SizedBox() : ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    _onConnectivityChanged = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      if (!firstTime) {
+        bool isNotConnected = result != ConnectivityResult.wifi &&
+            result != ConnectivityResult.mobile;
+        isNotConnected
+            ? const SizedBox()
+            : ScaffoldMessenger.of(context).hideCurrentSnackBar();
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           backgroundColor: isNotConnected ? Colors.red : Colors.green,
           duration: Duration(seconds: isNotConnected ? 6000 : 3),
           content: Text(
-            isNotConnected ? getTranslated('no_connection', context)! : getTranslated('connected', context)!,
+            isNotConnected
+                ? getTranslated('no_connection', context)!
+                : getTranslated('connected', context)!,
             textAlign: TextAlign.center,
           ),
         ));
-        if(!isNotConnected) {
+        if (!isNotConnected) {
           _route();
         }
       }
@@ -67,37 +74,59 @@ class SplashScreenState extends State<SplashScreen> {
   }
 
   void _route() {
-    Provider.of<SplashProvider>(context, listen: false).initConfig(context).then((bool isSuccess) {
-      if(isSuccess) {
-        Provider.of<SplashProvider>(context, listen: false).initSharedPrefData();
+    Provider.of<SplashProvider>(context, listen: false)
+        .initConfig(context)
+        .then((bool isSuccess) {
+      if (isSuccess) {
+        Provider.of<SplashProvider>(context, listen: false)
+            .initSharedPrefData();
         Timer(const Duration(seconds: 1), () {
-          if(Provider.of<SplashProvider>(context, listen: false).configModel!.maintenanceMode!) {
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => const MaintenanceScreen()));
-          }
-          else if(Provider.of<AuthProvider>(context, listen: false).isLoggedIn()){
-            Provider.of<AuthProvider>(context, listen: false).updateToken(context);
-            if(widget.body != null){
+          if (Provider.of<SplashProvider>(context, listen: false)
+              .configModel!
+              .maintenanceMode!) {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => const MaintenanceScreen()));
+          } else if (Provider.of<AuthProvider>(context, listen: false)
+              .isLoggedIn()) {
+            Provider.of<AuthProvider>(context, listen: false)
+                .updateToken(context);
+            if (widget.body != null) {
               if (widget.body!.type == 'order') {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) =>  OrderDetailsScreen(orderId: widget.body!.orderId)));
-              }else if(widget.body!.type == 'notification'){
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) =>  const NotificationScreen()));
-              }else {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) =>  const InboxScreen(isBackButtonExist: true,)));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        OrderDetailsScreen(orderId: widget.body!.orderId)));
+              } else if (widget.body!.type == 'notification') {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        const NotificationScreen()));
+              } else {
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => const InboxScreen(
+                          isBackButtonExist: true,
+                        )));
               }
-            }else{
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => const DashBoardScreen()));
+            } else {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const DashBoardScreen()));
             }
-          }
-
-          else if(Provider.of<SplashProvider>(context, listen: false).showIntro()!){
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => OnBoardingScreen(
-              indicatorColor: ColorResources.grey, selectedIndicatorColor: Theme.of(context).primaryColor)));
-          }
-          else{
-            if(Provider.of<AuthProvider>(context, listen: false).getGuestToken() != null && Provider.of<AuthProvider>(context, listen: false).getGuestToken() != '1'){
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => const DashBoardScreen()));
-            }else{
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => const AuthScreen()));
+          } else if (Provider.of<SplashProvider>(context, listen: false)
+              .showIntro()!) {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => OnBoardingScreen(
+                    indicatorColor: ColorResources.grey,
+                    selectedIndicatorColor: Theme.of(context).primaryColor)));
+          } else {
+            if (Provider.of<AuthProvider>(context, listen: false)
+                        .getGuestToken() !=
+                    null &&
+                Provider.of<AuthProvider>(context, listen: false)
+                        .getGuestToken() !=
+                    '1') {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const DashBoardScreen()));
+            } else {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (BuildContext context) => const AuthScreen()));
             }
           }
         });
@@ -107,18 +136,43 @@ class SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Colors.white,
       key: _globalKey,
-      body: Provider.of<SplashProvider>(context).hasConnection ?
-      Center(child: Column(mainAxisSize: MainAxisSize.min, children: [
-        SizedBox(width: 100, child: Image.asset(Images.icon, width: 100.0)),
-        Text(AppConstants.appName,style: textRegular.copyWith(fontSize: Dimensions.fontSizeOverLarge, color: Colors.white)),
-        Padding(padding: const EdgeInsets.only(top: Dimensions.paddingSizeSmall),
-            child: Text(AppConstants.slogan,style: textRegular.copyWith(fontSize: Dimensions.fontSizeDefault, color: Colors.white)))]),
-      ) : const NoInternetOrDataScreen(isNoInternet: true, child: SplashScreen()),
+      body: Provider.of<SplashProvider>(context).hasConnection
+          ? Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  SizedBox(
+                      width: 100,
+                      child: Image.asset(Images.icon, width: 100.0)),
+                  Text(AppConstants.appName,
+                      style: textRegular.copyWith(
+                          fontSize: Dimensions.fontSizeOverLarge,
+                          color: Colors.black)),
+                  Padding(
+                      padding: const EdgeInsets.only(
+                          top: Dimensions.paddingSizeSmall),
+                      child: Text(AppConstants.slogan,
+                          style: textRegular.copyWith(
+                              fontSize: Dimensions.fontSizeDefault,
+                              color: Colors.white))),
+                  SizedBox(
+                    height: 250,
+                  ),
+                  Text(
+                    "Developed by Alive Station",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                ],
+              ),
+            )
+          : const NoInternetOrDataScreen(
+              isNoInternet: true, child: SplashScreen()),
     );
   }
-
 }

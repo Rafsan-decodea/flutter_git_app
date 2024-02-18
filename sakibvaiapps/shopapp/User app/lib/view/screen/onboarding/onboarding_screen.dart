@@ -11,7 +11,8 @@ class OnBoardingScreen extends StatelessWidget {
   final Color indicatorColor;
   final Color selectedIndicatorColor;
 
-  OnBoardingScreen({Key? key,
+  OnBoardingScreen({
+    Key? key,
     this.indicatorColor = Colors.grey,
     this.selectedIndicatorColor = Colors.black,
   }) : super(key: key);
@@ -20,8 +21,8 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<OnBoardingProvider>(context, listen: false).initBoardingList(context);
-
+    Provider.of<OnBoardingProvider>(context, listen: false)
+        .initBoardingList(context);
 
     double height = MediaQuery.of(context).size.height;
 
@@ -29,26 +30,42 @@ class OnBoardingScreen extends StatelessWidget {
       body: Stack(
         clipBehavior: Clip.none,
         children: [
-
           Consumer<OnBoardingProvider>(
             builder: (context, onBoardingList, child) => ListView(
               children: [
                 SizedBox(
-                  height: height*0.7,
+                  height: height * 0.7,
                   child: PageView.builder(
-
                     itemCount: onBoardingList.onBoardingList.length,
                     controller: _pageController,
                     itemBuilder: (context, index) {
-                      return Padding(padding: const EdgeInsets.all(Dimensions.paddingSizeDefault),
-                        child: Column(mainAxisSize: MainAxisSize.min, crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end, children: [
-                            Image.asset(onBoardingList.onBoardingList[index].imageUrl,),
-                            Padding(padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault),
-                              child: Text(onBoardingList.onBoardingList[index].title, style: titilliumBold.copyWith(fontSize: 18), textAlign: TextAlign.center),),
-                            Text(onBoardingList.onBoardingList[index].description, textAlign: TextAlign.center, style: titilliumRegular.copyWith(
-                              fontSize: Dimensions.fontSizeDefault)),
-                            const SizedBox(height: Dimensions.paddingSizeDefault),
+                      return Padding(
+                        padding:
+                            const EdgeInsets.all(Dimensions.paddingSizeDefault),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Image.asset(
+                              onBoardingList.onBoardingList[index].imageUrl,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: Dimensions.paddingSizeDefault),
+                              child: Text(
+                                  onBoardingList.onBoardingList[index].title,
+                                  style: titilliumBold.copyWith(fontSize: 18),
+                                  textAlign: TextAlign.center),
+                            ),
+                            Text(
+                                onBoardingList
+                                    .onBoardingList[index].description,
+                                textAlign: TextAlign.center,
+                                style: titilliumRegular.copyWith(
+                                    fontSize: Dimensions.fontSizeDefault)),
+                            const SizedBox(
+                                height: Dimensions.paddingSizeDefault),
                           ],
                         ),
                       );
@@ -58,35 +75,55 @@ class OnBoardingScreen extends StatelessWidget {
                     },
                   ),
                 ),
-
-
-                Padding(padding: const EdgeInsets.all(Dimensions.paddingSizeExtraLarge),
+                Padding(
+                  padding:
+                      const EdgeInsets.all(Dimensions.paddingSizeExtraLarge),
                   child: Stack(children: [
-                    if(onBoardingList.onBoardingList.isNotEmpty)
-                    Center(child: SizedBox(height: 50, width: 50,
-                        child: CircularProgressIndicator(
-                          valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).primaryColor.withOpacity(.6)),
-                          value: (onBoardingList.selectedIndex + 1) / onBoardingList.onBoardingList.length,
-                          backgroundColor: Theme.of(context).primaryColor.withOpacity(.125),
+                    if (onBoardingList.onBoardingList.isNotEmpty)
+                      Center(
+                        child: SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                                Theme.of(context).primaryColor.withOpacity(.6)),
+                            value: (onBoardingList.selectedIndex + 1) /
+                                onBoardingList.onBoardingList.length,
+                            backgroundColor: Theme.of(context)
+                                .primaryColor
+                                .withOpacity(.125),
+                          ),
                         ),
                       ),
-                    ),
-                    Align(alignment: Alignment.center,
+                    Align(
+                      alignment: Alignment.center,
                       child: GestureDetector(
                         onTap: () {
-                          if (onBoardingList.selectedIndex == onBoardingList.onBoardingList.length - 1) {
-                            Provider.of<SplashProvider>(context, listen: false).disableIntro();
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AuthScreen()));
+                          if (onBoardingList.selectedIndex ==
+                              onBoardingList.onBoardingList.length - 1) {
+                            Provider.of<SplashProvider>(context, listen: false)
+                                .disableIntro();
+                            Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(
+                                    builder: (context) => const AuthScreen()));
                           } else {
-                            _pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
+                            _pageController.nextPage(
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.easeIn);
                           }
                         },
                         child: Container(
                           height: 40,
                           width: 40,
                           margin: const EdgeInsets.only(top: 5),
-                          decoration: const BoxDecoration(shape: BoxShape.circle,),
-                          child: Icon(onBoardingList.selectedIndex == onBoardingList.onBoardingList.length - 1 ? Icons.check : Icons.navigate_next,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Icon(
+                            onBoardingList.selectedIndex ==
+                                    onBoardingList.onBoardingList.length - 1
+                                ? Icons.check
+                                : Icons.navigate_next,
                             color: Theme.of(context).primaryColor,
                             size: 30,
                           ),
@@ -98,20 +135,26 @@ class OnBoardingScreen extends StatelessWidget {
               ],
             ),
           ),
-
-          Positioned(child: Align(alignment: Alignment.topRight, child: InkWell(
-            onTap: (){
-              Provider.of<SplashProvider>(context, listen: false).disableIntro();
-              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AuthScreen()));
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
-              child: Text('${getTranslated('skip', context)}', style: textMedium.copyWith(color: Theme.of(context).primaryColor)),
-            ),
-          )))
+          Positioned(
+              child: Align(
+                  alignment: Alignment.topRight,
+                  child: InkWell(
+                    onTap: () {
+                      Provider.of<SplashProvider>(context, listen: false)
+                          .disableIntro();
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => const AuthScreen()));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 50, horizontal: 20),
+                      child: Text('${getTranslated('skip', context)}',
+                          style: textMedium.copyWith(
+                              color: Theme.of(context).primaryColor)),
+                    ),
+                  )))
         ],
       ),
     );
   }
-
 }

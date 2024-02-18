@@ -1,4 +1,4 @@
-package com.nrbdfashion.userapp
+package com.nrfashion.alivestation
 
 import io.flutter.embedding.android.FlutterActivity
 
