@@ -2,9 +2,9 @@ import 'package:sixvalley_vendor_app/data/model/response/language_model.dart';
 import 'package:sixvalley_vendor_app/utill/images.dart';
 
 class AppConstants {
-  static const String appName = 'NRBD Seller App';
-  static const String appVersion = '14.1';
-  static const String companyName = 'NRBD';
+  static const String appName = 'NR Seller Zone';
+  static const String appVersion = '1.0';
+  static const String companyName = 'NR Fashion';
   static const String baseUrl = 'https://nrbdfashion.com';
   static const String loginUri = '/api/v3/seller/auth/login';
   static const String configUri = '/api/v1/config';

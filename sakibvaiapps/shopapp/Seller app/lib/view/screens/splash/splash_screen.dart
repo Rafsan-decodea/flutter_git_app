@@ -21,18 +21,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
     NetworkInfo.checkConnectivity(context);
-    Provider.of<SplashProvider>(context, listen: false).initConfig().then((bool isSuccess) {
-      if(isSuccess) {
-        Provider.of<SplashProvider>(context, listen: false).initShippingTypeList(context,'');
+    Provider.of<SplashProvider>(context, listen: false)
+        .initConfig()
+        .then((bool isSuccess) {
+      if (isSuccess) {
+        Provider.of<SplashProvider>(context, listen: false)
+            .initShippingTypeList(context, '');
         Timer(const Duration(seconds: 1), () {
           if (Provider.of<AuthProvider>(context, listen: false).isLoggedIn()) {
-            Provider.of<AuthProvider>(context, listen: false).updateToken(context);
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context) => const DashboardScreen()));
+            Provider.of<AuthProvider>(context, listen: false)
+                .updateToken(context);
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => const DashboardScreen()));
           } else {
             Navigator.of(context).pushReplacement(MaterialPageRoute(
                 builder: (BuildContext context) => const AuthScreen()));
@@ -45,35 +49,56 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: Stack(
-        clipBehavior: Clip.none, children: [
-        SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: CustomPaint(
-            painter: SplashPainter(),
-          ),
-        ),
-
-        Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Hero(
-                  tag:'logo',
-                  child: Image.asset(Images.whiteLogo, height: 80.0,
-                      fit: BoxFit.cover, width: 80.0)),
-              const SizedBox(height: Dimensions.paddingSizeExtraLarge,),
-              Text(AppConstants.appName, style: titilliumBold.copyWith(fontSize: Dimensions.fontSizeWallet,
-                  color: Colors.white),
+        backgroundColor: Theme.of(context).primaryColor,
+        body: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: CustomPaint(
+                painter: SplashPainter(),
               ),
-            ],
-          ),
-        ),
-      ],
-      )
-    );
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Hero(
+                      tag: 'logo',
+                      child: Image.asset(Images.whiteLogo,
+                          height: 80.0, fit: BoxFit.cover, width: 80.0)),
+                  const SizedBox(
+                    height: Dimensions.paddingSizeExtraLarge,
+                  ),
+                  Center(
+                    child: Text(
+                      AppConstants.appName,
+                      style: titilliumBold.copyWith(
+                          fontSize: Dimensions.fontSizeWallet,
+                          color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 200,
+                  ),
+                  Center(
+                    child: Text(
+                      "Developed By Alive Station ",
+                      style: TextStyle(fontSize: 15.00, color: Colors.white),
+                    ),
+                  ),
+                  Stack(
+                    children: [
+                      SizedBox(
+                        height: 100,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ],
+        ));
   }
-
 }
