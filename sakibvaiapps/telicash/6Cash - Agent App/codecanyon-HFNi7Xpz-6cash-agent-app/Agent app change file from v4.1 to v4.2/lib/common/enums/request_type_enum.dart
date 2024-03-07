@@ -1,5 +1,0 @@
-
-enum RequestType {
-  sendRequest,
-  withdraw
-}

@@ -44,8 +44,10 @@ android {
         applicationId "com.nrseller.alivestation"
         minSdkVersion 21
         targetSdkVersion 33
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionCode 2
+        versionName "1.0.1"
+       // versionCode flutterVersionCode.toInteger()
+       // versionName flutterVersionName
         multiDexEnabled true
     }
 
