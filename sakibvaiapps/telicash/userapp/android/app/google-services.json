@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "634756522150",
+    "project_id": "telicash",
+    "storage_bucket": "telicash.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634756522150:android:0f4ed65934894adea45467",
+        "android_client_info": {
+          "package_name": "com.example.userapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBqfLGR1h9xbw0r64Oti9317axw0uOhek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
