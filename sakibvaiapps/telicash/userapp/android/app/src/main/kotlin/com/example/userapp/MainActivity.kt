@@ -1,4 +1,4 @@
-package com.example.userapp
+package com.teliuser.alivestation
 
 import io.flutter.embedding.android.FlutterActivity
 

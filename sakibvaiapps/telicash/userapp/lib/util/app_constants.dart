@@ -4,7 +4,7 @@ import 'package:six_cash/common/models/on_boarding_model.dart';
 import 'images.dart';
 
 class AppConstants {
-  static const String appName = '6Cash';
+  static const String appName = 'Telikash';
   static const String baseUrl = 'https://app.telikash.com';
   static const bool demo = false;
   static const double appVersion = 4.2;
