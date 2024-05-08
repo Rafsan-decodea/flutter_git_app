@@ -1,4 +1,4 @@
-package com.sixamtech.sixcash_agent
+package com.teliagent.alivestation
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
