@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.teliuser.alivestation</string>
+	<string>com.telikashuser.alivestation</string>
 	<key>PROJECT_ID</key>
 	<string>telicash</string>
 	<key>STORAGE_BUCKET</key>

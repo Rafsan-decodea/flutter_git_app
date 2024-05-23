@@ -67,7 +67,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '634756522150',
     projectId: 'telicash',
     storageBucket: 'telicash.appspot.com',
-    iosBundleId: 'com.teliuser.alivestation',
+    iosBundleId: 'com.telikashuser.alivestation',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -76,6 +76,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '634756522150',
     projectId: 'telicash',
     storageBucket: 'telicash.appspot.com',
-    iosBundleId: 'com.teliuser.alivestation.RunnerTests',
+    iosBundleId: 'com.telikashuser.alivestation.RunnerTests',
   );
 }
